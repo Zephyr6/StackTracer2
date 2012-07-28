@@ -47,6 +47,7 @@ namespace BeefBall.Screens
 		private BeefBall.Entities.XButton XButtoninst;
 		private BeefBall.Entities.BButton BButtonInst;
 		private BeefBall.Entities.AButton AButtonInst;
+		private BeefBall.Entities.StartButton StartButtonInst;
 		public event FlatRedBall.Gui.WindowEvent NextQuestionClick;
 
 		public QuizScreen()
@@ -70,6 +71,8 @@ namespace BeefBall.Screens
 			BButtonInst.Name = "BButtonInst";
 			AButtonInst = new BeefBall.Entities.AButton(ContentManagerName, false);
 			AButtonInst.Name = "AButtonInst";
+			StartButtonInst = new BeefBall.Entities.StartButton(ContentManagerName, false);
+			StartButtonInst.Name = "StartButtonInst";
 			NextQuestion.Click += OnNextQuestionClick;
 			NextQuestion.Click += OnNextQuestionClickTunnel;
 			
@@ -104,6 +107,7 @@ namespace BeefBall.Screens
 				XButtoninst.Activity();
 				BButtonInst.Activity();
 				AButtonInst.Activity();
+				StartButtonInst.Activity();
 			}
 			else
 			{
@@ -153,6 +157,11 @@ namespace BeefBall.Screens
 			{
 				AButtonInst.Destroy();
 				AButtonInst.Detach();
+			}
+			if (StartButtonInst != null)
+			{
+				StartButtonInst.Destroy();
+				StartButtonInst.Detach();
 			}
 
 			base.Destroy();
@@ -256,6 +265,23 @@ namespace BeefBall.Screens
 			{
 				AButtonInst.RelativeY = -20f;
 			}
+			if (StartButtonInst.Parent == null)
+			{
+				StartButtonInst.X = 120f;
+			}
+			else
+			{
+				StartButtonInst.RelativeX = 120f;
+			}
+			if (StartButtonInst.Parent == null)
+			{
+				StartButtonInst.Y = -30f;
+			}
+			else
+			{
+				StartButtonInst.RelativeY = -30f;
+			}
+			StartButtonInst.Visible = false;
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
 		}
 		public virtual void AddToManagersBottomUp ()
@@ -357,6 +383,24 @@ namespace BeefBall.Screens
 			{
 				AButtonInst.RelativeY = -20f;
 			}
+			StartButtonInst.AddToManagers(mLayer);
+			if (StartButtonInst.Parent == null)
+			{
+				StartButtonInst.X = 120f;
+			}
+			else
+			{
+				StartButtonInst.RelativeX = 120f;
+			}
+			if (StartButtonInst.Parent == null)
+			{
+				StartButtonInst.Y = -30f;
+			}
+			else
+			{
+				StartButtonInst.RelativeY = -30f;
+			}
+			StartButtonInst.Visible = false;
 		}
 		public virtual void ConvertToManuallyUpdated ()
 		{
@@ -366,6 +410,7 @@ namespace BeefBall.Screens
 			XButtoninst.ConvertToManuallyUpdated();
 			BButtonInst.ConvertToManuallyUpdated();
 			AButtonInst.ConvertToManuallyUpdated();
+			StartButtonInst.ConvertToManuallyUpdated();
 		}
 		public static void LoadStaticContent (string contentManagerName)
 		{
@@ -384,6 +429,7 @@ namespace BeefBall.Screens
 			BeefBall.Entities.XButton.LoadStaticContent(contentManagerName);
 			BeefBall.Entities.BButton.LoadStaticContent(contentManagerName);
 			BeefBall.Entities.AButton.LoadStaticContent(contentManagerName);
+			BeefBall.Entities.StartButton.LoadStaticContent(contentManagerName);
 			CustomLoadStaticContent(contentManagerName);
 		}
 		object GetMember (string memberName)

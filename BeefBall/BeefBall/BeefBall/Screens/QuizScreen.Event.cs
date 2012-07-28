@@ -17,6 +17,12 @@ namespace BeefBall.Screens
         bool lastScreen = false;
 
 
+        void StartButtonPress() 
+        {
+           if(GamePad.ButtonPushed(Xbox360GamePad.Button.Start))
+               StartButtonActivity();
+        }
+
         void XButtonPress() 
         {
             if (GamePad.ButtonPushed(Xbox360GamePad.Button.X))
@@ -134,6 +140,16 @@ namespace BeefBall.Screens
             }
         }
 
+        void OnStartButtonClick(FlatRedBall.Gui.IWindow callingWindow) 
+        {
+            StartButtonActivity();
+        }
+
+        void StartButtonActivity() 
+        {
+            NextQuestionAdvance();
+        }
+        
         void AActivity()
         {
             if (questionIndex < 3 && canClick)
@@ -309,9 +325,11 @@ namespace BeefBall.Screens
                 return false;
             }
         }
+        
+        
         void NextQuestionVisible()
         {
-            this.NextQuestion.Visible = true;
+            this.StartButtonInst.Visible = true;
             if (questionIndex > 2)
             {
                 this.NextQuestion.DisplayText = "Done";
@@ -322,7 +340,7 @@ namespace BeefBall.Screens
         {
             if (questionIndex < 3)
             {
-                this.NextQuestion.Visible = false;
+                this.StartButtonInst.Visible = false;
             }
             else
                 EndQuiz();

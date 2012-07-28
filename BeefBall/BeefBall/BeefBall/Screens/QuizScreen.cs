@@ -44,6 +44,7 @@ namespace BeefBall.Screens
         {
             InitializeCustomEvents();
             FlatRedBallServices.IsWindowsCursorVisible = true;
+            StartButtonInst.Visible = false;
             NextQuestion.Visible = false;
             ReadInCSV();
             Select3RandomQuestions();
@@ -98,6 +99,8 @@ namespace BeefBall.Screens
             BButtonInst.Click += OnXBoxBButtonClick;
             BButtonInst.RollOn += OnXboxBButtonRollOn;
             BButtonInst.RollOff += OnXBoxBButtonRollOff;
+
+            StartButtonInst.Click += OnStartButtonClick;
         }
 
         public void ReadInCSV()

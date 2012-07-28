@@ -163,6 +163,16 @@
     <Compile Include="Entities\ResistorStamp.Generated.cs">
       <DependentUpon>ResistorStamp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\StartButton.cs" />
+    <Compile Include="Entities\StartButton.Event.cs">
+      <DependentUpon>StartButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\StartButton.Generated.cs">
+      <DependentUpon>StartButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\StartButton.Generated.Event.cs">
+      <DependentUpon>StartButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\TextArial.cs" />
     <Compile Include="Entities\TextArial.Generated.cs">
       <DependentUpon>TextArial.cs</DependentUpon>

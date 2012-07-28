@@ -131,6 +131,8 @@ namespace BeefBall.Screens
                     SpriteManager.Camera.X = 0;
                     SpriteManager.Camera.Y = 0;
                     SpriteManager.Camera.Z = 40;
+                    SpriteManager.Camera.MinimumX = -1000;
+                    SpriteManager.Camera.MinimumY = -1000;
 
                     this.MoveToScreen(typeof(QuizScreen).FullName);
                 }

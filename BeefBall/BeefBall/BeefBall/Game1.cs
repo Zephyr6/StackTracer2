@@ -13,6 +13,7 @@ using FlatRedBall.Graphics;
 using FlatRedBall.Utilities;
 
 using BeefBall.Screens;
+using FlatRedBall.Input;
 
 namespace BeefBall
 {
@@ -28,6 +29,7 @@ namespace BeefBall
         public static int LEFT = 1;
 
         public static Entities.GameScreen.Player Player;
+        public static Xbox360GamePad GamePad;
 
         public Game1()
         {
@@ -69,6 +71,8 @@ namespace BeefBall
             AboutGameSFX = Content.Load<SoundEffect>("AboutSound");
             ExitGameSFX = Content.Load<SoundEffect>("ExitSound");
             StartGameSFX = Content.Load<SoundEffect>("StartSound");
+
+            GamePad = InputManager.Xbox360GamePads[0];
         }
 
 

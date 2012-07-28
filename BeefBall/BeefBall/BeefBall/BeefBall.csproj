@@ -205,6 +205,10 @@
     <Compile Include="Screens\GameScreen.Generated.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\GameScreenCopy.cs" />
+    <Compile Include="Screens\GameScreenCopy.Generated.cs">
+      <DependentUpon>GameScreenCopy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\MainMenu.cs" />
     <Compile Include="Screens\MainMenu.Event.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>

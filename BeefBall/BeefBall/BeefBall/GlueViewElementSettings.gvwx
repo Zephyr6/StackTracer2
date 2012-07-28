@@ -365,5 +365,18 @@
       </CameraSave>
       <ElementName>Entities\YButton</ElementName>
     </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>297.149933</X>
+        <Y>-129.327026</Y>
+        <Z>40</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>551.7549</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+      </CameraSave>
+      <ElementName>Screens\GameScreenCopy</ElementName>
+    </ElementCameraSave>
   </ElementCameraSaves>
 </ElementSettingsSave>

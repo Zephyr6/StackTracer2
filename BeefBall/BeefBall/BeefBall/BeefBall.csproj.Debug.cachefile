@@ -19,9 +19,10 @@ Content\Entities\Button\SceneFile.scnx
 Content\Entities\CapacitorPlatform\Capacitor.png
 Content\Entities\CapacitorPlatform\CapacitorCollisionFile.shcx
 Content\Entities\CapacitorPlatform\SceneFile.scnx
-Content\Entities\Enemy\AnimationChainListFile.achx
-Content\Entities\Enemy\EnemySpriteScene.scnx
 Content\Entities\Enemy\testsprite32x32.png
+Content\Entities\GameScreen\Enemy\animationchainlistfile.achx
+Content\Entities\GameScreen\Enemy\EnemySpriteScene.scnx
+Content\Entities\GameScreen\Enemy\testsprite32x32.png
 Content\Entities\Player\AnimationChainListFile.achx
 Content\Entities\Player\innerex32x32.png
 Content\Entities\Player\InnerExSceneFile.scnx

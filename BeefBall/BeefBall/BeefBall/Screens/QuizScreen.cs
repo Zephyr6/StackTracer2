@@ -37,6 +37,7 @@ namespace BeefBall.Screens
         Text answerYText = TextManager.AddText("");
         Text answerBText = TextManager.AddText("");
         Text answerAText = TextManager.AddText("");
+        Xbox360GamePad GamePad;
 
         //TextArial ta = new TextArial();
         void CustomInitialize()
@@ -47,11 +48,21 @@ namespace BeefBall.Screens
             ReadInCSV();
             Select3RandomQuestions();
             DisplayQuestions();
+            GamePad = InputManager.Xbox360GamePads[0];
         }
 
         void CustomActivity(bool firstTimeCalled)
         {
+            XButtonPress();
+            YButtonPress();
+            AButtonPress();
+            BButtonPress();
 
+            if (canClick == false)
+            {
+                if (GamePad.ButtonPushed(Xbox360GamePad.Button.Start))
+                    NextQuestionAdvance();
+            }
         }
 
         void CustomDestroy()
@@ -72,7 +83,7 @@ namespace BeefBall.Screens
 
         public void InitializeCustomEvents() 
         {
-            XButtoninst.Click += onXBoxXButtonClick;
+            XButtoninst.Click += OnXBoxXButtonClick;
             XButtoninst.RollOn += OnXboxXButtonRollOn;
             XButtoninst.RollOff += OnXBoxXButtonRollOff;
             

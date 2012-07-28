@@ -8,34 +8,43 @@ using BeefBall.Entities.GameScreen;
 using BeefBall.Screens;
 namespace BeefBall.Screens
 {
-	public partial class QuizScreen
-	{
+    public partial class QuizScreen
+    {
         int questionIndex = 0;
         int numCorrect = 0;
         bool canRollOver = true;
         bool canClick = true;
-        
+        bool lastScreen = false;
 
-        void onXBoxXButtonClick(FlatRedBall.Gui.IWindow callingWindow)
+
+        void XButtonPress() 
         {
-            
-            if (questionIndex < 3 && canClick)
-            {
-                if (IsRightAnswer(0))
-                {
-                    numCorrect++;
-                    answerXText.SetColor(0, 255, 0);
-                }
-                else 
-                {
-                    answerXText.SetColor(255, 0, 0);
-                }
+            if (GamePad.ButtonPushed(Xbox360GamePad.Button.X))
+                XActivity();
+        }
 
-                CollapseWrongAnswers();
-                questionIndex++;
-                UpdateNumCorrect();
-                NextQuestionVisible();
-            } 
+        void YButtonPress()
+        {
+            if (GamePad.ButtonPushed(Xbox360GamePad.Button.Y))
+                YActivity();
+        }
+
+        void AButtonPress()
+        {
+            if (GamePad.ButtonPushed(Xbox360GamePad.Button.A))
+                AActivity();
+        }
+
+        void BButtonPress()
+        {
+            if (GamePad.ButtonPushed(Xbox360GamePad.Button.B))
+                BActivity();
+        }
+        
+        void OnXBoxXButtonClick(FlatRedBall.Gui.IWindow callingWindow)
+        {
+
+            XActivity();
         }
 
         void OnXboxXButtonRollOn(FlatRedBall.Gui.IWindow callingWindow)
@@ -58,22 +67,7 @@ namespace BeefBall.Screens
 
         void onXBoxYButtonClick(FlatRedBall.Gui.IWindow callingWindow)
         {
-            if (questionIndex < 3 && canClick)
-            {
-                if (IsRightAnswer(1))
-                {
-                    numCorrect++;
-                    answerYText.SetColor(0, 255, 0);
-                }
-                else
-                {
-                    answerYText.SetColor(255, 0, 0);
-                }
-                CollapseWrongAnswers();
-                questionIndex++;
-                UpdateNumCorrect();
-                NextQuestionVisible();
-            }
+            YActivity();
         }
 
         void OnXboxYButtonRollOn(FlatRedBall.Gui.IWindow callingWindow)
@@ -96,26 +90,9 @@ namespace BeefBall.Screens
 
         void OnXBoxBButtonClick(FlatRedBall.Gui.IWindow callingWindow)
         {
-            if (questionIndex < 3 && canClick)
-            {
-                if (IsRightAnswer(2))
-                {
-                    numCorrect++;
-                    answerBText.SetColor(0, 255, 0);
-                }
-                else
-                {
-                    answerBText.SetColor(255, 0, 0);
-                }
-
-                CollapseWrongAnswers();
-                questionIndex++;
-                UpdateNumCorrect();
-                NextQuestionVisible();
-            }
-           
+            BActivity();
         }
-        
+
         void OnXboxBButtonRollOn(FlatRedBall.Gui.IWindow callingWindow)
         {
             if (canRollOver)
@@ -136,28 +113,12 @@ namespace BeefBall.Screens
 
         void OnXBoxAButtonClick(FlatRedBall.Gui.IWindow callingWindow)
         {
-            if (questionIndex < 3 && canClick)
-            {
-                if (IsRightAnswer(3))
-                {
-                    numCorrect++;
-                    answerAText.SetColor(0, 255, 0);
-                }
-                else
-                {
-                    answerAText.SetColor(255, 0, 0);
-                }
-
-                CollapseWrongAnswers();
-                questionIndex++;
-                UpdateNumCorrect();
-                NextQuestionVisible();
-            }
+            AActivity();
         }
 
         void OnXboxAButtonRollOn(FlatRedBall.Gui.IWindow callingWindow)
         {
-            if(canRollOver)
+            if (canRollOver)
             {
                 AButtonInst.RotationZ = 1;
             }
@@ -172,29 +133,114 @@ namespace BeefBall.Screens
                 AButtonInst.RotationY = 0;
             }
         }
-        
 
+        void AActivity()
+        {
+            if (questionIndex < 3 && canClick)
+            {
+                if (IsRightAnswer(3))
+                {
+                    numCorrect++;
+                    answerAText.SetColor(0, 255, 0);
+                }
+                else
+                {
+                    answerAText.SetColor(255, 0, 0);
+                }
+
+                ButtonPressCommonActivity();
+            }
+        }
+
+        void BActivity()
+        {
+            if (questionIndex < 3 && canClick)
+            {
+                if (IsRightAnswer(2))
+                {
+                    numCorrect++;
+                    answerBText.SetColor(0, 255, 0);
+                }
+                else
+                {
+                    answerBText.SetColor(255, 0, 0);
+                }
+                ButtonPressCommonActivity();
+            }
+        }
+
+        void XActivity()
+        {
+            if (questionIndex < 3 && canClick)
+            {
+                if (IsRightAnswer(0))
+                {
+                    numCorrect++;
+                    answerXText.SetColor(0, 255, 0);
+                }
+                else
+                {
+                    answerXText.SetColor(255, 0, 0);
+                }
+                ButtonPressCommonActivity();
+            }
+        }
+
+        void YActivity()
+        {
+            if (questionIndex < 3 && canClick)
+            {
+                if (IsRightAnswer(1))
+                {
+                    numCorrect++;
+                    answerYText.SetColor(0, 255, 0);
+                }
+                else
+                {
+                    answerYText.SetColor(255, 0, 0);
+                }
+                ButtonPressCommonActivity();
+            }
+        }
+
+        void ButtonPressCommonActivity()
+        {
+            CollapseWrongAnswers();
+            questionIndex++;
+            UpdateNumCorrect();
+            NextQuestionVisible();
+        }
+        
         void OnNextQuestionClick(FlatRedBall.Gui.IWindow callingWindow)
         {
+            NextQuestionAdvance();      
+        }
 
+        void NextQuestionAdvance()
+        {
             ResetTextColors();
             if (questionIndex < 3)
             {
                 DisplayQuestions();
                 InflateAllAnswers();
             }
-                NextQuestionNotVisible();
+            NextQuestionNotVisible();
 
-            if(questionIndex > 2)
+            if (questionIndex > 2)
             {
                 this.MoveToScreen(typeof(GameScreen).FullName);
             }
         }
 
-        void CollapseWrongAnswers() 
+        void AnyKeyDone() 
+        {
+            this.MoveToScreen(typeof(GameScreen).FullName);   
+        }
+
+        void CollapseWrongAnswers()
         {
             canClick = false;
-            if(!IsRightAnswer(0))
+            if (!IsRightAnswer(0))
             {
                 canRollOver = false;
                 XButtoninst.RotationX = 5;
@@ -224,16 +270,16 @@ namespace BeefBall.Screens
             }
         }
 
-        void ResetTextColors() 
+        void ResetTextColors()
         {
             answerAText.SetColor(255, 255, 255);
             answerBText.SetColor(255, 255, 255);
             answerXText.SetColor(255, 255, 255);
             answerYText.SetColor(255, 255, 255);
-    
+
         }
 
-        void InflateAllAnswers() 
+        void InflateAllAnswers()
         {
             canClick = true;
             canRollOver = true;
@@ -252,20 +298,19 @@ namespace BeefBall.Screens
 
         }
 
-        public bool IsRightAnswer(int index) 
+        public bool IsRightAnswer(int index)
         {
             if (threeQuestions[questionIndex].answerIndex == index)
             {
                 return true;
             }
-            else 
+            else
             {
                 return false;
             }
         }
-        void NextQuestionVisible() 
+        void NextQuestionVisible()
         {
-
             this.NextQuestion.Visible = true;
             if (questionIndex > 2)
             {
@@ -273,7 +318,7 @@ namespace BeefBall.Screens
             }
         }
 
-        void NextQuestionNotVisible() 
+        void NextQuestionNotVisible()
         {
             if (questionIndex < 3)
             {
@@ -283,7 +328,7 @@ namespace BeefBall.Screens
                 EndQuiz();
         }
 
-        void EndQuiz() 
+        void EndQuiz()
         {
             this.XButtoninst.Visible = false;
             this.YButtonInst.Visible = false;
@@ -291,59 +336,12 @@ namespace BeefBall.Screens
             this.AButtonInst.Visible = false;
         }
 
-        void UpdateNumCorrect() 
+        void UpdateNumCorrect()
         {
             this.NumberCorrect.CurrentState = Button.VariableState.Hover;
             string score = string.Format("{0} out of {1}", numCorrect, questionIndex);
             NumberCorrect.DisplayText = (score);
-        }        void OnAButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)
-        {
-            
         }
-        void OnAButtonRollOff (FlatRedBall.Gui.IWindow callingWindow)
-        {
-            
-        }
-        void OnAButtonClick (FlatRedBall.Gui.IWindow callingWindow)
-        {
-            
-        }
-        void OnBButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)
-        {
-            
-        }
-        void OnBButtonRollOff (FlatRedBall.Gui.IWindow callingWindow)
-        {
-            
-        }
-        void OnBButtonClick (FlatRedBall.Gui.IWindow callingWindow)
-        {
-            
-        }
-        void OnCButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)
-        {
-            
-        }
-        void OnCButtonRollOff (FlatRedBall.Gui.IWindow callingWindow)
-        {
-            
-        }
-        void OnCButtonClick (FlatRedBall.Gui.IWindow callingWindow)
-        {
-            
-        }
-        void OnDButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)
-        {
-            
-        }
-        void OnDButtonRollOff (FlatRedBall.Gui.IWindow callingWindow)
-        {
-            
-        }
-        void OnDButtonClick (FlatRedBall.Gui.IWindow callingWindow)
-        {
-            
-        }
-
-	}
+        
+    }
 }

@@ -117,8 +117,8 @@ namespace BeefBall.Entities.GameScreen
 		static object mLockObject = new object();
 		static bool mHasRegisteredUnload = false;
 		static bool IsStaticContentLoaded = false;
-		private static AnimationChainList AnimationChainListFile;
 		private static Scene EnemySpriteScene;
+		private static AnimationChainList AnimationChainListFile;
 		
 		private FlatRedBall.Math.Geometry.Circle mBody;
 		public FlatRedBall.Math.Geometry.Circle Body
@@ -139,8 +139,8 @@ namespace BeefBall.Entities.GameScreen
 			}
 		}
 		private FlatRedBall.Math.Geometry.AxisAlignedRectangle PathArea;
-		private FlatRedBall.Math.Geometry.AxisAlignedRectangle LeftAttack;
 		private FlatRedBall.Math.Geometry.AxisAlignedRectangle RightAttack;
+		private FlatRedBall.Math.Geometry.AxisAlignedRectangle LeftAttack;
 		private FlatRedBall.Math.Geometry.AxisAlignedRectangle ViewArea;
 		public Microsoft.Xna.Framework.Color BodyColor
 		{
@@ -204,8 +204,8 @@ namespace BeefBall.Entities.GameScreen
 			EntireScene = EnemySpriteScene.Sprites.FindByName("testsprite32x321").Clone();
 			mHead = new FlatRedBall.Math.Geometry.Circle();
 			PathArea = new FlatRedBall.Math.Geometry.AxisAlignedRectangle();
-			LeftAttack = new FlatRedBall.Math.Geometry.AxisAlignedRectangle();
 			RightAttack = new FlatRedBall.Math.Geometry.AxisAlignedRectangle();
+			LeftAttack = new FlatRedBall.Math.Geometry.AxisAlignedRectangle();
 			ViewArea = new FlatRedBall.Math.Geometry.AxisAlignedRectangle();
 			
 			PostInitialize();
@@ -256,13 +256,13 @@ namespace BeefBall.Entities.GameScreen
 			{
 				PathArea.Detach(); ShapeManager.Remove(PathArea);
 			}
-			if (LeftAttack != null)
-			{
-				LeftAttack.Detach(); ShapeManager.Remove(LeftAttack);
-			}
 			if (RightAttack != null)
 			{
 				RightAttack.Detach(); ShapeManager.Remove(RightAttack);
+			}
+			if (LeftAttack != null)
+			{
+				LeftAttack.Detach(); ShapeManager.Remove(LeftAttack);
 			}
 			if (ViewArea != null)
 			{
@@ -334,30 +334,6 @@ namespace BeefBall.Entities.GameScreen
 			PathArea.ScaleX = 10f;
 			PathArea.ScaleY = 10f;
 			PathArea.Color = Color.Cyan;
-			if (LeftAttack!= null && LeftAttack.Parent == null)
-			{
-				LeftAttack.CopyAbsoluteToRelative();
-				LeftAttack.AttachTo(this, false);
-			}
-			LeftAttack.Visible = false;
-			if (LeftAttack.Parent == null)
-			{
-				LeftAttack.X = -7f;
-			}
-			else
-			{
-				LeftAttack.RelativeX = -7f;
-			}
-			if (LeftAttack.Parent == null)
-			{
-				LeftAttack.Y = -2f;
-			}
-			else
-			{
-				LeftAttack.RelativeY = -2f;
-			}
-			LeftAttack.ScaleX = 4f;
-			LeftAttack.ScaleY = 3f;
 			if (RightAttack!= null && RightAttack.Parent == null)
 			{
 				RightAttack.CopyAbsoluteToRelative();
@@ -382,29 +358,37 @@ namespace BeefBall.Entities.GameScreen
 			}
 			RightAttack.ScaleX = 4f;
 			RightAttack.ScaleY = 3f;
+			if (LeftAttack!= null && LeftAttack.Parent == null)
+			{
+				LeftAttack.CopyAbsoluteToRelative();
+				LeftAttack.AttachTo(this, false);
+			}
+			LeftAttack.Visible = false;
+			if (LeftAttack.Parent == null)
+			{
+				LeftAttack.X = -7f;
+			}
+			else
+			{
+				LeftAttack.RelativeX = -7f;
+			}
+			if (LeftAttack.Parent == null)
+			{
+				LeftAttack.Y = -2f;
+			}
+			else
+			{
+				LeftAttack.RelativeY = -2f;
+			}
+			LeftAttack.ScaleX = 4f;
+			LeftAttack.ScaleY = 3f;
 			if (ViewArea!= null && ViewArea.Parent == null)
 			{
 				ViewArea.CopyAbsoluteToRelative();
 				ViewArea.AttachTo(this, false);
 			}
 			ViewArea.Visible = false;
-			if (ViewArea.Parent == null)
-			{
-				ViewArea.X = 0f;
-			}
-			else
-			{
-				ViewArea.RelativeX = 0f;
-			}
-			if (ViewArea.Parent == null)
-			{
-				ViewArea.Y = 0f;
-			}
-			else
-			{
-				ViewArea.RelativeY = 0f;
-			}
-			ViewArea.ScaleX = 90f;
+			ViewArea.ScaleX = 80f;
 			ViewArea.ScaleY = 15f;
 			X = 0f;
 			Y = 0f;
@@ -476,26 +460,6 @@ namespace BeefBall.Entities.GameScreen
 			PathArea.ScaleX = 10f;
 			PathArea.ScaleY = 10f;
 			PathArea.Color = Color.Cyan;
-			ShapeManager.AddToLayer(LeftAttack, layerToAddTo);
-			LeftAttack.Visible = false;
-			if (LeftAttack.Parent == null)
-			{
-				LeftAttack.X = -7f;
-			}
-			else
-			{
-				LeftAttack.RelativeX = -7f;
-			}
-			if (LeftAttack.Parent == null)
-			{
-				LeftAttack.Y = -2f;
-			}
-			else
-			{
-				LeftAttack.RelativeY = -2f;
-			}
-			LeftAttack.ScaleX = 4f;
-			LeftAttack.ScaleY = 3f;
 			ShapeManager.AddToLayer(RightAttack, layerToAddTo);
 			RightAttack.Visible = false;
 			if (RightAttack.Parent == null)
@@ -516,25 +480,29 @@ namespace BeefBall.Entities.GameScreen
 			}
 			RightAttack.ScaleX = 4f;
 			RightAttack.ScaleY = 3f;
+			ShapeManager.AddToLayer(LeftAttack, layerToAddTo);
+			LeftAttack.Visible = false;
+			if (LeftAttack.Parent == null)
+			{
+				LeftAttack.X = -7f;
+			}
+			else
+			{
+				LeftAttack.RelativeX = -7f;
+			}
+			if (LeftAttack.Parent == null)
+			{
+				LeftAttack.Y = -2f;
+			}
+			else
+			{
+				LeftAttack.RelativeY = -2f;
+			}
+			LeftAttack.ScaleX = 4f;
+			LeftAttack.ScaleY = 3f;
 			ShapeManager.AddToLayer(ViewArea, layerToAddTo);
 			ViewArea.Visible = false;
-			if (ViewArea.Parent == null)
-			{
-				ViewArea.X = 0f;
-			}
-			else
-			{
-				ViewArea.RelativeX = 0f;
-			}
-			if (ViewArea.Parent == null)
-			{
-				ViewArea.Y = 0f;
-			}
-			else
-			{
-				ViewArea.RelativeY = 0f;
-			}
-			ViewArea.ScaleX = 90f;
+			ViewArea.ScaleX = 80f;
 			ViewArea.ScaleY = 15f;
 			X = oldX;
 			Y = oldY;
@@ -574,16 +542,16 @@ namespace BeefBall.Entities.GameScreen
 					}
 				}
 				bool registerUnload = false;
-				if (!FlatRedBallServices.IsLoaded<AnimationChainList>(@"content/entities/enemy/animationchainlistfile.achx", ContentManagerName))
+				if (!FlatRedBallServices.IsLoaded<Scene>(@"content/entities/gamescreen/enemy/enemyspritescene.scnx", ContentManagerName))
 				{
 					registerUnload = true;
 				}
-				AnimationChainListFile = FlatRedBallServices.Load<AnimationChainList>(@"content/entities/enemy/animationchainlistfile.achx", ContentManagerName);
-				if (!FlatRedBallServices.IsLoaded<Scene>(@"content/entities/enemy/enemyspritescene.scnx", ContentManagerName))
+				EnemySpriteScene = FlatRedBallServices.Load<Scene>(@"content/entities/gamescreen/enemy/enemyspritescene.scnx", ContentManagerName);
+				if (!FlatRedBallServices.IsLoaded<AnimationChainList>(@"content/entities/gamescreen/enemy/animationchainlistfile.achx", ContentManagerName))
 				{
 					registerUnload = true;
 				}
-				EnemySpriteScene = FlatRedBallServices.Load<Scene>(@"content/entities/enemy/enemyspritescene.scnx", ContentManagerName);
+				AnimationChainListFile = FlatRedBallServices.Load<AnimationChainList>(@"content/entities/gamescreen/enemy/animationchainlistfile.achx", ContentManagerName);
 				if (registerUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 				{
 					lock (mLockObject)
@@ -602,24 +570,24 @@ namespace BeefBall.Entities.GameScreen
 		{
 			IsStaticContentLoaded = false;
 			mHasRegisteredUnload = false;
-			if (AnimationChainListFile != null)
-			{
-				AnimationChainListFile= null;
-			}
 			if (EnemySpriteScene != null)
 			{
 				EnemySpriteScene.RemoveFromManagers(ContentManagerName != "Global");
 				EnemySpriteScene= null;
+			}
+			if (AnimationChainListFile != null)
+			{
+				AnimationChainListFile= null;
 			}
 		}
 		public static object GetStaticMember (string memberName)
 		{
 			switch(memberName)
 			{
-				case  "AnimationChainListFile":
-					return AnimationChainListFile;
 				case  "EnemySpriteScene":
 					return EnemySpriteScene;
+				case  "AnimationChainListFile":
+					return AnimationChainListFile;
 			}
 			return null;
 		}
@@ -751,10 +719,10 @@ namespace BeefBall.Entities.GameScreen
 		{
 			switch(memberName)
 			{
-				case  "AnimationChainListFile":
-					return AnimationChainListFile;
 				case  "EnemySpriteScene":
 					return EnemySpriteScene;
+				case  "AnimationChainListFile":
+					return AnimationChainListFile;
 			}
 			return null;
 		}
@@ -771,8 +739,8 @@ namespace BeefBall.Entities.GameScreen
 			InstructionManager.IgnorePausingFor(EntireScene);
 			InstructionManager.IgnorePausingFor(Head);
 			InstructionManager.IgnorePausingFor(PathArea);
-			InstructionManager.IgnorePausingFor(LeftAttack);
 			InstructionManager.IgnorePausingFor(RightAttack);
+			InstructionManager.IgnorePausingFor(LeftAttack);
 			InstructionManager.IgnorePausingFor(ViewArea);
 		}
 

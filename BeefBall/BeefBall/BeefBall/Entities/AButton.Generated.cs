@@ -206,10 +206,28 @@ namespace BeefBall.Entities
 				XBoxAButton.CopyAbsoluteToRelative();
 				XBoxAButton.AttachTo(this, false);
 			}
+			if (XBoxAButton.Parent == null)
+			{
+				XBoxAButton.X = 0f;
+			}
+			else
+			{
+				XBoxAButton.RelativeX = 0f;
+			}
+			if (XBoxAButton.Parent == null)
+			{
+				XBoxAButton.Y = 0f;
+			}
+			else
+			{
+				XBoxAButton.RelativeY = 0f;
+			}
+			XBoxAButton.ScaleX = 15f;
+			XBoxAButton.ScaleY = 15f;
 			X = 0f;
 			Y = 0f;
-			XBoxAButtonScaleX = 400f;
-			XBoxAButtonScaleY = 400f;
+			XBoxAButtonScaleX = 15f;
+			XBoxAButtonScaleY = 15f;
 			RotationX = 0f;
 			RotationY = 0f;
 			RotationZ = 0f;
@@ -233,6 +251,24 @@ namespace BeefBall.Entities
 			RotationY = 0;
 			RotationZ = 0;
 			SpriteManager.AddToLayer(XBoxAButton, layerToAddTo);
+			if (XBoxAButton.Parent == null)
+			{
+				XBoxAButton.X = 0f;
+			}
+			else
+			{
+				XBoxAButton.RelativeX = 0f;
+			}
+			if (XBoxAButton.Parent == null)
+			{
+				XBoxAButton.Y = 0f;
+			}
+			else
+			{
+				XBoxAButton.RelativeY = 0f;
+			}
+			XBoxAButton.ScaleX = 15f;
+			XBoxAButton.ScaleY = 15f;
 			X = oldX;
 			Y = oldY;
 			Z = oldZ;

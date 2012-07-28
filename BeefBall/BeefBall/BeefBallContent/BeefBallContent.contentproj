@@ -100,15 +100,19 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
     </None>
-    <None Include="Entities\Enemy\AnimationChainListFile.achx">
+    <None Include="Entities\Enemy\testsprite32x32.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>AnimationChainListFile</Name>
+      <Name>testsprite32x32</Name>
     </None>
-    <None Include="Entities\Enemy\EnemySpriteScene.scnx">
+    <None Include="Entities\GameScreen\Enemy\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>animationchainlistfile</Name>
+    </None>
+    <None Include="Entities\GameScreen\Enemy\EnemySpriteScene.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>EnemySpriteScene</Name>
     </None>
-    <None Include="Entities\Enemy\testsprite32x32.png">
+    <None Include="Entities\GameScreen\Enemy\testsprite32x32.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>testsprite32x32</Name>
     </None>

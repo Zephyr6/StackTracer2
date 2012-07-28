@@ -51,13 +51,6 @@ namespace BeefBall.Screens
 
         void CustomActivity(bool firstTimeCalled)
         {
-            SpriteManager.Camera.X += Game1.GamePad.LeftStick.Position.X;
-            SpriteManager.Camera.Y += Game1.GamePad.LeftStick.Position.Y;
-
-            if (Game1.GamePad.ButtonPushed(Xbox360GamePad.Button.A))
-            {
-                Console.WriteLine("X: {0} Y: {1}", SpriteManager.Camera.X, SpriteManager.Camera.Y);
-            }
 
         }
 

@@ -217,10 +217,12 @@ namespace BeefBall.Entities
 				XBoxBButton.CopyAbsoluteToRelative();
 				XBoxBButton.AttachTo(this, false);
 			}
+			XBoxBButton.ScaleX = 15f;
+			XBoxBButton.ScaleY = 15f;
 			X = 0f;
 			Y = 0f;
-			XBoxBButtonScaleX = 1f;
-			XBoxBButtonScaleY = 1f;
+			XBoxBButtonScaleX = 15f;
+			XBoxBButtonScaleY = 15f;
 			XBoxBButtonFlipVertical = false;
 			RotationX = 0f;
 			RotationZ = 0f;
@@ -245,6 +247,8 @@ namespace BeefBall.Entities
 			RotationY = 0;
 			RotationZ = 0;
 			SpriteManager.AddToLayer(XBoxBButton, layerToAddTo);
+			XBoxBButton.ScaleX = 15f;
+			XBoxBButton.ScaleY = 15f;
 			X = oldX;
 			Y = oldY;
 			Z = oldZ;

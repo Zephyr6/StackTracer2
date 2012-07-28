@@ -296,6 +296,54 @@ namespace BeefBall.Screens
             this.NumberCorrect.CurrentState = Button.VariableState.Hover;
             string score = string.Format("{0} out of {1}", numCorrect, questionIndex);
             NumberCorrect.DisplayText = (score);
+        }        void OnAButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)
+        {
+            
         }
+        void OnAButtonRollOff (FlatRedBall.Gui.IWindow callingWindow)
+        {
+            
+        }
+        void OnAButtonClick (FlatRedBall.Gui.IWindow callingWindow)
+        {
+            
+        }
+        void OnBButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)
+        {
+            
+        }
+        void OnBButtonRollOff (FlatRedBall.Gui.IWindow callingWindow)
+        {
+            
+        }
+        void OnBButtonClick (FlatRedBall.Gui.IWindow callingWindow)
+        {
+            
+        }
+        void OnCButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)
+        {
+            
+        }
+        void OnCButtonRollOff (FlatRedBall.Gui.IWindow callingWindow)
+        {
+            
+        }
+        void OnCButtonClick (FlatRedBall.Gui.IWindow callingWindow)
+        {
+            
+        }
+        void OnDButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)
+        {
+            
+        }
+        void OnDButtonRollOff (FlatRedBall.Gui.IWindow callingWindow)
+        {
+            
+        }
+        void OnDButtonClick (FlatRedBall.Gui.IWindow callingWindow)
+        {
+            
+        }
+
 	}
 }

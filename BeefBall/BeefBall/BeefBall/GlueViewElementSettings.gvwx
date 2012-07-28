@@ -16,11 +16,11 @@
     </ElementCameraSave>
     <ElementCameraSave>
       <CameraSave>
-        <X>1525.24646</X>
-        <Y>-10.6087437</Y>
+        <X>381.804382</X>
+        <Y>8.544386</Y>
         <Z>40</Z>
         <Orthogonal>true</Orthogonal>
-        <OrthogonalHeight>129.964737</OrthogonalHeight>
+        <OrthogonalHeight>794.852661</OrthogonalHeight>
         <OrthogonalWidth>-1</OrthogonalWidth>
         <NearClipPlane>1</NearClipPlane>
         <FarClipPlane>1000</FarClipPlane>
@@ -239,7 +239,7 @@
       <CameraSave>
         <X>0.5711503</X>
         <Y>-2.50814915</Y>
-        <Z>63.13843</Z>
+        <Z>284.346</Z>
         <Orthogonal>false</Orthogonal>
         <OrthogonalHeight>600</OrthogonalHeight>
         <OrthogonalWidth>-1</OrthogonalWidth>
@@ -312,6 +312,58 @@
         <FarClipPlane>1000</FarClipPlane>
       </CameraSave>
       <ElementName>Screens\QuizScreen</ElementName>
+    </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>0</X>
+        <Y>0</Y>
+        <Z>40</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>150.629074</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+      </CameraSave>
+      <ElementName>Entities\AButton</ElementName>
+    </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>0</X>
+        <Y>0</Y>
+        <Z>40</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>480</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+      </CameraSave>
+      <ElementName>Entities\BButton</ElementName>
+    </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>0</X>
+        <Y>0</Y>
+        <Z>40</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>480</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+      </CameraSave>
+      <ElementName>Entities\XButton</ElementName>
+    </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>0</X>
+        <Y>0</Y>
+        <Z>40</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>480</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+      </CameraSave>
+      <ElementName>Entities\YButton</ElementName>
     </ElementCameraSave>
   </ElementCameraSaves>
 </ElementSettingsSave>

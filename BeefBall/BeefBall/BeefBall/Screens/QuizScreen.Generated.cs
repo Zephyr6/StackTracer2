@@ -43,10 +43,10 @@ namespace BeefBall.Screens
 		
 		private BeefBall.Entities.Button NextQuestion;
 		private BeefBall.Entities.Button NumberCorrect;
-		private BeefBall.Entities.XButton XButtoninst;
 		private BeefBall.Entities.YButton YButtonInst;
-		private BeefBall.Entities.AButton AButtonInst;
+		private BeefBall.Entities.XButton XButtoninst;
 		private BeefBall.Entities.BButton BButtonInst;
+		private BeefBall.Entities.AButton AButtonInst;
 		public event FlatRedBall.Gui.WindowEvent NextQuestionClick;
 
 		public QuizScreen()
@@ -62,14 +62,14 @@ namespace BeefBall.Screens
 			NextQuestion.Name = "NextQuestion";
 			NumberCorrect = new BeefBall.Entities.Button(ContentManagerName, false);
 			NumberCorrect.Name = "NumberCorrect";
-			XButtoninst = new BeefBall.Entities.XButton(ContentManagerName, false);
-			XButtoninst.Name = "XButtoninst";
 			YButtonInst = new BeefBall.Entities.YButton(ContentManagerName, false);
 			YButtonInst.Name = "YButtonInst";
-			AButtonInst = new BeefBall.Entities.AButton(ContentManagerName, false);
-			AButtonInst.Name = "AButtonInst";
+			XButtoninst = new BeefBall.Entities.XButton(ContentManagerName, false);
+			XButtoninst.Name = "XButtoninst";
 			BButtonInst = new BeefBall.Entities.BButton(ContentManagerName, false);
 			BButtonInst.Name = "BButtonInst";
+			AButtonInst = new BeefBall.Entities.AButton(ContentManagerName, false);
+			AButtonInst.Name = "AButtonInst";
 			NextQuestion.Click += OnNextQuestionClick;
 			NextQuestion.Click += OnNextQuestionClickTunnel;
 			
@@ -100,10 +100,10 @@ namespace BeefBall.Screens
 				
 				NextQuestion.Activity();
 				NumberCorrect.Activity();
-				XButtoninst.Activity();
 				YButtonInst.Activity();
-				AButtonInst.Activity();
+				XButtoninst.Activity();
 				BButtonInst.Activity();
+				AButtonInst.Activity();
 			}
 			else
 			{
@@ -134,25 +134,25 @@ namespace BeefBall.Screens
 				NumberCorrect.Destroy();
 				NumberCorrect.Detach();
 			}
-			if (XButtoninst != null)
-			{
-				XButtoninst.Destroy();
-				XButtoninst.Detach();
-			}
 			if (YButtonInst != null)
 			{
 				YButtonInst.Destroy();
 				YButtonInst.Detach();
 			}
-			if (AButtonInst != null)
+			if (XButtoninst != null)
 			{
-				AButtonInst.Destroy();
-				AButtonInst.Detach();
+				XButtoninst.Destroy();
+				XButtoninst.Detach();
 			}
 			if (BButtonInst != null)
 			{
 				BButtonInst.Destroy();
 				BButtonInst.Detach();
+			}
+			if (AButtonInst != null)
+			{
+				AButtonInst.Destroy();
+				AButtonInst.Detach();
 			}
 
 			base.Destroy();
@@ -169,11 +169,11 @@ namespace BeefBall.Screens
 			NextQuestion.DisplayText = "Next Question";
 			if (NextQuestion.Parent == null)
 			{
-				NextQuestion.Y = -100f;
+				NextQuestion.Y = -90f;
 			}
 			else
 			{
-				NextQuestion.RelativeY = -100f;
+				NextQuestion.RelativeY = -90f;
 			}
 			NumberCorrect.DisplayText = "0 out of 0";
 			if (NumberCorrect.Parent == null)
@@ -192,24 +192,6 @@ namespace BeefBall.Screens
 			{
 				NumberCorrect.RelativeY = 130f;
 			}
-			if (XButtoninst.Parent == null)
-			{
-				XButtoninst.X = 90f;
-			}
-			else
-			{
-				XButtoninst.RelativeX = 90f;
-			}
-			if (XButtoninst.Parent == null)
-			{
-				XButtoninst.Y = 10f;
-			}
-			else
-			{
-				XButtoninst.RelativeY = 10f;
-			}
-			XButtoninst.XBoxXButtonScaleX = 15f;
-			XButtoninst.XBoxXButtonScaleY = 15f;
 			if (YButtonInst.Parent == null)
 			{
 				YButtonInst.X = 120f;
@@ -226,26 +208,22 @@ namespace BeefBall.Screens
 			{
 				YButtonInst.RelativeY = 40f;
 			}
-			YButtonInst.XBoxYButtonScaleX = 15f;
-			YButtonInst.XBoxYButtonScaleY = 15f;
-			if (AButtonInst.Parent == null)
+			if (XButtoninst.Parent == null)
 			{
-				AButtonInst.X = 120f;
+				XButtoninst.X = 90f;
 			}
 			else
 			{
-				AButtonInst.RelativeX = 120f;
+				XButtoninst.RelativeX = 90f;
 			}
-			if (AButtonInst.Parent == null)
+			if (XButtoninst.Parent == null)
 			{
-				AButtonInst.Y = -20f;
+				XButtoninst.Y = 10f;
 			}
 			else
 			{
-				AButtonInst.RelativeY = -20f;
+				XButtoninst.RelativeY = 10f;
 			}
-			AButtonInst.XBoxAButtonScaleX = 15f;
-			AButtonInst.XBoxAButtonScaleY = 15f;
 			if (BButtonInst.Parent == null)
 			{
 				BButtonInst.X = 150f;
@@ -262,8 +240,22 @@ namespace BeefBall.Screens
 			{
 				BButtonInst.RelativeY = 10f;
 			}
-			BButtonInst.XBoxBButtonScaleX = 15f;
-			BButtonInst.XBoxBButtonScaleY = 15f;
+			if (AButtonInst.Parent == null)
+			{
+				AButtonInst.X = 120f;
+			}
+			else
+			{
+				AButtonInst.RelativeX = 120f;
+			}
+			if (AButtonInst.Parent == null)
+			{
+				AButtonInst.Y = -20f;
+			}
+			else
+			{
+				AButtonInst.RelativeY = -20f;
+			}
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
 		}
 		public virtual void AddToManagersBottomUp ()
@@ -272,11 +264,11 @@ namespace BeefBall.Screens
 			NextQuestion.DisplayText = "Next Question";
 			if (NextQuestion.Parent == null)
 			{
-				NextQuestion.Y = -100f;
+				NextQuestion.Y = -90f;
 			}
 			else
 			{
-				NextQuestion.RelativeY = -100f;
+				NextQuestion.RelativeY = -90f;
 			}
 			NumberCorrect.AddToManagers(mLayer);
 			NumberCorrect.CurrentState = BeefBall.Entities.Button.VariableState.Disabled;
@@ -297,25 +289,6 @@ namespace BeefBall.Screens
 			{
 				NumberCorrect.RelativeY = 130f;
 			}
-			XButtoninst.AddToManagers(mLayer);
-			if (XButtoninst.Parent == null)
-			{
-				XButtoninst.X = 90f;
-			}
-			else
-			{
-				XButtoninst.RelativeX = 90f;
-			}
-			if (XButtoninst.Parent == null)
-			{
-				XButtoninst.Y = 10f;
-			}
-			else
-			{
-				XButtoninst.RelativeY = 10f;
-			}
-			XButtoninst.XBoxXButtonScaleX = 15f;
-			XButtoninst.XBoxXButtonScaleY = 15f;
 			YButtonInst.AddToManagers(mLayer);
 			if (YButtonInst.Parent == null)
 			{
@@ -333,27 +306,23 @@ namespace BeefBall.Screens
 			{
 				YButtonInst.RelativeY = 40f;
 			}
-			YButtonInst.XBoxYButtonScaleX = 15f;
-			YButtonInst.XBoxYButtonScaleY = 15f;
-			AButtonInst.AddToManagers(mLayer);
-			if (AButtonInst.Parent == null)
+			XButtoninst.AddToManagers(mLayer);
+			if (XButtoninst.Parent == null)
 			{
-				AButtonInst.X = 120f;
+				XButtoninst.X = 90f;
 			}
 			else
 			{
-				AButtonInst.RelativeX = 120f;
+				XButtoninst.RelativeX = 90f;
 			}
-			if (AButtonInst.Parent == null)
+			if (XButtoninst.Parent == null)
 			{
-				AButtonInst.Y = -20f;
+				XButtoninst.Y = 10f;
 			}
 			else
 			{
-				AButtonInst.RelativeY = -20f;
+				XButtoninst.RelativeY = 10f;
 			}
-			AButtonInst.XBoxAButtonScaleX = 15f;
-			AButtonInst.XBoxAButtonScaleY = 15f;
 			BButtonInst.AddToManagers(mLayer);
 			if (BButtonInst.Parent == null)
 			{
@@ -371,17 +340,32 @@ namespace BeefBall.Screens
 			{
 				BButtonInst.RelativeY = 10f;
 			}
-			BButtonInst.XBoxBButtonScaleX = 15f;
-			BButtonInst.XBoxBButtonScaleY = 15f;
+			AButtonInst.AddToManagers(mLayer);
+			if (AButtonInst.Parent == null)
+			{
+				AButtonInst.X = 120f;
+			}
+			else
+			{
+				AButtonInst.RelativeX = 120f;
+			}
+			if (AButtonInst.Parent == null)
+			{
+				AButtonInst.Y = -20f;
+			}
+			else
+			{
+				AButtonInst.RelativeY = -20f;
+			}
 		}
 		public virtual void ConvertToManuallyUpdated ()
 		{
 			NextQuestion.ConvertToManuallyUpdated();
 			NumberCorrect.ConvertToManuallyUpdated();
-			XButtoninst.ConvertToManuallyUpdated();
 			YButtonInst.ConvertToManuallyUpdated();
-			AButtonInst.ConvertToManuallyUpdated();
+			XButtoninst.ConvertToManuallyUpdated();
 			BButtonInst.ConvertToManuallyUpdated();
+			AButtonInst.ConvertToManuallyUpdated();
 		}
 		public static void LoadStaticContent (string contentManagerName)
 		{
@@ -396,10 +380,10 @@ namespace BeefBall.Screens
 			}
 			#endif
 			BeefBall.Entities.Button.LoadStaticContent(contentManagerName);
-			BeefBall.Entities.XButton.LoadStaticContent(contentManagerName);
 			BeefBall.Entities.YButton.LoadStaticContent(contentManagerName);
-			BeefBall.Entities.AButton.LoadStaticContent(contentManagerName);
+			BeefBall.Entities.XButton.LoadStaticContent(contentManagerName);
 			BeefBall.Entities.BButton.LoadStaticContent(contentManagerName);
+			BeefBall.Entities.AButton.LoadStaticContent(contentManagerName);
 			CustomLoadStaticContent(contentManagerName);
 		}
 		object GetMember (string memberName)

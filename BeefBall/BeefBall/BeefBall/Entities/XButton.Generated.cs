@@ -60,7 +60,6 @@ namespace BeefBall.Entities
 		private static Scene XboxX;
 		
 		private FlatRedBall.Sprite XBoxXButton;
-		private BeefBall.Entities.YButton YButtonInstance;
 		public float XBoxXButtonScaleX
 		{
 			get
@@ -151,8 +150,6 @@ namespace BeefBall.Entities
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
 			XBoxXButton = XboxX.Sprites.FindByName("xbox-button-x1").Clone();
-			YButtonInstance = new BeefBall.Entities.YButton(ContentManagerName, false);
-			YButtonInstance.Name = "YButtonInstance";
 			
 			PostInitialize();
 			if (addToManagers)
@@ -178,7 +175,6 @@ namespace BeefBall.Entities
 			// Generated Activity
 			mIsPaused = false;
 			
-			YButtonInstance.Activity();
 			CustomActivity();
 			
 			// After Custom Activity
@@ -193,11 +189,6 @@ namespace BeefBall.Entities
 			if (XBoxXButton != null)
 			{
 				XBoxXButton.Detach(); SpriteManager.RemoveSprite(XBoxXButton);
-			}
-			if (YButtonInstance != null)
-			{
-				YButtonInstance.Destroy();
-				YButtonInstance.Detach();
 			}
 
 
@@ -216,11 +207,6 @@ namespace BeefBall.Entities
 			}
 			XBoxXButton.ScaleX = 15f;
 			XBoxXButton.ScaleY = 15f;
-			if (YButtonInstance!= null && YButtonInstance.Parent == null)
-			{
-				YButtonInstance.CopyAbsoluteToRelative();
-				YButtonInstance.AttachTo(this, false);
-			}
 			X = 0f;
 			Y = 0f;
 			XBoxXButtonScaleX = 15f;
@@ -250,7 +236,6 @@ namespace BeefBall.Entities
 			SpriteManager.AddToLayer(XBoxXButton, layerToAddTo);
 			XBoxXButton.ScaleX = 15f;
 			XBoxXButton.ScaleY = 15f;
-			YButtonInstance.AddToManagers(layerToAddTo);
 			X = oldX;
 			Y = oldY;
 			Z = oldZ;
@@ -263,7 +248,6 @@ namespace BeefBall.Entities
 			this.ForceUpdateDependenciesDeep();
 			SpriteManager.ConvertToManuallyUpdated(this);
 			SpriteManager.ConvertToManuallyUpdated(XBoxXButton);
-			YButtonInstance.ConvertToManuallyUpdated();
 		}
 		public static void LoadStaticContent (string contentManagerName)
 		{
@@ -295,7 +279,6 @@ namespace BeefBall.Entities
 					registerUnload = true;
 				}
 				XboxX = FlatRedBallServices.Load<Scene>(@"content/entities/xbutton/xboxx.scnx", ContentManagerName);
-				BeefBall.Entities.YButton.LoadStaticContent(contentManagerName);
 				if (registerUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 				{
 					lock (mLockObject)
@@ -671,10 +654,6 @@ namespace BeefBall.Entities
 			{
 				return true;
 			}
-			if (YButtonInstance.HasCursorOver(cursor))
-			{
-				return true;
-			}
 			return false;
 		}
 		public virtual bool WasClickedThisFrame (FlatRedBall.Gui.Cursor cursor)
@@ -691,7 +670,6 @@ namespace BeefBall.Entities
 		{
 			InstructionManager.IgnorePausingFor(this);
 			InstructionManager.IgnorePausingFor(XBoxXButton);
-			YButtonInstance.SetToIgnorePausing();
 		}
 
     }

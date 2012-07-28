@@ -3071,41 +3071,6 @@
           <AttachToContainer>true</AttachToContainer>
           <AddToManagers>true</AddToManagers>
         </NamedObjectSave>
-        <NamedObjectSave>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>X</Member>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Y</Member>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>XBoxYButtonScaleX</Member>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>XBoxYButtonScaleY</Member>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>RotationX</Member>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>RotationY</Member>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>RotationZ</Member>
-          </CustomProperty>
-          <SourceType>Entity</SourceType>
-          <SourceClassType>Entities\YButton</SourceClassType>
-          <InstanceName>YButtonInstance</InstanceName>
-          <AttachToContainer>true</AttachToContainer>
-          <AddToManagers>true</AddToManagers>
-        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -3246,45 +3211,6 @@
           <SourceFile>Entities/YButton/XboxY.scnx</SourceFile>
           <SourceName>xbox-button-y1 (Sprite)</SourceName>
           <InstanceName>XBoxYButton</InstanceName>
-          <AttachToContainer>true</AttachToContainer>
-          <AddToManagers>true</AddToManagers>
-        </NamedObjectSave>
-        <NamedObjectSave>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>X</Member>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Y</Member>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>XBoxBButtonScaleX</Member>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>XBoxBButtonScaleY</Member>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>bool</Type>
-            <Member>XBoxBButtonFlipVertical</Member>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>RotationX</Member>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>RotationZ</Member>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>RotationY</Member>
-          </CustomProperty>
-          <SourceType>Entity</SourceType>
-          <SourceClassType>Entities\BButton</SourceClassType>
-          <InstanceName>BButtonInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <AddToManagers>true</AddToManagers>
         </NamedObjectSave>

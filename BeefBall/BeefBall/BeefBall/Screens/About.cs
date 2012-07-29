@@ -120,28 +120,47 @@ namespace BeefBall.Screens
                 {
                     if (currentButton == AboutButtons.Team)
                     {
-                        TeamButtonActivity();
-                        Game1.StartGameSFX.Play();
+                        
+                        if (!buttonsHidden)
+                        {
+                            TeamButtonActivity();
+                            Game1.StartGameSFX.Play();
+                        }
                     }
                     else if (currentButton == AboutButtons.Story)
                     {
-                        StoryButtonActivity();
-                        Game1.AboutGameSFX.Play();
+                       
+                        if (!buttonsHidden)
+                        {
+                            StoryButtonActivity();
+                            
+                        }
                     }
                     else if (currentButton == AboutButtons.Project)
                     {
-                        ProjectButtonActivity();
-                        Game1.AboutGameSFX.Play();
+                      
+                        if (!buttonsHidden)
+                        {  
+                            ProjectButtonActivity();
+                            Game1.StartGameSFX.Play();
+                        }
                     }
                     else if (currentButton == AboutButtons.Quiz)
                     {
-                        QuizButtonActivity();
-                        Game1.AboutGameSFX.Play();
+                        
+                        if (!buttonsHidden)
+                        {
+                            QuizButtonActivity();
+                            Game1.StartGameSFX.Play();
+                        }
                     }
                     else if (currentButton == AboutButtons.Back)
                     {
                         BackButtonActivity();
-                        Game1.AboutGameSFX.Play();
+                        if (!buttonsHidden)
+                        {
+                            Game1.StartGameSFX.Play();
+                        }
                     }
                 }
                 else

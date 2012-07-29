@@ -12,6 +12,7 @@ namespace BeefBall.Screens
 	public partial class About
 	{
         bool toMainMenu = true;
+        bool buttonsHidden = false;
         StringBuilder sb = new StringBuilder();
         void OnBackButtonClick (FlatRedBall.Gui.IWindow callingWindow)
         {
@@ -25,7 +26,7 @@ namespace BeefBall.Screens
             else
             {
                 ShowButtons();
-                aboutText.DisplayText = "";
+                clearText();
                 sb = sb.Clear();
             }  
         }
@@ -112,6 +113,8 @@ namespace BeefBall.Screens
 
         void HideButtons() 
         {
+            Game1.StartGameSFX.Play();
+            buttonsHidden = true;
             TeamButton.Visible = false;
             ProjectButton.Visible = false;
             StoryButton.Visible = false;
@@ -122,6 +125,7 @@ namespace BeefBall.Screens
 
         void ShowButtons() 
         {
+            buttonsHidden = false;
             TeamButton.Visible = true;
             ProjectButton.Visible = true;
             StoryButton.Visible = true;
@@ -131,6 +135,7 @@ namespace BeefBall.Screens
 
         void StoryButtonText() 
         {
+            clearText();
             sb = sb.Append("Our hero, InnerEx must fight his way through");
             sb = sb.Append(Environment.NewLine);
             sb = sb.Append(Environment.NewLine);
@@ -163,6 +168,7 @@ namespace BeefBall.Screens
 
         void ProjectbuttonText()
         {
+            clearText();
             sb = sb.Append("Code:");
             sb = sb.Append(Environment.NewLine);
             sb = sb.Append(Environment.NewLine);
@@ -189,6 +195,7 @@ namespace BeefBall.Screens
 
         void TeamButtonText() 
         {
+            clearText();
             sb = sb.Append("Team:");
             sb = sb.Append(Environment.NewLine);
             sb = sb.Append(Environment.NewLine);
@@ -212,6 +219,12 @@ namespace BeefBall.Screens
             sb = sb.Append(Environment.NewLine);
             sb = sb.Append("Extreme patience by:  Wives and girlfriends");
             WriteText(sb.ToString());
+        }
+
+        void clearText() 
+        {
+            sb.Clear();
+            aboutText.DisplayText = "";
         }
 
         void WriteText(string text) 

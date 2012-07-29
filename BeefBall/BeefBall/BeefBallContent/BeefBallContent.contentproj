@@ -116,6 +116,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>testsprite32x32</Name>
     </None>
+    <None Include="Entities\LeftBumper\Lb.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Lb</Name>
+    </None>
+    <None Include="Entities\LeftBumper\xboxcontrollerleftshoulder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>xboxcontrollerleftshoulder</Name>
+    </None>
     <None Include="Entities\Player\AnimationChainListFile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
@@ -139,6 +147,14 @@
     <None Include="Entities\ResistorStamp\ResistorScn.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>ResistorScn</Name>
+    </None>
+    <None Include="Entities\Select\SelectButton.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SelectButton</Name>
+    </None>
+    <None Include="Entities\Select\xbox360_button_back.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>xbox360_button_back</Name>
     </None>
     <None Include="Entities\StartButton\StartButtonScene.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

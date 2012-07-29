@@ -158,10 +158,30 @@
     <Compile Include="Entities\HealthBar.Generated.cs">
       <DependentUpon>HealthBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\LeftBumper.cs" />
+    <Compile Include="Entities\LeftBumper.Event.cs">
+      <DependentUpon>LeftBumper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LeftBumper.Generated.cs">
+      <DependentUpon>LeftBumper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LeftBumper.Generated.Event.cs">
+      <DependentUpon>LeftBumper.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Question.cs" />
     <Compile Include="Entities\ResistorStamp.cs" />
     <Compile Include="Entities\ResistorStamp.Generated.cs">
       <DependentUpon>ResistorStamp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Select.cs" />
+    <Compile Include="Entities\Select.Event.cs">
+      <DependentUpon>Select.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Select.Generated.cs">
+      <DependentUpon>Select.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Select.Generated.Event.cs">
+      <DependentUpon>Select.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\StartButton.cs" />
     <Compile Include="Entities\StartButton.Event.cs">
@@ -244,6 +264,16 @@
     </Compile>
     <Compile Include="Screens\QuizScreen.Generated.Event.cs">
       <DependentUpon>QuizScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\QuizScreenCopy.cs" />
+    <Compile Include="Screens\QuizScreenCopy.Event.cs">
+      <DependentUpon>QuizScreenCopy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\QuizScreenCopy.Generated.cs">
+      <DependentUpon>QuizScreenCopy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\QuizScreenCopy.Generated.Event.cs">
+      <DependentUpon>QuizScreenCopy.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Screen.cs" />
     <Compile Include="Screens\ScreenManager.cs" />

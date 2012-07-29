@@ -26,18 +26,18 @@ using FlatRedBall.Graphics;
 
 namespace BeefBall.Screens
 {
-    public partial class QuizScreen
+    public partial class QuizScreenCopy
     {
-        private int tries = 3;
+        private int tries = 37;
         private int correctAnswers = 0;
         private List<Question> questions = new List<Question>();
-        private Question[] threeQuestions = new Question[3];
         Text questionText = TextManager.AddText("");
         Text answerXText = TextManager.AddText("");
         Text answerYText = TextManager.AddText("");
         Text answerBText = TextManager.AddText("");
         Text answerAText = TextManager.AddText("");
         Xbox360GamePad GamePad;
+        static Random rnd;
 
         //TextArial ta = new TextArial();
         void CustomInitialize()
@@ -47,7 +47,7 @@ namespace BeefBall.Screens
             StartButtonInst.Visible = false;
             NextQuestion.Visible = false;
             ReadInCSV();
-            Select3RandomQuestions();
+            RandomizeQuestions();
             DisplayQuestions();
             GamePad = InputManager.Xbox360GamePads[0];
         }
@@ -58,6 +58,7 @@ namespace BeefBall.Screens
             YButtonPress();
             AButtonPress();
             BButtonPress();
+            LeftBumperPress();
 
             if (canClick == false)
             {
@@ -72,7 +73,7 @@ namespace BeefBall.Screens
             TextManager.RemoveText(answerAText);
             TextManager.RemoveText(answerBText);
             TextManager.RemoveText(answerXText);
-            TextManager.RemoveText(answerYText);  
+            TextManager.RemoveText(answerYText);
 
         }
 
@@ -82,25 +83,27 @@ namespace BeefBall.Screens
 
         }
 
-        public void InitializeCustomEvents() 
+        public void InitializeCustomEvents()
         {
             XButtoninst.Click += OnXBoxXButtonClick;
             XButtoninst.RollOn += OnXboxXButtonRollOn;
             XButtoninst.RollOff += OnXBoxXButtonRollOff;
-            
+
             YButtonInst.Click += onXBoxYButtonClick;
             YButtonInst.RollOn += OnXboxYButtonRollOn;
             YButtonInst.RollOff += OnXBoxYButtonRollOff;
-            
+
             AButtonInst.RollOn += OnXboxAButtonRollOn;
             AButtonInst.Click += OnXBoxAButtonClick;
             AButtonInst.RollOff += OnXBoxAButtonRollOff;
-            
+
             BButtonInst.Click += OnXBoxBButtonClick;
             BButtonInst.RollOn += OnXboxBButtonRollOn;
             BButtonInst.RollOff += OnXBoxBButtonRollOff;
 
             StartButtonInst.Click += OnStartButtonClick;
+
+            LeftBumperInstance.Click += OnLbButtonClick;
         }
 
         public void ReadInCSV()
@@ -121,87 +124,55 @@ namespace BeefBall.Screens
                     q.SetAnswers();
                     questions.Add(q);
                 }
-
-
             }
         }
 
-        public void Select3RandomQuestions()
+        public void RandomizeQuestions()
         {
-            int indexQuestion1;
-            int indexQuestion2;
-            int indexQuestion3;
-            int listSize = 0;
-
-            Random rnd = new Random();
-
-            foreach (Question q in questions)
+            int count = questions.Count;
+            rnd = new Random();
+            while (count > 1)
             {
-                listSize++;
-            }
-
-            indexQuestion1 = rnd.Next(listSize);
-
-            do
-            {
-                indexQuestion2 = rnd.Next(listSize);
-            } while (indexQuestion2 == indexQuestion1);
-
-            do
-            {
-                indexQuestion3 = rnd.Next(listSize);
-            } while (indexQuestion3 == indexQuestion1 || indexQuestion3 == indexQuestion2);
-
-            threeQuestions[0] = questions[indexQuestion1];
-            threeQuestions[1] = questions[indexQuestion2];
-            threeQuestions[2] = questions[indexQuestion3];
+                count--;
+                int index = rnd.Next(count + 1);
+                Question value = questions[index];
+                questions[index] = questions[count];
+                questions[count] = value;
+            } 
         }
 
 
         public void DisplayQuestions()
         {
-            questionText.DisplayText = threeQuestions[questionIndex].QuestionText;
+            questionText.DisplayText = questions[questionIndex].QuestionText;
             questionText.Scale = 8f;
             questionText.Spacing = 8;
-            questionText.X = -80;
+            questionText.X = -200;
             questionText.Y = 100;
 
-            answerXText.DisplayText = string.Format("X)   {0}", threeQuestions[questionIndex].answerList[0]);
+            answerXText.DisplayText = string.Format("X)   {0}", questions[questionIndex].answerList[0]);
             answerXText.Scale = 6f;
             answerXText.Spacing = 6;
             answerXText.X = -130;
             answerXText.Y = 60;
 
-            answerYText.DisplayText = string.Format("Y)   {0}",threeQuestions[questionIndex].answerList[1]);
+            answerYText.DisplayText = string.Format("Y)   {0}", questions[questionIndex].answerList[1]);
             answerYText.Scale = 6f;
             answerYText.Spacing = 6;
             answerYText.X = -130;
             answerYText.Y = 20;
 
-            answerBText.DisplayText = string.Format("B)   {0}",threeQuestions[questionIndex].answerList[2]);
+            answerBText.DisplayText = string.Format("B)   {0}", questions[questionIndex].answerList[2]);
             answerBText.Scale = 6f;
             answerBText.Spacing = 6;
             answerBText.X = -130;
             answerBText.Y = -20;
 
-            answerAText.DisplayText = string.Format("A)   {0}",threeQuestions[questionIndex].answerList[3]);
+            answerAText.DisplayText = string.Format("A)   {0}", questions[questionIndex].answerList[3]);
             answerAText.Scale = 6f;
             answerAText.Spacing = 6;
             answerAText.X = -130;
             answerAText.Y = -60;
-
-
         }
-
-        public void DisplayCorrectAnswer()
-        {
-            
-        }
-
-        public Boolean IsRightAnswer()
-        {
-            return false;
-        }
-
     }
 }

@@ -47,7 +47,7 @@ namespace BeefBall.Screens
         }
         void OnQuizButtonClick (FlatRedBall.Gui.IWindow callingWindow)
         {
-            //this.MoveToScreen(typeof(MainMenu).FullName);
+            this.MoveToScreen(typeof(QuizScreenCopy).FullName);
         }
         void OnQuizButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)
         {

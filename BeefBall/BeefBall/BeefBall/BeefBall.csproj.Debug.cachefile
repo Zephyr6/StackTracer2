@@ -8,6 +8,9 @@ Content\ExitSound.xnb
 Content\StartSound.xnb
 Content\Entities\AButton\xbox-button-a.png
 Content\Entities\AButton\XBoxA.scnx
+Content\Entities\Battery\AnimationChainListFile.achx
+Content\Entities\Battery\battery.png
+Content\Entities\Battery\SceneFile.scnx
 Content\Entities\BButton\xbox-button-b.png
 Content\Entities\BButton\XBoxB.scnx
 Content\Entities\Button\AnimationChainListFile.achx
@@ -23,12 +26,16 @@ Content\Entities\Enemy\testsprite32x32.png
 Content\Entities\GameScreen\Enemy\animationchainlistfile.achx
 Content\Entities\GameScreen\Enemy\EnemySpriteScene.scnx
 Content\Entities\GameScreen\Enemy\testsprite32x32.png
+Content\Entities\LeftBumper\Lb.scnx
+Content\Entities\LeftBumper\xboxcontrollerleftshoulder.png
 Content\Entities\Player\AnimationChainListFile.achx
 Content\Entities\Player\innerex32x32.png
 Content\Entities\Player\InnerExSceneFile.scnx
 Content\Entities\Player\testsprite32x32.png
 Content\Entities\ResistorStamp\resistor256.png
 Content\Entities\ResistorStamp\ResistorScn.scnx
+Content\Entities\Select\SelectButton.scnx
+Content\Entities\Select\xbox360_button_back.png
 Content\Entities\StartButton\StartButtonScene.scnx
 Content\Entities\StartButton\xbox360_button_start.png
 Content\Entities\TextArial\arialfont.fnt

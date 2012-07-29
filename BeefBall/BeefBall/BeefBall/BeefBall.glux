@@ -1957,6 +1957,76 @@
           <Properties>
             <PropertySave>
               <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>BarCurrentChainName</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">Full</DefaultValue>
+          <SourceObject>Bar</SourceObject>
+          <SourceObjectProperty>CurrentChainName</SourceObjectProperty>
+        </CustomVariable>
+      </CustomVariables>
+      <Name>Entities\Battery</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>X</Member>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Y</Member>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>ScaleX</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>ScaleY</Member>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>PixelSize</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+          </CustomProperty>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/Battery/SceneFile.scnx</SourceFile>
+          <SourceName>battery1 (Sprite)</SourceName>
+          <InstanceName>Bar</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>true</AddToManagers>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>Entities/Battery/AnimationChainListFile.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Battery/SceneFile.scnx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
@@ -2879,7 +2949,7 @@
                 <InstructionSave>
                   <Type>String</Type>
                   <Member>ChainName</Member>
-                  <ValueAsString>R_Idle</ValueAsString>
+                  <ValueAsString>R_Walking</ValueAsString>
                 </InstructionSave>
               </InstructionSaves>
               <Name>R_Walking</Name>
@@ -2889,7 +2959,7 @@
                 <InstructionSave>
                   <Type>String</Type>
                   <Member>ChainName</Member>
-                  <ValueAsString>L_Idle</ValueAsString>
+                  <ValueAsString>L_Walking</ValueAsString>
                 </InstructionSave>
               </InstructionSaves>
               <Name>L_Walking</Name>

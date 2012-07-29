@@ -195,6 +195,18 @@ namespace BeefBall.Screens
             aboutText.X = -90;
             aboutText.Y = 80;
             aboutText.DisplayText = text;
+        }        void OnBackClick (FlatRedBall.Gui.IWindow callingWindow)
+        {
+            
         }
+        void OnBackRollOff (FlatRedBall.Gui.IWindow callingWindow)
+        {
+            
+        }
+        void OnBackRollOn (FlatRedBall.Gui.IWindow callingWindow)
+        {
+            
+        }
+
 	}
 }

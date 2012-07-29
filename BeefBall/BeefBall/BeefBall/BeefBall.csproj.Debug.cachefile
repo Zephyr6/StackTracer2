@@ -29,6 +29,8 @@ Content\Entities\Player\InnerExSceneFile.scnx
 Content\Entities\Player\testsprite32x32.png
 Content\Entities\ResistorStamp\resistor256.png
 Content\Entities\ResistorStamp\ResistorScn.scnx
+Content\Entities\StartButton\StartButtonScene.scnx
+Content\Entities\StartButton\xbox360_button_start.png
 Content\Entities\TextArial\arialfont.fnt
 Content\Entities\TextArial\ArialFont_0.png
 Content\Entities\TextArial\SceneFile.scnx

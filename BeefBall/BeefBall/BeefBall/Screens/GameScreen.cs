@@ -27,13 +27,14 @@ using FlatRedBall.Math;
 
 namespace BeefBall.Screens
 {
-	public partial class GameScreen
-	{
+    public partial class GameScreen
+    {
         List<Entities.GameScreen.Enemy> enemies;
         List<Entities.CapacitorPlatform> capacitorPlatforms;
+        List<Entities.Battery> playerBatteries;
 
-		void CustomInitialize()
-		{
+        void CustomInitialize()
+        {
             SpriteManager.Camera.MinimumX = 100;
             SpriteManager.Camera.MinimumY = -93;
 
@@ -57,13 +58,62 @@ namespace BeefBall.Screens
             PlayerInstance.enemies = enemies;
 
             Game1.Player = PlayerInstance;
-		}
 
-		void CustomActivity(bool firstTimeCalled)
-		{
+            playerBatteries = new List<Entities.Battery>();
+            for (int i = 0; i < PlayerInstance.MaxBatteries; i++)
+            {
+                AddBattery();
+            }
+        }
+
+        void AddBattery()
+        {
+            Entities.Battery bat = new Entities.Battery(ContentManagerName, true);
+            bat.posX = -175.1F + (playerBatteries.Count * 40);
+            bat.posY = 135.1F;
+            playerBatteries.Add(bat);
+        }
+
+        void BatteryActivity()
+        {
+            for (int i = 0; i < Game1.Player.MaxBatteries; i++)
+            {
+                if (Game1.Player.Health >= (i + 1) * 4)
+                {
+                    playerBatteries[i].CurrentState = Entities.Battery.VariableState.Full;
+                }
+                else
+                {
+                    float mod = Game1.Player.Health - (i * 4);
+
+                    if (mod == 3)
+                        playerBatteries[i].CurrentState = Entities.Battery.VariableState.ThreeQuarters;
+                    else if (mod == 2)
+                        playerBatteries[i].CurrentState = Entities.Battery.VariableState.Half;
+                    else if (mod == 1)
+                        playerBatteries[i].CurrentState = Entities.Battery.VariableState.Quarter;
+                    else
+                        playerBatteries[i].CurrentState = Entities.Battery.VariableState.Empty;
+                }
+            }
+        }
+
+        void CustomActivity(bool firstTimeCalled)
+        {
             CollisionActivity();
             CleanUpActivity();
-		}
+
+            playerBatteries[0].posX += Game1.GamePad.RightStick.Position.X;
+            playerBatteries[0].posY += Game1.GamePad.RightStick.Position.Y;
+
+            if (Game1.GamePad.ButtonPushed(Xbox360GamePad.Button.RightStick))
+                PlayerInstance.Health--;
+
+            BatteryActivity();
+
+            foreach (Entities.Battery bat in playerBatteries)
+                bat.Activity();
+        }
 
         private void CleanUpActivity()
         {
@@ -83,7 +133,7 @@ namespace BeefBall.Screens
 
         private void CollisionActivity()
         {
-            foreach(Entities.CapacitorPlatform c in capacitorPlatforms)
+            foreach (Entities.CapacitorPlatform c in capacitorPlatforms)
             {
                 Vector3 positionBefore = PlayerInstance.Position;
                 if (PlayerInstance.Body.CollideAgainstBounce(c.Collision, 0, 1, 0))
@@ -140,18 +190,21 @@ namespace BeefBall.Screens
             else ToQuizInstance.InstructionTextVisible = false;
         }
 
-		void CustomDestroy()
-		{
+        void CustomDestroy()
+        {
             foreach (Entities.GameScreen.Enemy en in enemies)
                 en.Destroy();
 
             foreach (Entities.CapacitorPlatform cap in capacitorPlatforms)
                 cap.Destroy();
 
+            foreach (Entities.Battery bat in playerBatteries)
+                bat.Destroy();
+
             enemies.Clear();
             capacitorPlatforms.Clear();
 
-		}
+        }
 
         static void CustomLoadStaticContent(string contentManagerName)
         {
@@ -159,5 +212,5 @@ namespace BeefBall.Screens
 
         }
 
-	}
+    }
 }

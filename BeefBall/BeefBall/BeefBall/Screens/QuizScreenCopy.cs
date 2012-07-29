@@ -53,6 +53,9 @@ namespace BeefBall.Screens
             RandomizeQuestions();
             DisplayQuestions();
             GamePad = InputManager.Xbox360GamePads[0];
+
+            SpriteManager.Camera.X = 0;
+            SpriteManager.Camera.Y = 20;
         }
 
         void CustomActivity(bool firstTimeCalled)

@@ -166,6 +166,7 @@ namespace BeefBall.Entities.GameScreen
 				InnerExScene.CurrentChainName = value;
 			}
 		}
+		public int MaxBatteries = 2;
 		public int Index { get; set; }
 		public bool Used { get; set; }
 		protected Layer LayerProvidedByContainer = null;
@@ -336,6 +337,7 @@ namespace BeefBall.Entities.GameScreen
 			Drag = 1f;
 			ChainName = "R_Idle";
 			RotationX = 0f;
+			MaxBatteries = 2;
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
 		}
 		public virtual void AddToManagersBottomUp (Layer layerToAddTo)

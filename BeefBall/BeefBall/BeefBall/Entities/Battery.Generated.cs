@@ -54,6 +54,45 @@ namespace BeefBall.Entities
 		#if DEBUG
 		static bool HasBeenLoadedWithGlobalContentManager = false;
 		#endif
+		public enum VariableState
+		{
+			Uninitialized, //This exists so that the first set call actually does something
+			Full, 
+			Half, 
+			Empty, 
+			Quarter, 
+			ThreeQuarters
+		}
+		VariableState mCurrentState = VariableState.Uninitialized;
+		public VariableState CurrentState
+		{
+			get
+			{
+				return mCurrentState;
+			}
+			set
+			{
+				mCurrentState = value;
+				switch(mCurrentState)
+				{
+					case  VariableState.Full:
+						BarCurrentChainName = "Full";
+						break;
+					case  VariableState.Half:
+						BarCurrentChainName = "Half";
+						break;
+					case  VariableState.Empty:
+						BarCurrentChainName = "Empty";
+						break;
+					case  VariableState.Quarter:
+						BarCurrentChainName = "Quarter";
+						break;
+					case  VariableState.ThreeQuarters:
+						BarCurrentChainName = "ThreeQuarters";
+						break;
+				}
+			}
+		}
 		static object mLockObject = new object();
 		static bool mHasRegisteredUnload = false;
 		static bool IsStaticContentLoaded = false;
@@ -266,6 +305,90 @@ namespace BeefBall.Entities
 					return SceneFile;
 			}
 			return null;
+		}
+		static VariableState mLoadingState = VariableState.Uninitialized;
+		public static VariableState LoadingState
+		{
+			get
+			{
+				return mLoadingState;
+			}
+			set
+			{
+				mLoadingState = value;
+			}
+		}
+		public Instruction InterpolateToState (VariableState stateToInterpolateTo, double secondsToTake)
+		{
+			switch(stateToInterpolateTo)
+			{
+				case  VariableState.Full:
+					break;
+				case  VariableState.Half:
+					break;
+				case  VariableState.Empty:
+					break;
+				case  VariableState.Quarter:
+					break;
+				case  VariableState.ThreeQuarters:
+					break;
+			}
+			var instruction = new DelegateInstruction<VariableState>(StopStateInterpolation, stateToInterpolateTo);
+			instruction.TimeToExecute = TimeManager.CurrentTime + secondsToTake;
+			this.Instructions.Add(instruction);
+			return instruction;
+		}
+		public void StopStateInterpolation (VariableState stateToStop)
+		{
+			switch(stateToStop)
+			{
+				case  VariableState.Full:
+					break;
+				case  VariableState.Half:
+					break;
+				case  VariableState.Empty:
+					break;
+				case  VariableState.Quarter:
+					break;
+				case  VariableState.ThreeQuarters:
+					break;
+			}
+			CurrentState = stateToStop;
+		}
+		public void InterpolateBetween (VariableState firstState, VariableState secondState, float interpolationValue)
+		{
+			#if DEBUG
+			if (float.IsNaN(interpolationValue))
+			{
+				throw new Exception("interpolationValue cannot be NaN");
+			}
+			#endif
+			switch(firstState)
+			{
+				case  VariableState.Full:
+					break;
+				case  VariableState.Half:
+					break;
+				case  VariableState.Empty:
+					break;
+				case  VariableState.Quarter:
+					break;
+				case  VariableState.ThreeQuarters:
+					break;
+			}
+			switch(secondState)
+			{
+				case  VariableState.Full:
+					break;
+				case  VariableState.Half:
+					break;
+				case  VariableState.Empty:
+					break;
+				case  VariableState.Quarter:
+					break;
+				case  VariableState.ThreeQuarters:
+					break;
+			}
 		}
 		object GetMember (string memberName)
 		{

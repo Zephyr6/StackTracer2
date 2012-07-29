@@ -62,40 +62,18 @@ namespace BeefBall.Screens
             playerBatteries = new List<Entities.Battery>();
             for (int i = 0; i < PlayerInstance.MaxBatteries; i++)
             {
-                AddBattery();
+                AddBattery(4 * (i + 1));
             }
         }
 
-        void AddBattery()
+        void AddBattery(int max)
         {
+            Console.WriteLine("MAX: " + max);
             Entities.Battery bat = new Entities.Battery(ContentManagerName, true);
             bat.posX = -175.1F + (playerBatteries.Count * 40);
             bat.posY = 135.1F;
+            bat.max = max;
             playerBatteries.Add(bat);
-        }
-
-        void BatteryActivity()
-        {
-            for (int i = 0; i < Game1.Player.MaxBatteries; i++)
-            {
-                if (Game1.Player.Health >= (i + 1) * 4)
-                {
-                    playerBatteries[i].CurrentState = Entities.Battery.VariableState.Full;
-                }
-                else
-                {
-                    float mod = Game1.Player.Health - (i * 4);
-
-                    if (mod == 3)
-                        playerBatteries[i].CurrentState = Entities.Battery.VariableState.ThreeQuarters;
-                    else if (mod == 2)
-                        playerBatteries[i].CurrentState = Entities.Battery.VariableState.Half;
-                    else if (mod == 1)
-                        playerBatteries[i].CurrentState = Entities.Battery.VariableState.Quarter;
-                    else
-                        playerBatteries[i].CurrentState = Entities.Battery.VariableState.Empty;
-                }
-            }
         }
 
         void CustomActivity(bool firstTimeCalled)
@@ -103,13 +81,8 @@ namespace BeefBall.Screens
             CollisionActivity();
             CleanUpActivity();
 
-            playerBatteries[0].posX += Game1.GamePad.RightStick.Position.X;
-            playerBatteries[0].posY += Game1.GamePad.RightStick.Position.Y;
-
-            if (Game1.GamePad.ButtonPushed(Xbox360GamePad.Button.RightStick))
+            if (Game1.GamePad.ButtonPushed(Xbox360GamePad.Button.Y))
                 PlayerInstance.Health--;
-
-            BatteryActivity();
 
             foreach (Entities.Battery bat in playerBatteries)
                 bat.Activity();

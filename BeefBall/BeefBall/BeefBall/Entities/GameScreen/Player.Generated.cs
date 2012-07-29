@@ -128,6 +128,7 @@ namespace BeefBall.Entities.GameScreen
 		private static SoundEffect swing;
 		private static SoundEffect swing2;
 		private static SoundEffect jump;
+		private static SoundEffect hurt;
 		
 		private FlatRedBall.Math.Geometry.Circle mBody;
 		public FlatRedBall.Math.Geometry.Circle Body
@@ -166,7 +167,7 @@ namespace BeefBall.Entities.GameScreen
 				InnerExScene.CurrentChainName = value;
 			}
 		}
-		public int MaxBatteries = 2;
+		public int MaxBatteries = 4;
 		public int Index { get; set; }
 		public bool Used { get; set; }
 		protected Layer LayerProvidedByContainer = null;
@@ -337,7 +338,7 @@ namespace BeefBall.Entities.GameScreen
 			Drag = 1f;
 			ChainName = "R_Idle";
 			RotationX = 0f;
-			MaxBatteries = 2;
+			MaxBatteries = 4;
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
 		}
 		public virtual void AddToManagersBottomUp (Layer layerToAddTo)
@@ -471,6 +472,7 @@ namespace BeefBall.Entities.GameScreen
 				swing = FlatRedBallServices.Load<SoundEffect>(@"content/entities/player/swing", ContentManagerName);
 				swing2 = FlatRedBallServices.Load<SoundEffect>(@"content/entities/player/swing2", ContentManagerName);
 				jump = FlatRedBallServices.Load<SoundEffect>(@"content/entities/player/jump", ContentManagerName);
+				hurt = FlatRedBallServices.Load<SoundEffect>(@"content/entities/gamescreen/player/hurt", ContentManagerName);
 				if (registerUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 				{
 					lock (mLockObject)
@@ -514,6 +516,10 @@ namespace BeefBall.Entities.GameScreen
 			{
 				jump= null;
 			}
+			if (hurt != null)
+			{
+				hurt= null;
+			}
 		}
 		public static object GetStaticMember (string memberName)
 		{
@@ -531,6 +537,8 @@ namespace BeefBall.Entities.GameScreen
 					return swing2;
 				case  "jump":
 					return jump;
+				case  "hurt":
+					return hurt;
 			}
 			return null;
 		}
@@ -682,6 +690,8 @@ namespace BeefBall.Entities.GameScreen
 					return swing2;
 				case  "jump":
 					return jump;
+				case  "hurt":
+					return hurt;
 			}
 			return null;
 		}

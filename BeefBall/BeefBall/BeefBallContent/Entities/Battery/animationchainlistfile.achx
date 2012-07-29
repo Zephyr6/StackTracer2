@@ -197,7 +197,7 @@
       <FlipHorizontal>false</FlipHorizontal>
       <FlipVertical>false</FlipVertical>
       <TextureName>battery.png</TextureName>
-      <FrameLength>0</FrameLength>
+      <FrameLength>0.2</FrameLength>
       <LeftCoordinate>0.296875</LeftCoordinate>
       <RightCoordinate>0.5625</RightCoordinate>
       <TopCoordinate>0.125</TopCoordinate>
@@ -209,7 +209,7 @@
       <FlipHorizontal>false</FlipHorizontal>
       <FlipVertical>false</FlipVertical>
       <TextureName>battery.png</TextureName>
-      <FrameLength>0</FrameLength>
+      <FrameLength>0.2</FrameLength>
       <LeftCoordinate>0.296875</LeftCoordinate>
       <RightCoordinate>0.5625</RightCoordinate>
       <TopCoordinate>0.125</TopCoordinate>
@@ -218,5 +218,5 @@
       <RelativeY>0</RelativeY>
     </Frame>
   </AnimationChain>
-  <FileName>C:\Users\Carlos\Documents\GitHub\StackTracer2\BeefBall\BeefBall\BeefBallContent\Entities\Battery\AnimationChainListFile.achx</FileName>
+  <FileName>C:\Users\Carlos\Documents\GitHub\StackTracer2\BeefBall\BeefBall\BeefBallContent\Entities\Battery\animationchainlistfile.achx</FileName>
 </AnimationChainArraySave>

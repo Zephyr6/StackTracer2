@@ -3177,7 +3177,7 @@
           </Properties>
           <Name>MaxBatteries</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">2</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">4</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <Name>Entities\GameScreen\Player</Name>
@@ -3374,6 +3374,10 @@
             </PropertySave>
           </Properties>
           <Name>Entities/Player/jump.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/GameScreen/Player/hurt.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
         </ReferencedFileSave>
       </ReferencedFiles>

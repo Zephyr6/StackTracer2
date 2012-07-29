@@ -26,6 +26,7 @@ namespace BeefBall.Entities
     public partial class Battery
     {
         public float posX, posY;
+        public int max;
 
         private void CustomInitialize()
         {
@@ -40,6 +41,17 @@ namespace BeefBall.Entities
 
             Bar.X = X;
             Bar.Y = Y;
+
+            if (Game1.Player.Health >= max)
+                CurrentState = VariableState.Full;
+            else if (Game1.Player.Health == max - 1)
+                CurrentState = VariableState.ThreeQuarters;
+            else if (Game1.Player.Health == max - 2)
+                CurrentState = VariableState.Half;
+            else if (Game1.Player.Health == max - 3)
+                CurrentState = VariableState.Quarter;
+            else
+                CurrentState = VariableState.Empty;
         }
 
         private void CustomDestroy()

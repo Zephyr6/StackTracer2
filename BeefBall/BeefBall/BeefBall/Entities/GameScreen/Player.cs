@@ -33,6 +33,7 @@ namespace BeefBall.Entities.GameScreen
 
         public Xbox360GamePad mGamePad;
         double timePunched;
+        double timeHurt;
         Text debugText;
 
         int facing;
@@ -229,6 +230,11 @@ namespace BeefBall.Entities.GameScreen
 
                 timePunched = 0;
             }
+
+            if (TimeManager.SecondsSince(timeHurt) >= 1.5)
+            {
+                timeHurt = 0;
+            }
         }
 
         void UpdateDebugText()
@@ -238,11 +244,18 @@ namespace BeefBall.Entities.GameScreen
 
         public void Hurt(double damage, int dir)
         {
-            if (dir == Game1.LEFT)
-                CurrentState = VariableState.L_Hurt;
-            else
-                CurrentState = VariableState.R_Hurt;
+            if (timeHurt == 0)
+            {
+                timeHurt = TimeManager.CurrentTime;
+                Health--;
+                hurt.Play();
+                Velocity.X = (dir == Game1.RIGHT) ? -1000 : 1000;
 
+                if (dir == Game1.LEFT)
+                    CurrentState = VariableState.L_Hurt;
+                else
+                    CurrentState = VariableState.R_Hurt;
+            }
         }
 
         private static void CustomLoadStaticContent(string contentManagerName)

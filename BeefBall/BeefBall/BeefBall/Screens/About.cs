@@ -153,32 +153,35 @@ namespace BeefBall.Screens
 
         void SelectActivity()
         {
-            if (mGamePad.LeftStick.Position.Y > 0)
+            if(mGamePad.ButtonPushed(Xbox360GamePad.Button.B))
+                BackButtonActivity();
+
+            if (mGamePad.LeftStick.Position.Y > 0) // up
             {
                 if (currentButton == AboutButtons.Team)
                     currentButton = AboutButtons.Team;
                 else if (currentButton == AboutButtons.Project)
-                    currentButton = AboutButtons.Team;
+                    currentButton = AboutButtons.Story;
                 else if (currentButton == AboutButtons.Story)
                     currentButton = AboutButtons.Team;
                 else if (currentButton == AboutButtons.Quiz)
-                    currentButton = AboutButtons.Team;
+                    currentButton = AboutButtons.Project;
                 else if (currentButton == AboutButtons.Back)
-                    currentButton = AboutButtons.Team;
+                    currentButton = AboutButtons.Quiz;
             }
-            else if (mGamePad.LeftStick.Position.Y < 0)
+            else if (mGamePad.LeftStick.Position.Y < 0) // down
             {
 
                 if (currentButton == AboutButtons.Team)
                     currentButton = AboutButtons.Story;
                 else if (currentButton == AboutButtons.Project)
-                    currentButton = AboutButtons.Story;
+                    currentButton = AboutButtons.Quiz;
                 else if (currentButton == AboutButtons.Story)
-                    currentButton = AboutButtons.Story;
+                    currentButton = AboutButtons.Project;
                 else if (currentButton == AboutButtons.Quiz)
-                    currentButton = AboutButtons.Story;
+                    currentButton = AboutButtons.Back;
                 else if (currentButton == AboutButtons.Back)
-                    currentButton = AboutButtons.Story;
+                    currentButton = AboutButtons.Back;
             }
 
             canMove = false;

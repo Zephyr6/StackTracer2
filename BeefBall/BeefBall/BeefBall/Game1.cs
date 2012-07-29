@@ -40,31 +40,32 @@ namespace BeefBall
             graphics.PreferredBackBufferHeight = 600;
             Content.RootDirectory = "Content";
 
-			BackStack<string> bs = new BackStack<string>();
-			bs.Current = string.Empty;
-			
-			#if WINDOWS_PHONE
+            BackStack<string> bs = new BackStack<string>();
+            bs.Current = string.Empty;
+
+#if WINDOWS_PHONE
 			// Frame rate is 30 fps by default for Windows Phone.
             TargetElapsedTime = TimeSpan.FromTicks(333333);
             graphics.IsFullScreen = true;
 			
-			#endif
+#endif
         }
 
         protected override void Initialize()
         {
             Renderer.UseRenderTargets = false;
             FlatRedBallServices.InitializeFlatRedBall(this, graphics);
-			CameraSetup.SetupCamera(SpriteManager.Camera);
-			GlobalContent.Initialize();
+            CameraSetup.SetupCamera(SpriteManager.Camera);
+            GlobalContent.Initialize();
 
             // Are there any gamepads connected?
             if (FlatRedBall.Input.InputManager.Xbox360GamePads[0].IsConnected == false)
             {
                 FlatRedBall.Input.InputManager.Xbox360GamePads[0].CreateDefaultButtonMap();
             }
+            GamePad = InputManager.Xbox360GamePads[0];
 
-			Screens.ScreenManager.Start(typeof(BeefBall.Screens.QuizScreenCopy).FullName);
+            Screens.ScreenManager.Start(typeof(BeefBall.Screens.MainMenu).FullName);
 
             base.Initialize();
 
@@ -74,8 +75,6 @@ namespace BeefBall
             AboutGameSFX = Content.Load<SoundEffect>("AboutSound");
             ExitGameSFX = Content.Load<SoundEffect>("ExitSound");
             StartGameSFX = Content.Load<SoundEffect>("StartSound");
-
-            GamePad = InputManager.Xbox360GamePads[0];
 
             Levels = new List<string>();
             Levels.Add(typeof(BeefBall.Screens.GameScreen).FullName);

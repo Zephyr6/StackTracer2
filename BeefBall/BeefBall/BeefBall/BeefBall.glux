@@ -319,6 +319,10 @@
             <Type>float</Type>
             <Member>RotationX</Member>
           </CustomProperty>
+          <CustomProperty>
+            <Type>int</Type>
+            <Member>MaxBatteries</Member>
+          </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Player</SourceClassType>
           <InstanceName>PlayerInstance</InstanceName>
@@ -717,6 +721,10 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>RotationX</Member>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>int</Type>
+            <Member>MaxBatteries</Member>
           </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Player</SourceClassType>
@@ -1952,6 +1960,58 @@
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
+      <States>
+        <StateSave>
+          <InstructionSaves>
+            <InstructionSave>
+              <Type>String</Type>
+              <Member>BarCurrentChainName</Member>
+              <ValueAsString>Full</ValueAsString>
+            </InstructionSave>
+          </InstructionSaves>
+          <Name>Full</Name>
+        </StateSave>
+        <StateSave>
+          <InstructionSaves>
+            <InstructionSave>
+              <Type>String</Type>
+              <Member>BarCurrentChainName</Member>
+              <ValueAsString>Half</ValueAsString>
+            </InstructionSave>
+          </InstructionSaves>
+          <Name>Half</Name>
+        </StateSave>
+        <StateSave>
+          <InstructionSaves>
+            <InstructionSave>
+              <Type>String</Type>
+              <Member>BarCurrentChainName</Member>
+              <ValueAsString>Empty</ValueAsString>
+            </InstructionSave>
+          </InstructionSaves>
+          <Name>Empty</Name>
+        </StateSave>
+        <StateSave>
+          <InstructionSaves>
+            <InstructionSave>
+              <Type>String</Type>
+              <Member>BarCurrentChainName</Member>
+              <ValueAsString>Quarter</ValueAsString>
+            </InstructionSave>
+          </InstructionSaves>
+          <Name>Quarter</Name>
+        </StateSave>
+        <StateSave>
+          <InstructionSaves>
+            <InstructionSave>
+              <Type>String</Type>
+              <Member>BarCurrentChainName</Member>
+              <ValueAsString>ThreeQuarters</ValueAsString>
+            </InstructionSave>
+          </InstructionSaves>
+          <Name>ThreeQuarters</Name>
+        </StateSave>
+      </States>
       <CustomVariables>
         <CustomVariable>
           <Properties>
@@ -3107,6 +3167,17 @@
           <Name>RotationX</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MaxBatteries</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">2</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <Name>Entities\GameScreen\Player</Name>

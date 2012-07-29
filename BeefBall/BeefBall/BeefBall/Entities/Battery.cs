@@ -23,30 +23,35 @@ using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 
 namespace BeefBall.Entities
 {
-	public partial class Battery
-	{
-		private void CustomInitialize()
-		{
+    public partial class Battery
+    {
+        public float posX, posY;
+
+        private void CustomInitialize()
+        {
+            posX = X;
+            posY = Y;
+        }
+
+        private void CustomActivity()
+        {
+            X = posX + SpriteManager.Camera.X;
+            Y = posY + SpriteManager.Camera.Y;
+
+            Bar.X = X;
+            Bar.Y = Y;
+        }
+
+        private void CustomDestroy()
+        {
 
 
-		}
-
-		private void CustomActivity()
-		{
-
-
-		}
-
-		private void CustomDestroy()
-		{
-
-
-		}
+        }
 
         private static void CustomLoadStaticContent(string contentManagerName)
         {
 
 
         }
-	}
+    }
 }

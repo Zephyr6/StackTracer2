@@ -27,8 +27,8 @@ using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 
 namespace BeefBall.Entities.GameScreen
 {
-	public partial class Player
-	{
+    public partial class Player
+    {
         public List<Enemy> enemies { get; set; }
 
         public Xbox360GamePad mGamePad;
@@ -38,6 +38,9 @@ namespace BeefBall.Entities.GameScreen
         int facing;
 
         int punchPower = 10;
+
+        int mHealth;
+        public int Health { get { return mHealth; } set { mHealth = value; } }
 
         public int PlayerIndex
         {
@@ -51,7 +54,7 @@ namespace BeefBall.Entities.GameScreen
         {
             facing = Game1.RIGHT;
             CurrentState = VariableState.R_Idle;
-            
+
             this.PlayerIndex = 0;
             Acceleration.Y = -400F;
 
@@ -59,6 +62,8 @@ namespace BeefBall.Entities.GameScreen
             debugText.Position.Y += 40;
             debugText.AttachTo(this, true);
             UpdateDebugText();
+
+            Health = MaxBatteries * 4;
         }
 
         private void CustomActivity()
@@ -68,11 +73,11 @@ namespace BeefBall.Entities.GameScreen
             UpdateDebugText();
         }
 
-		private void CustomDestroy()
-		{
+        private void CustomDestroy()
+        {
             TextManager.RemoveText(debugText);
 
-		}
+        }
 
         private void MoveActivity()
         {
@@ -128,7 +133,7 @@ namespace BeefBall.Entities.GameScreen
             if (mGamePad.LeftStick.Position.X > 0)
                 dir = Game1.RIGHT;
             else if (mGamePad.LeftStick.Position.X < 0)
-                dir = Game1.LEFT ;
+                dir = Game1.LEFT;
 
             facing = dir;
 
@@ -194,7 +199,7 @@ namespace BeefBall.Entities.GameScreen
 
                     if (GetFacing() == Game1.RIGHT)
                     {
-                        if ((RightAttack.CollideAgainst(el.Body) || RightAttack.CollideAgainst(el.Head))  && el.canBeHit)
+                        if ((RightAttack.CollideAgainst(el.Body) || RightAttack.CollideAgainst(el.Head)) && el.canBeHit)
                         {
                             hit.Play();
                             el.BodyColor = new Color(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255));
@@ -228,7 +233,7 @@ namespace BeefBall.Entities.GameScreen
 
         void UpdateDebugText()
         {
-            debugText.DisplayText = string.Format("State: {0}\nFacing: {1}", CurrentState, GetFacing());
+            debugText.DisplayText = string.Format("State: {0}\nFacing: {1}\nHealth: {2}", CurrentState, GetFacing(), Health);
         }
 
         public void Hurt(double damage, int dir)
@@ -245,5 +250,5 @@ namespace BeefBall.Entities.GameScreen
 
 
         }
-	}
+    }
 }

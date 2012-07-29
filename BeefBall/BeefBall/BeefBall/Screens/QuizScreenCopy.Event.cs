@@ -12,7 +12,7 @@ namespace BeefBall.Screens
     public partial class QuizScreenCopy
     {
         int questionIndex = 0;
-        int answerIndex = 0;
+        int reviewIndex = 0;
         int numCorrect = 0;
         double percent = 0;
         bool canRollOver = true;
@@ -31,8 +31,11 @@ namespace BeefBall.Screens
 
         void LeftBumperPress()
         {
-            if (GamePad.ButtonPushed(Xbox360GamePad.Button.LeftShoulder))
-                LBumperActivity();
+            if (!reviewQuestions)
+            {
+                if (GamePad.ButtonPushed(Xbox360GamePad.Button.LeftShoulder))
+                    LBumperActivity();
+            }
         }
 
         void XButtonPress()
@@ -232,9 +235,10 @@ namespace BeefBall.Screens
 
             if (reviewQuestions) 
             {
-                if (answerIndex < answeredQuestions.Count - 1) 
+                if (reviewIndex < answeredQuestions.Count - 1) 
                 {
-                    answerIndex++;
+                    reviewIndex++;
+                    ResetDisplayColors();
                     DisplayReview();
                 }
             }
@@ -268,9 +272,10 @@ namespace BeefBall.Screens
 
             if (reviewQuestions) 
             {
-                if (answerIndex > 0)
+                if (reviewIndex > 0)
                 {
-                    answerIndex--;
+                    reviewIndex--;
+                    ResetDisplayColors();
                     DisplayReview();
                 }
             }
@@ -476,7 +481,7 @@ namespace BeefBall.Screens
 
         public bool IsRightAnswerReview(int index) 
         {
-            if (answeredQuestions[answerIndex].answerIndex == index)
+            if (answeredQuestions[reviewIndex].answerIndex == index)
             {
                 return true;
             }
@@ -521,8 +526,6 @@ namespace BeefBall.Screens
             LeftBumperInstance.Visible = false;
             SetUpKey();
             DisplayReview();
-            //Change button actions
-            //Move through list
             //Highlight Right answer and wrong answer if chosen
         }
 
@@ -535,32 +538,32 @@ namespace BeefBall.Screens
         
         void DisplayReview()
         {
-            int choice = answeredQuestions[answerIndex].Choice;
-            questionText.DisplayText = answeredQuestions[answerIndex].QuestionText;
+            int choice = answeredQuestions[reviewIndex].Choice;
+            questionText.DisplayText = answeredQuestions[reviewIndex].QuestionText;
             questionText.Scale = 8f;
             questionText.Spacing = 8;
             questionText.X = -200;
             questionText.Y = 100;
 
-            answerXText.DisplayText = string.Format("X)   {0}", answeredQuestions[answerIndex].answerList[0]);
+            answerXText.DisplayText = string.Format("X)   {0}", answeredQuestions[reviewIndex].answerList[0]);
             answerXText.Scale = 6f;
             answerXText.Spacing = 6;
             answerXText.X = -130;
             answerXText.Y = 60;
 
-            answerYText.DisplayText = string.Format("Y)   {0}", answeredQuestions[answerIndex].answerList[1]);
+            answerYText.DisplayText = string.Format("Y)   {0}", answeredQuestions[reviewIndex].answerList[1]);
             answerYText.Scale = 6f;
             answerYText.Spacing = 6;
             answerYText.X = -130;
             answerYText.Y = 20;
 
-            answerBText.DisplayText = string.Format("B)   {0}", answeredQuestions[answerIndex].answerList[2]);
+            answerBText.DisplayText = string.Format("B)   {0}", answeredQuestions[reviewIndex].answerList[2]);
             answerBText.Scale = 6f;
             answerBText.Spacing = 6;
             answerBText.X = -130;
             answerBText.Y = -20;
 
-            answerAText.DisplayText = string.Format("A)   {0}", answeredQuestions[answerIndex].answerList[3]);
+            answerAText.DisplayText = string.Format("A)   {0}", answeredQuestions[reviewIndex].answerList[3]);
             answerAText.Scale = 6f;
             answerAText.Spacing = 6;
             answerAText.X = -130;
@@ -571,17 +574,17 @@ namespace BeefBall.Screens
                 answerXText.SetColor(0, 255, 0);
             }
 
-            if (IsRightAnswerReview(1))
+            else if (IsRightAnswerReview(1))
             {
                 answerYText.SetColor(0, 255, 0);
             }
 
-            if (IsRightAnswerReview(2))
+            else if (IsRightAnswerReview(2))
             {
                 answerBText.SetColor(0, 255, 0);
             }
 
-            if (IsRightAnswerReview(3))
+            else if (IsRightAnswerReview(3))
             {
                 answerAText.SetColor(0, 255, 0);
             }
@@ -612,6 +615,14 @@ namespace BeefBall.Screens
             this.NumberCorrect.CurrentState = Button.VariableState.Hover;
             string score = string.Format("{0} out of {1}", numCorrect, questionIndex);
             NumberCorrect.DisplayText = (score);
+        }
+
+        public void ResetDisplayColors()
+        {
+            answerXText.SetColor(250, 250, 250);
+            answerYText.SetColor(250, 250, 250);
+            answerBText.SetColor(250, 250, 250);
+            answerAText.SetColor(250, 250, 250);
         }
 
     }

@@ -43,6 +43,8 @@ namespace BeefBall.Screens
         //TextArial ta = new TextArial();
         void CustomInitialize()
         {
+            SpriteManager.Camera.X = 0;
+            SpriteManager.Camera.Y = 20;
             InitializeCustomEvents();
             FlatRedBallServices.IsWindowsCursorVisible = true;
             StartButtonInst.Visible = false;
@@ -142,7 +144,6 @@ namespace BeefBall.Screens
                 questions[count] = value;
             } 
         }
-
 
         public void DisplayQuestions()
         {

@@ -31,6 +31,9 @@ namespace BeefBall
         public static Entities.GameScreen.Player Player;
         public static Xbox360GamePad GamePad;
 
+        private static List<string> Levels;
+        private static int currentLevel = -1;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -61,7 +64,7 @@ namespace BeefBall
                 FlatRedBall.Input.InputManager.Xbox360GamePads[0].CreateDefaultButtonMap();
             }
 
-			Screens.ScreenManager.Start(typeof(BeefBall.Screens.GameScreenCopy).FullName);
+			Screens.ScreenManager.Start(typeof(BeefBall.Screens.MainMenu).FullName);
 
             base.Initialize();
 
@@ -73,8 +76,20 @@ namespace BeefBall
             StartGameSFX = Content.Load<SoundEffect>("StartSound");
 
             GamePad = InputManager.Xbox360GamePads[0];
+
+            Levels = new List<string>();
+            Levels.Add(typeof(BeefBall.Screens.GameScreen).FullName);
+            Levels.Add(typeof(BeefBall.Screens.GameScreenCopy).FullName);
         }
 
+        public static string GetNextLevel()
+        {
+            currentLevel++;
+            if (currentLevel > Levels.Count)
+                return typeof(BeefBall.Screens.MainMenu).FullName;
+            else
+                return Levels[currentLevel];
+        }
 
         protected override void Update(GameTime gameTime)
         {

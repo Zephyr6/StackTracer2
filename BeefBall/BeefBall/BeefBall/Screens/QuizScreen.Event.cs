@@ -244,13 +244,13 @@ namespace BeefBall.Screens
 
             if (questionIndex > 2)
             {
-                this.MoveToScreen(typeof(GameScreen).FullName);
+                this.MoveToScreen(Game1.GetNextLevel());
             }
         }
 
         void AnyKeyDone() 
         {
-            this.MoveToScreen(typeof(GameScreen).FullName);   
+            this.MoveToScreen(Game1.GetNextLevel());   
         }
 
         void CollapseWrongAnswers()

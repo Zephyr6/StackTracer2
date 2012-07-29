@@ -47,7 +47,7 @@ namespace BeefBall.Screens
         }
         void OnQuizButtonClick (FlatRedBall.Gui.IWindow callingWindow)
         {
-            this.MoveToScreen(typeof(QuizScreenCopy).FullName);
+            //this.MoveToScreen(typeof(MainMenu).FullName);
         }
         void OnQuizButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)
         {
@@ -116,7 +116,6 @@ namespace BeefBall.Screens
             sb = sb.Append(Environment.NewLine);
             sb = sb.Append(Environment.NewLine);
             sb = sb.Append(Environment.NewLine);
-
 
             sb = sb.Append("Only through defeating his enemies & proving his");
             sb = sb.Append(Environment.NewLine);
@@ -197,6 +196,5 @@ namespace BeefBall.Screens
             aboutText.Y = 80;
             aboutText.DisplayText = text;
         }
-
 	}
 }

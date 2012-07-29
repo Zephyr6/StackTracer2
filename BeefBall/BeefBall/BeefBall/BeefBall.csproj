@@ -208,7 +208,13 @@
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Screens\About.cs" />
+    <Compile Include="Screens\About.Event.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\About.Generated.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\About.Generated.Event.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\GameScreen.cs" />

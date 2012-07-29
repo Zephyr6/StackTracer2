@@ -41,6 +41,26 @@ namespace BeefBall.Screens
 		static bool HasBeenLoadedWithGlobalContentManager = false;
 		#endif
 		
+		private BeefBall.Entities.Button StoryButton;
+		private BeefBall.Entities.Button ProjectButton;
+		private BeefBall.Entities.Button QuizButton;
+		private BeefBall.Entities.Button BackButton;
+		private BeefBall.Entities.Button TeamButton;
+		public event FlatRedBall.Gui.WindowEvent BackClick;
+		public event FlatRedBall.Gui.WindowEvent BackRollOff;
+		public event FlatRedBall.Gui.WindowEvent BackRollOn;
+		public event FlatRedBall.Gui.WindowEvent ProjectButtonClick;
+		public event FlatRedBall.Gui.WindowEvent ProjectButtonRollOff;
+		public event FlatRedBall.Gui.WindowEvent ProjectButtonRollOn;
+		public event FlatRedBall.Gui.WindowEvent QuizButtonClick;
+		public event FlatRedBall.Gui.WindowEvent QuizButtonRollOff;
+		public event FlatRedBall.Gui.WindowEvent QuizButtonRollOn;
+		public event FlatRedBall.Gui.WindowEvent StoryButtonClick;
+		public event FlatRedBall.Gui.WindowEvent StoryButtonRollOff;
+		public event FlatRedBall.Gui.WindowEvent StoryButtonRollOn;
+		public event FlatRedBall.Gui.WindowEvent TeamButtonClick;
+		public event FlatRedBall.Gui.WindowEvent TeamButtonRollOff;
+		public event FlatRedBall.Gui.WindowEvent TeamButtonRollOn;
 
 		public About()
 			: base("About")
@@ -51,6 +71,43 @@ namespace BeefBall.Screens
         {
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
+			StoryButton = new BeefBall.Entities.Button(ContentManagerName, false);
+			StoryButton.Name = "StoryButton";
+			ProjectButton = new BeefBall.Entities.Button(ContentManagerName, false);
+			ProjectButton.Name = "ProjectButton";
+			QuizButton = new BeefBall.Entities.Button(ContentManagerName, false);
+			QuizButton.Name = "QuizButton";
+			BackButton = new BeefBall.Entities.Button(ContentManagerName, false);
+			BackButton.Name = "BackButton";
+			TeamButton = new BeefBall.Entities.Button(ContentManagerName, false);
+			TeamButton.Name = "TeamButton";
+			BackButton.Click += OnBackClickTunnel;
+			BackButton.RollOff += OnBackRollOffTunnel;
+			BackButton.RollOn += OnBackRollOnTunnel;
+			ProjectButton.Click += OnProjectButtonClick;
+			ProjectButton.Click += OnProjectButtonClickTunnel;
+			ProjectButton.RollOff += OnProjectButtonRollOff;
+			ProjectButton.RollOff += OnProjectButtonRollOffTunnel;
+			ProjectButton.RollOn += OnProjectButtonRollOn;
+			ProjectButton.RollOn += OnProjectButtonRollOnTunnel;
+			QuizButton.Click += OnQuizButtonClick;
+			QuizButton.Click += OnQuizButtonClickTunnel;
+			QuizButton.RollOff += OnQuizButtonRollOff;
+			QuizButton.RollOff += OnQuizButtonRollOffTunnel;
+			QuizButton.RollOn += OnQuizButtonRollOn;
+			QuizButton.RollOn += OnQuizButtonRollOnTunnel;
+			StoryButton.Click += OnStoryButtonClick;
+			StoryButton.Click += OnStoryButtonClickTunnel;
+			StoryButton.RollOff += OnStoryButtonRollOff;
+			StoryButton.RollOff += OnStoryButtonRollOffTunnel;
+			StoryButton.RollOn += OnStoryButtonRollOn;
+			StoryButton.RollOn += OnStoryButtonRollOnTunnel;
+			TeamButton.Click += OnTeamButtonClick;
+			TeamButton.Click += OnTeamButtonClickTunnel;
+			TeamButton.RollOff += OnTeamButtonRollOff;
+			TeamButton.RollOff += OnTeamButtonRollOffTunnel;
+			TeamButton.RollOn += OnTeamButtonRollOn;
+			TeamButton.RollOn += OnTeamButtonRollOnTunnel;
 			
 			
 			PostInitialize();
@@ -77,6 +134,11 @@ namespace BeefBall.Screens
 			if (!IsPaused)
 			{
 				
+				StoryButton.Activity();
+				ProjectButton.Activity();
+				QuizButton.Activity();
+				BackButton.Activity();
+				TeamButton.Activity();
 			}
 			else
 			{
@@ -97,6 +159,31 @@ namespace BeefBall.Screens
 		{
 			// Generated Destroy
 			
+			if (StoryButton != null)
+			{
+				StoryButton.Destroy();
+				StoryButton.Detach();
+			}
+			if (ProjectButton != null)
+			{
+				ProjectButton.Destroy();
+				ProjectButton.Detach();
+			}
+			if (QuizButton != null)
+			{
+				QuizButton.Destroy();
+				QuizButton.Detach();
+			}
+			if (BackButton != null)
+			{
+				BackButton.Destroy();
+				BackButton.Detach();
+			}
+			if (TeamButton != null)
+			{
+				TeamButton.Destroy();
+				TeamButton.Detach();
+			}
 
 			base.Destroy();
 
@@ -109,13 +196,198 @@ namespace BeefBall.Screens
 		{
 			bool oldShapeManagerSuppressAdd = FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue;
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = true;
+			StoryButton.DisplayText = "Story";
+			if (StoryButton.Parent == null)
+			{
+				StoryButton.X = 50f;
+			}
+			else
+			{
+				StoryButton.RelativeX = 50f;
+			}
+			if (StoryButton.Parent == null)
+			{
+				StoryButton.Y = 80f;
+			}
+			else
+			{
+				StoryButton.RelativeY = 80f;
+			}
+			ProjectButton.DisplayText = "Project";
+			if (ProjectButton.Parent == null)
+			{
+				ProjectButton.X = 50f;
+			}
+			else
+			{
+				ProjectButton.RelativeX = 50f;
+			}
+			if (ProjectButton.Parent == null)
+			{
+				ProjectButton.Y = 40f;
+			}
+			else
+			{
+				ProjectButton.RelativeY = 40f;
+			}
+			QuizButton.DisplayText = "Quiz";
+			if (QuizButton.Parent == null)
+			{
+				QuizButton.X = 50f;
+			}
+			else
+			{
+				QuizButton.RelativeX = 50f;
+			}
+			if (QuizButton.Parent == null)
+			{
+				QuizButton.Y = 0f;
+			}
+			else
+			{
+				QuizButton.RelativeY = 0f;
+			}
+			BackButton.DisplayText = "Back";
+			if (BackButton.Parent == null)
+			{
+				BackButton.X = 50f;
+			}
+			else
+			{
+				BackButton.RelativeX = 50f;
+			}
+			if (BackButton.Parent == null)
+			{
+				BackButton.Y = -40f;
+			}
+			else
+			{
+				BackButton.RelativeY = -40f;
+			}
+			TeamButton.DisplayText = "Team";
+			if (TeamButton.Parent == null)
+			{
+				TeamButton.X = 50f;
+			}
+			else
+			{
+				TeamButton.RelativeX = 50f;
+			}
+			if (TeamButton.Parent == null)
+			{
+				TeamButton.Y = 120f;
+			}
+			else
+			{
+				TeamButton.RelativeY = 120f;
+			}
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
 		}
 		public virtual void AddToManagersBottomUp ()
 		{
+			StoryButton.AddToManagers(mLayer);
+			StoryButton.CurrentState = BeefBall.Entities.Button.VariableState.Disabled;
+			StoryButton.DisplayText = "Story";
+			if (StoryButton.Parent == null)
+			{
+				StoryButton.X = 50f;
+			}
+			else
+			{
+				StoryButton.RelativeX = 50f;
+			}
+			if (StoryButton.Parent == null)
+			{
+				StoryButton.Y = 80f;
+			}
+			else
+			{
+				StoryButton.RelativeY = 80f;
+			}
+			ProjectButton.AddToManagers(mLayer);
+			ProjectButton.CurrentState = BeefBall.Entities.Button.VariableState.Disabled;
+			ProjectButton.DisplayText = "Project";
+			if (ProjectButton.Parent == null)
+			{
+				ProjectButton.X = 50f;
+			}
+			else
+			{
+				ProjectButton.RelativeX = 50f;
+			}
+			if (ProjectButton.Parent == null)
+			{
+				ProjectButton.Y = 40f;
+			}
+			else
+			{
+				ProjectButton.RelativeY = 40f;
+			}
+			QuizButton.AddToManagers(mLayer);
+			QuizButton.CurrentState = BeefBall.Entities.Button.VariableState.Disabled;
+			QuizButton.DisplayText = "Quiz";
+			if (QuizButton.Parent == null)
+			{
+				QuizButton.X = 50f;
+			}
+			else
+			{
+				QuizButton.RelativeX = 50f;
+			}
+			if (QuizButton.Parent == null)
+			{
+				QuizButton.Y = 0f;
+			}
+			else
+			{
+				QuizButton.RelativeY = 0f;
+			}
+			BackButton.AddToManagers(mLayer);
+			BackButton.CurrentState = BeefBall.Entities.Button.VariableState.Disabled;
+			BackButton.DisplayText = "Back";
+			if (BackButton.Parent == null)
+			{
+				BackButton.X = 50f;
+			}
+			else
+			{
+				BackButton.RelativeX = 50f;
+			}
+			if (BackButton.Parent == null)
+			{
+				BackButton.Y = -40f;
+			}
+			else
+			{
+				BackButton.RelativeY = -40f;
+			}
+			TeamButton.AddToManagers(mLayer);
+			TeamButton.CurrentState = BeefBall.Entities.Button.VariableState.Disabled;
+			TeamButton.DisplayText = "Team";
+			if (TeamButton.Parent == null)
+			{
+				TeamButton.X = 50f;
+			}
+			else
+			{
+				TeamButton.RelativeX = 50f;
+			}
+			if (TeamButton.Parent == null)
+			{
+				TeamButton.Y = 120f;
+			}
+			else
+			{
+				TeamButton.RelativeY = 120f;
+			}
 		}
 		public virtual void ConvertToManuallyUpdated ()
 		{
+			StoryButton.ConvertToManuallyUpdated();
+			ProjectButton.ConvertToManuallyUpdated();
+			QuizButton.ConvertToManuallyUpdated();
+			BackButton.ConvertToManuallyUpdated();
+			TeamButton.ConvertToManuallyUpdated();
 		}
 		public static void LoadStaticContent (string contentManagerName)
 		{
@@ -129,6 +401,7 @@ namespace BeefBall.Screens
 				throw new Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
 			}
 			#endif
+			BeefBall.Entities.Button.LoadStaticContent(contentManagerName);
 			CustomLoadStaticContent(contentManagerName);
 		}
 		object GetMember (string memberName)

@@ -19,16 +19,19 @@ using FlatRedBall.Localization;
 using Keys = Microsoft.Xna.Framework.Input.Keys;
 using Vector3 = Microsoft.Xna.Framework.Vector3;
 using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
+using FlatRedBall.Graphics;
 #endif
 
 namespace BeefBall.Screens
 {
 	public partial class About
 	{
-
+        Text aboutText = TextManager.AddText("");
 		void CustomInitialize()
 		{
-
+            BackButton.Click += OnBackButtonClick;
+            BackButton.RollOff += OnBackButtonRollOff;
+            BackButton.RollOn += OnBackButtonRollOn;
 
 		}
 
@@ -40,8 +43,7 @@ namespace BeefBall.Screens
 
 		void CustomDestroy()
 		{
-
-
+            TextManager.RemoveText(aboutText);
 		}
 
         static void CustomLoadStaticContent(string contentManagerName)

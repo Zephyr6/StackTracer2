@@ -6,6 +6,7 @@ Content\Screens\MainMenu\beep.xnb
 Content\AboutSound.xnb
 Content\ExitSound.xnb
 Content\StartSound.xnb
+Content\Entities\GameScreen\Player\hurt.xnb
 Content\Entities\AButton\xbox-button-a.png
 Content\Entities\AButton\XBoxA.scnx
 Content\Entities\Battery\AnimationChainListFile.achx

@@ -624,6 +624,5 @@ namespace BeefBall.Screens
             answerBText.SetColor(250, 250, 250);
             answerAText.SetColor(250, 250, 250);
         }
-
     }
 }

@@ -15,6 +15,11 @@ namespace BeefBall.Screens
         StringBuilder sb = new StringBuilder();
         void OnBackButtonClick (FlatRedBall.Gui.IWindow callingWindow)
         {
+            BackButtonActivity();
+        }
+
+        void BackButtonActivity() 
+        {
             if (toMainMenu)
                 this.MoveToScreen(typeof(MainMenu).FullName);
             else
@@ -22,8 +27,9 @@ namespace BeefBall.Screens
                 ShowButtons();
                 aboutText.DisplayText = "";
                 sb = sb.Clear();
-            }
+            }  
         }
+
         void OnBackButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)
         {
             BackButton.CurrentState = Button.VariableState.Regular;
@@ -33,6 +39,11 @@ namespace BeefBall.Screens
             BackButton.CurrentState = Button.VariableState.Disabled;
         }
         void OnProjectButtonClick (FlatRedBall.Gui.IWindow callingWindow)
+        {
+            ProjectButtonActivity();
+        }
+
+        void ProjectButtonActivity() 
         {
             HideButtons();
             ProjectbuttonText();
@@ -47,6 +58,11 @@ namespace BeefBall.Screens
         }
         void OnQuizButtonClick (FlatRedBall.Gui.IWindow callingWindow)
         {
+            QuizButtonActivity();
+        }
+
+        void QuizButtonActivity() 
+        {
             this.MoveToScreen(typeof(QuizScreenCopy).FullName);
         }
         void OnQuizButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)
@@ -58,6 +74,11 @@ namespace BeefBall.Screens
             QuizButton.CurrentState = Button.VariableState.Disabled;
         }
         void OnStoryButtonClick (FlatRedBall.Gui.IWindow callingWindow)
+        {
+            StoryButtonActivity();
+        }
+
+        void StoryButtonActivity() 
         {
             HideButtons();
             StoryButtonText();
@@ -71,6 +92,11 @@ namespace BeefBall.Screens
             StoryButton.CurrentState = Button.VariableState.Disabled;
         }
         void OnTeamButtonClick (FlatRedBall.Gui.IWindow callingWindow)
+        {
+            TeamButtonActivity();
+        }
+
+        void TeamButtonActivity() 
         {
             HideButtons();
             TeamButtonText();

@@ -26,20 +26,163 @@ namespace BeefBall.Screens
 {
 	public partial class About
 	{
+        enum AboutButtons 
+        {
+            Team,
+            Story,
+            Project,
+            Quiz,
+            Back
+        }
+
+        AboutButtons currentButton = AboutButtons.Team;
+        Xbox360GamePad mGamePad;
+        bool canMove;
+        bool isMousedOver;
+        
         Text aboutText = TextManager.AddText("");
-		void CustomInitialize()
+		
+        void CustomInitialize()
 		{
+            TeamButton.CurrentState = Entities.Button.VariableState.Regular;
+            mGamePad = InputManager.Xbox360GamePads[0];
+
+            canMove = true;
+            FlatRedBallServices.Game.IsMouseVisible = true;
+
             BackButton.Click += OnBackButtonClick;
             BackButton.RollOff += OnBackButtonRollOff;
             BackButton.RollOn += OnBackButtonRollOn;
-
 		}
 
 		void CustomActivity(bool firstTimeCalled)
 		{
+            if (!isMousedOver)
+            {
+                if (canMove)
+                    SelectActivity();
 
+                if (mGamePad.LeftStick.Position.Y == 0)
+                    canMove = true;
+
+                if (currentButton == AboutButtons.Team)
+                {
+                    TeamButton.CurrentState = Entities.Button.VariableState.Regular;
+                    ProjectButton.CurrentState = Entities.Button.VariableState.Disabled;
+                    StoryButton.CurrentState = Entities.Button.VariableState.Disabled;
+                    QuizButton.CurrentState = Entities.Button.VariableState.Disabled;
+                    BackButton.CurrentState = Entities.Button.VariableState.Disabled;
+                }
+                else if (currentButton == AboutButtons.Story)
+                {
+                    TeamButton.CurrentState = Entities.Button.VariableState.Disabled;
+                    ProjectButton.CurrentState = Entities.Button.VariableState.Disabled;
+                    StoryButton.CurrentState = Entities.Button.VariableState.Regular;
+                    QuizButton.CurrentState = Entities.Button.VariableState.Disabled;
+                    BackButton.CurrentState = Entities.Button.VariableState.Disabled;
+                }
+                else if (currentButton == AboutButtons.Project)
+                {
+                    TeamButton.CurrentState = Entities.Button.VariableState.Disabled;
+                    ProjectButton.CurrentState = Entities.Button.VariableState.Regular;
+                    StoryButton.CurrentState = Entities.Button.VariableState.Disabled;
+                    QuizButton.CurrentState = Entities.Button.VariableState.Disabled;
+                    BackButton.CurrentState = Entities.Button.VariableState.Disabled;
+                }
+
+                else if (currentButton == AboutButtons.Quiz)
+                {
+                    TeamButton.CurrentState = Entities.Button.VariableState.Disabled;
+                    ProjectButton.CurrentState = Entities.Button.VariableState.Disabled;
+                    StoryButton.CurrentState = Entities.Button.VariableState.Disabled;
+                    QuizButton.CurrentState = Entities.Button.VariableState.Regular;
+                    BackButton.CurrentState = Entities.Button.VariableState.Disabled;
+                }
+
+                else if (currentButton == AboutButtons.Back)
+                {
+                    TeamButton.CurrentState = Entities.Button.VariableState.Disabled;
+                    ProjectButton.CurrentState = Entities.Button.VariableState.Disabled;
+                    StoryButton.CurrentState = Entities.Button.VariableState.Disabled;
+                    QuizButton.CurrentState = Entities.Button.VariableState.Disabled;
+                    BackButton.CurrentState = Entities.Button.VariableState.Regular;
+                }
+            }
+            else
+            {
+                if (mGamePad.LeftStick.Position.Y != 0)
+                    isMousedOver = false;
+            }
+
+            if (mGamePad.ButtonPushed(Xbox360GamePad.Button.A) || mGamePad.ButtonPushed(Xbox360GamePad.Button.Start))
+            {
+                if (!isMousedOver)
+                {
+                    if (currentButton == AboutButtons.Team)
+                    {
+                        TeamButtonActivity();
+                        Game1.StartGameSFX.Play();
+                    }
+                    else if (currentButton == AboutButtons.Story)
+                    {
+                        StoryButtonActivity();
+                        Game1.AboutGameSFX.Play();
+                    }
+                    else if (currentButton == AboutButtons.Project)
+                    {
+                        ProjectButtonActivity();
+                        Game1.AboutGameSFX.Play();
+                    }
+                    else if (currentButton == AboutButtons.Quiz)
+                    {
+                        QuizButtonActivity();
+                        Game1.AboutGameSFX.Play();
+                    }
+                    else if (currentButton == AboutButtons.Back)
+                    {
+                        BackButtonActivity();
+                        Game1.AboutGameSFX.Play();
+                    }
+                }
+                else
+                    isMousedOver = false;
+
+            }
 
 		}
+
+        void SelectActivity()
+        {
+            if (mGamePad.LeftStick.Position.Y > 0)
+            {
+                if (currentButton == AboutButtons.Team)
+                    currentButton = AboutButtons.Team;
+                else if (currentButton == AboutButtons.Project)
+                    currentButton = AboutButtons.Team;
+                else if (currentButton == AboutButtons.Story)
+                    currentButton = AboutButtons.Team;
+                else if (currentButton == AboutButtons.Quiz)
+                    currentButton = AboutButtons.Team;
+                else if (currentButton == AboutButtons.Back)
+                    currentButton = AboutButtons.Team;
+            }
+            else if (mGamePad.LeftStick.Position.Y < 0)
+            {
+
+                if (currentButton == AboutButtons.Team)
+                    currentButton = AboutButtons.Story;
+                else if (currentButton == AboutButtons.Project)
+                    currentButton = AboutButtons.Story;
+                else if (currentButton == AboutButtons.Story)
+                    currentButton = AboutButtons.Story;
+                else if (currentButton == AboutButtons.Quiz)
+                    currentButton = AboutButtons.Story;
+                else if (currentButton == AboutButtons.Back)
+                    currentButton = AboutButtons.Story;
+            }
+
+            canMove = false;
+        }
 
 		void CustomDestroy()
 		{

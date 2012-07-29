@@ -8,6 +8,9 @@ Content\ExitSound.xnb
 Content\StartSound.xnb
 Content\Entities\AButton\xbox-button-a.png
 Content\Entities\AButton\XBoxA.scnx
+Content\Entities\Battery\AnimationChainListFile.achx
+Content\Entities\Battery\battery.png
+Content\Entities\Battery\SceneFile.scnx
 Content\Entities\BButton\xbox-button-b.png
 Content\Entities\BButton\XBoxB.scnx
 Content\Entities\Button\AnimationChainListFile.achx

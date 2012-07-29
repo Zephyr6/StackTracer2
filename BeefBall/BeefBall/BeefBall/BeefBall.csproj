@@ -122,6 +122,10 @@
     <Compile Include="Entities\AButton.Generated.Event.cs">
       <DependentUpon>AButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Battery.cs" />
+    <Compile Include="Entities\Battery.Generated.cs">
+      <DependentUpon>Battery.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\BButton.cs" />
     <Compile Include="Entities\BButton.Event.cs">
       <DependentUpon>BButton.cs</DependentUpon>

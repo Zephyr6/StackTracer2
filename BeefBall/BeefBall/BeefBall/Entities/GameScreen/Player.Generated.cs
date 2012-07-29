@@ -90,10 +90,10 @@ namespace BeefBall.Entities.GameScreen
 						ChainName = "L_Idle";
 						break;
 					case  VariableState.R_Walking:
-						ChainName = "R_Idle";
+						ChainName = "R_Walking";
 						break;
 					case  VariableState.L_Walking:
-						ChainName = "L_Idle";
+						ChainName = "L_Walking";
 						break;
 					case  VariableState.L_Attack:
 						ChainName = "L_1_Punch";

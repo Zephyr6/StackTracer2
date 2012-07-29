@@ -56,6 +56,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>XBoxA</Name>
     </None>
+    <None Include="Entities\Battery\AnimationChainListFile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="Entities\Battery\battery.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>battery</Name>
+    </None>
+    <None Include="Entities\Battery\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
     <None Include="Entities\BButton\xbox-button-b.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>xbox-button-b</Name>

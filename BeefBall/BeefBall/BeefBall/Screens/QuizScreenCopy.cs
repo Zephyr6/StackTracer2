@@ -36,6 +36,7 @@ namespace BeefBall.Screens
         Text answerYText = TextManager.AddText("");
         Text answerBText = TextManager.AddText("");
         Text answerAText = TextManager.AddText("");
+        Text keyText = TextManager.AddText("");
         Xbox360GamePad GamePad;
         static Random rnd;
 
@@ -74,6 +75,7 @@ namespace BeefBall.Screens
             TextManager.RemoveText(answerBText);
             TextManager.RemoveText(answerXText);
             TextManager.RemoveText(answerYText);
+            TextManager.RemoveText(keyText);
 
         }
 

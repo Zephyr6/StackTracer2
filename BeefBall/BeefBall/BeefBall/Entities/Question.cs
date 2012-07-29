@@ -12,6 +12,7 @@ namespace BeefBall.Entities
         public string WrongAnswer1 { get; set; }
         public string WrongAnswer2 { get; set; }
         public string WrongAnswer3 { get; set; }
+        public int Choice { get; set; }
         public int answerIndex { get; private set; }
         public List<string> answerList = new List<string>();
         public static Random rdm = new Random();

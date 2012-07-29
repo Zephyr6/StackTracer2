@@ -12,6 +12,7 @@ namespace BeefBall.Screens
     public partial class QuizScreenCopy
     {
         int questionIndex = 0;
+        int answerIndex = 0;
         int numCorrect = 0;
         double percent = 0;
         bool canRollOver = true;
@@ -19,6 +20,7 @@ namespace BeefBall.Screens
         bool lastScreen = false;
         bool menuOptionsScreen = false;
         bool endQuizOptions = false;
+        bool reviewQuestions = false;
         List<Question> answeredQuestions = new List<Question>();
 
         void StartButtonPress()
@@ -181,7 +183,7 @@ namespace BeefBall.Screens
 
         void AActivity()
         {
-            if (questionIndex < 37 && canClick && !endQuizOptions)
+            if (questionIndex < 37 && canClick && !endQuizOptions && !reviewQuestions)
             {
                 if (IsRightAnswer(3))
                 {
@@ -193,10 +195,15 @@ namespace BeefBall.Screens
                     answerAText.SetColor(255, 0, 0);
                 }
 
-                ButtonPressCommonActivity();
+                ButtonPressCommonActivity(3);
             }
 
             if (endQuizOptions) 
+            {
+                //Do nothing
+            }
+
+            if (reviewQuestions) 
             {
             
             }
@@ -204,7 +211,7 @@ namespace BeefBall.Screens
 
         void BActivity()
         {
-            if (questionIndex < 37 && canClick && !endQuizOptions)
+            if (questionIndex < 37 && canClick && !endQuizOptions && !reviewQuestions)
             {
                 if (IsRightAnswer(2))
                 {
@@ -215,18 +222,23 @@ namespace BeefBall.Screens
                 {
                     answerBText.SetColor(255, 0, 0);
                 }
-                ButtonPressCommonActivity();
+                ButtonPressCommonActivity(2);
             }
 
             if (endQuizOptions)
             {
+                ReviewQuiz();
+            }
 
+            if (reviewQuestions) 
+            {
+            
             }
         }
 
         void XActivity()
         {
-            if (questionIndex < 37 && canClick && !menuOptionsScreen && !endQuizOptions)
+            if (questionIndex < 37 && canClick && !menuOptionsScreen && !endQuizOptions && !reviewQuestions)
             {
                 if (IsRightAnswer(0))
                 {
@@ -237,7 +249,7 @@ namespace BeefBall.Screens
                 {
                     answerXText.SetColor(255, 0, 0);
                 }
-                ButtonPressCommonActivity();
+                ButtonPressCommonActivity(0);
             }
 
             if (menuOptionsScreen) 
@@ -249,11 +261,16 @@ namespace BeefBall.Screens
             {
                 this.MoveToScreen(typeof(MainMenu).FullName);
             }
+
+            if (reviewQuestions) 
+            {
+            
+            }
         }
 
         void YActivity()
         {
-            if (questionIndex < 37 && canClick && !menuOptionsScreen && !endQuizOptions)
+            if (questionIndex < 37 && canClick && !menuOptionsScreen && !endQuizOptions && !reviewQuestions)
             {
                 if (IsRightAnswer(1))
                 {
@@ -264,7 +281,7 @@ namespace BeefBall.Screens
                 {
                     answerYText.SetColor(255, 0, 0);
                 }
-                ButtonPressCommonActivity();
+                ButtonPressCommonActivity(1);
             }
             if (menuOptionsScreen)
             {
@@ -278,10 +295,16 @@ namespace BeefBall.Screens
             {
                 this.MoveToScreen(typeof(QuizScreenCopy).FullName);
             }
+
+            if (reviewQuestions) 
+            {
+            
+            }
         }
 
-        void ButtonPressCommonActivity()
+        void ButtonPressCommonActivity(int choice)
         {
+            AddAnswerToList(choice);
             CollapseWrongAnswers();
             questionIndex++;
             UpdateNumCorrect();
@@ -397,9 +420,10 @@ namespace BeefBall.Screens
             }
         }
 
-        void AddAnswerToList() 
+        void AddAnswerToList(int choice) 
         {
-             
+            questions[questionIndex].Choice = choice;
+            answeredQuestions.Add(questions[questionIndex]);
         }
 
         void ResetTextColors()
@@ -442,6 +466,18 @@ namespace BeefBall.Screens
             }
         }
 
+        public bool IsRightAnswerReview(int index) 
+        {
+            if (answeredQuestions[answerIndex].answerIndex == index)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }   
+        }
+
 
         void NextQuestionVisible()
         {
@@ -468,6 +504,98 @@ namespace BeefBall.Screens
             this.YButtonInst.Visible = false;
             this.BButtonInst.Visible = false;
             this.AButtonInst.Visible = false;
+        }
+
+        void ReviewQuiz() 
+        {
+            InflateAllAnswers();
+            LeftBumperInstance.Visible = false;
+            SetUpKey();
+            DisplayReview();
+            //Change button actions
+            //Move through list
+            //Highlight Right answer and wrong answer if chosen
+        }
+
+        void SetUpKey() 
+        {
+            keyText.DisplayText = string.Format("X) Previous Question\nY) Main Menu\nB) Next Question\nA) Restart Quiz");
+            keyText.X = 90;
+            keyText.Y = -60;
+        }
+        
+        void DisplayReview()
+        {
+            int choice = answeredQuestions[answerIndex].Choice;
+            questionText.DisplayText = answeredQuestions[answerIndex].QuestionText;
+            questionText.Scale = 8f;
+            questionText.Spacing = 8;
+            questionText.X = -200;
+            questionText.Y = 100;
+
+            answerXText.DisplayText = string.Format("X)   {0}", answeredQuestions[answerIndex].answerList[0]);
+            answerXText.Scale = 6f;
+            answerXText.Spacing = 6;
+            answerXText.X = -130;
+            answerXText.Y = 60;
+
+            answerYText.DisplayText = string.Format("Y)   {0}", answeredQuestions[answerIndex].answerList[1]);
+            answerYText.Scale = 6f;
+            answerYText.Spacing = 6;
+            answerYText.X = -130;
+            answerYText.Y = 20;
+
+            answerBText.DisplayText = string.Format("B)   {0}", answeredQuestions[answerIndex].answerList[2]);
+            answerBText.Scale = 6f;
+            answerBText.Spacing = 6;
+            answerBText.X = -130;
+            answerBText.Y = -20;
+
+            answerAText.DisplayText = string.Format("A)   {0}", answeredQuestions[answerIndex].answerList[3]);
+            answerAText.Scale = 6f;
+            answerAText.Spacing = 6;
+            answerAText.X = -130;
+            answerAText.Y = -60;
+
+            if (IsRightAnswerReview(0)) 
+            {
+                answerXText.SetColor(0, 255, 0);
+            }
+
+            if (IsRightAnswerReview(1))
+            {
+                answerYText.SetColor(0, 255, 0);
+            }
+
+            if (IsRightAnswerReview(2))
+            {
+                answerBText.SetColor(0, 255, 0);
+            }
+
+            if (IsRightAnswerReview(3))
+            {
+                answerAText.SetColor(0, 255, 0);
+            }
+
+            if (!IsRightAnswerReview(choice))
+            {
+                if(choice == 0)
+                {
+                    answerXText.SetColor(255,0,0);
+                }
+                if(choice == 1)
+                {
+                    answerYText.SetColor(255,0,0);
+                }   
+                if(choice == 2)
+                {
+                    answerBText.SetColor(255,0,0);
+                }   
+                if(choice == 3)
+                {
+                    answerAText.SetColor(255, 0, 0);
+                }   
+            }
         }
 
         void UpdateNumCorrect()

@@ -198,14 +198,14 @@ namespace BeefBall.Screens
                 ButtonPressCommonActivity(3);
             }
 
-            if (endQuizOptions) 
+            if (endQuizOptions && !reviewQuestions) 
             {
                 //Do nothing
             }
 
             if (reviewQuestions) 
             {
-            
+                this.MoveToScreen(typeof(QuizScreenCopy).FullName);
             }
         }
 
@@ -225,14 +225,18 @@ namespace BeefBall.Screens
                 ButtonPressCommonActivity(2);
             }
 
-            if (endQuizOptions)
+            if (endQuizOptions && !reviewQuestions)
             {
                 ReviewQuiz();
             }
 
             if (reviewQuestions) 
             {
-            
+                if (answerIndex < answeredQuestions.Count - 1) 
+                {
+                    answerIndex++;
+                    DisplayReview();
+                }
             }
         }
 
@@ -252,19 +256,23 @@ namespace BeefBall.Screens
                 ButtonPressCommonActivity(0);
             }
 
-            if (menuOptionsScreen) 
+            if (menuOptionsScreen && !reviewQuestions) 
             {
                 this.MoveToScreen(typeof(MainMenu).FullName);
             }
 
-            if (endQuizOptions)
+            if (endQuizOptions && !reviewQuestions)
             {
                 this.MoveToScreen(typeof(MainMenu).FullName);
             }
 
             if (reviewQuestions) 
             {
-            
+                if (answerIndex > 0)
+                {
+                    answerIndex--;
+                    DisplayReview();
+                }
             }
         }
 
@@ -291,14 +299,14 @@ namespace BeefBall.Screens
                 NextQuestionVisible();
             }
 
-            if (endQuizOptions)
+            if (endQuizOptions && !reviewQuestions)
             {
                 this.MoveToScreen(typeof(QuizScreenCopy).FullName);
             }
 
             if (reviewQuestions) 
             {
-            
+                this.MoveToScreen(typeof(MainMenu).FullName);
             }
         }
 
@@ -508,6 +516,7 @@ namespace BeefBall.Screens
 
         void ReviewQuiz() 
         {
+            reviewQuestions = true;
             InflateAllAnswers();
             LeftBumperInstance.Visible = false;
             SetUpKey();

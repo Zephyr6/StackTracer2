@@ -150,6 +150,14 @@
     <Compile Include="Entities\CapacitorPlatform.Generated.cs">
       <DependentUpon>CapacitorPlatform.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\CapacitorPlatformCopy.cs" />
+    <Compile Include="Entities\CapacitorPlatformCopy.Generated.cs">
+      <DependentUpon>CapacitorPlatformCopy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CapacitorPlatformCopyCopy.cs" />
+    <Compile Include="Entities\CapacitorPlatformCopyCopy.Generated.cs">
+      <DependentUpon>CapacitorPlatformCopyCopy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\GameScreen\Enemy.cs" />
     <Compile Include="Entities\GameScreen\Enemy.Generated.cs">
       <DependentUpon>Enemy.cs</DependentUpon>
@@ -241,6 +249,10 @@
     <Compile Include="Screens\About.Generated.Event.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\GameOver.cs" />
+    <Compile Include="Screens\GameOver.Generated.cs">
+      <DependentUpon>GameOver.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\GameScreen.cs" />
     <Compile Include="Screens\GameScreen.Generated.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
@@ -248,6 +260,22 @@
     <Compile Include="Screens\GameScreenCopy.cs" />
     <Compile Include="Screens\GameScreenCopy.Generated.cs">
       <DependentUpon>GameScreenCopy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\GameScreenCopyCopyCopy.cs" />
+    <Compile Include="Screens\GameScreenCopyCopyCopy.Generated.cs">
+      <DependentUpon>GameScreenCopyCopyCopy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\GameScreenCopyCopyCopyCopy.cs" />
+    <Compile Include="Screens\GameScreenCopyCopyCopyCopy.Generated.cs">
+      <DependentUpon>GameScreenCopyCopyCopyCopy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\GameScreenCopyCopyCopyCopyCopy.cs" />
+    <Compile Include="Screens\GameScreenCopyCopyCopyCopyCopy.Generated.cs">
+      <DependentUpon>GameScreenCopyCopyCopyCopyCopy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\GameScreenCopyCopyCopyCopyCopyCopy.cs" />
+    <Compile Include="Screens\GameScreenCopyCopyCopyCopyCopyCopy.Generated.cs">
+      <DependentUpon>GameScreenCopyCopyCopyCopyCopyCopy.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\MainMenu.cs" />
     <Compile Include="Screens\MainMenu.Event.cs">

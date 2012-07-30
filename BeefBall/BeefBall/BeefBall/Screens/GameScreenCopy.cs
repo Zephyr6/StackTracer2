@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using FlatRedBall;
 using FlatRedBall.Input;
+using Microsoft.Xna.Framework.Media;
 using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
@@ -23,20 +24,25 @@ using Keys = Microsoft.Xna.Framework.Input.Keys;
 using Vector3 = Microsoft.Xna.Framework.Vector3;
 using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 using FlatRedBall.Math;
+using Microsoft.Xna.Framework.Audio;
 #endif
 
 namespace BeefBall.Screens
 {
     public partial class GameScreenCopy
     {
+        public static SoundEffect BGMusic;
         List<Entities.GameScreen.Enemy> enemies;
         List<Entities.CapacitorPlatform> capacitorPlatforms;
         List<Entities.Battery> playerBatteries;
+        static string songManager = "ContentManager";
+        static Song song = FlatRedBallServices.Load<Song>(@"Content/15th Night - Night Tower", songManager);
 
         void CustomInitialize()
         {
             SpriteManager.Camera.MinimumX = 100;
             SpriteManager.Camera.MinimumY = -93;
+            Microsoft.Xna.Framework.Media.MediaPlayer.Play(song);
 
             SpriteManager.Camera.AttachTo(PlayerInstance.Body, true);
             //SpriteManager.Camera.BackgroundColor = Color.DeepSkyBlue;
@@ -187,6 +193,8 @@ namespace BeefBall.Screens
 
             enemies.Clear();
             capacitorPlatforms.Clear();
+            Microsoft.Xna.Framework.Media.MediaPlayer.Stop();
+
 
         }
 

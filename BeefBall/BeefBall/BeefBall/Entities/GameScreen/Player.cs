@@ -43,8 +43,6 @@ namespace BeefBall.Entities.GameScreen
         int mHealth;
         public int Health { get { return mHealth; } set { mHealth = value; } }
 
-        int maxSpeed = 80;
-
         public int PlayerIndex
         {
             set
@@ -84,16 +82,12 @@ namespace BeefBall.Entities.GameScreen
 
         private void MoveActivity()
         {
-            Velocity.X += (Velocity.X > 0) ? -1 : 1;
+            Velocity.X = 0;
+
             // Move left/right
             if (!IsAttacking() || CurrentState == VariableState.Jumping)
             {
-                if (Math.Abs(Velocity.X) <= maxSpeed)
-                    Velocity.X += mGamePad.LeftStick.Position.X * MovementSpeed;
-                else
-                    Velocity.X += (Velocity.X > 0) ? -10 : 10;
-
-                
+                Velocity.X = mGamePad.LeftStick.Position.X * MovementSpeed;
 
                 // Animate
                 if (CurrentState != VariableState.Jumping)
@@ -124,8 +118,8 @@ namespace BeefBall.Entities.GameScreen
 
             AttackActivity();
 
-            if (mGamePad.ButtonDown(Xbox360GamePad.Button.Y))
-                maxSpeed++;
+            if (mGamePad.ButtonPushed(Xbox360GamePad.Button.Y))
+                Console.WriteLine(InnerExScene.CurrentChain.TotalLength);
         }
 
         private bool IsAttacking()
@@ -245,7 +239,7 @@ namespace BeefBall.Entities.GameScreen
 
         void UpdateDebugText()
         {
-            debugText.DisplayText = string.Format("State: {0}\nFacing: {1}\nHealth: {2}\nmaxSpeed: {3}", CurrentState, GetFacing(), Health, maxSpeed);
+            debugText.DisplayText = string.Format("State: {0}\nFacing: {1}\nHealth: {2}", CurrentState, GetFacing(), Health);
         }
 
         public void Hurt(double damage, int dir)
@@ -255,8 +249,7 @@ namespace BeefBall.Entities.GameScreen
                 timeHurt = TimeManager.CurrentTime;
                 Health--;
                 hurt.Play();
-                Velocity.X = (dir == Game1.RIGHT) ? -40 : 40;
-                Velocity.Y += 100;
+                Velocity.X = (dir == Game1.RIGHT) ? -1000 : 1000;
 
                 if (dir == Game1.LEFT)
                     CurrentState = VariableState.L_Hurt;

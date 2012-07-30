@@ -19,17 +19,19 @@ using FlatRedBall.Localization;
 using Keys = Microsoft.Xna.Framework.Input.Keys;
 using Vector3 = Microsoft.Xna.Framework.Vector3;
 using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
+using Microsoft.Xna.Framework.Media;
 #endif
 
 namespace BeefBall.Screens
 {
 	public partial class GameScreenCopyCopyCopy
 	{
-
+        static string songManager = "ContentManager";
+        static Song song = FlatRedBallServices.Load<Song>(@"Content/Dragonfly", songManager);
+        
 		void CustomInitialize()
 		{
-
-
+            Microsoft.Xna.Framework.Media.MediaPlayer.Play(song);
 		}
 
 		void CustomActivity(bool firstTimeCalled)
@@ -40,7 +42,7 @@ namespace BeefBall.Screens
 
 		void CustomDestroy()
 		{
-
+            Microsoft.Xna.Framework.Media.MediaPlayer.Stop();
 
 		}
 

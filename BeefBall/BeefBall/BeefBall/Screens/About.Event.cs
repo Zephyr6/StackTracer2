@@ -28,7 +28,8 @@ namespace BeefBall.Screens
                 ShowButtons();
                 clearText();
                 sb = sb.Clear();
-            }  
+            }
+            Game1.BeepSFX.Play();
         }
 
         void OnBackButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)
@@ -64,6 +65,7 @@ namespace BeefBall.Screens
 
         void QuizButtonActivity() 
         {
+            Game1.BeepSFX.Play();
             this.MoveToScreen(typeof(QuizScreenCopy).FullName);
         }
         void OnQuizButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)

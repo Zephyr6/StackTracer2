@@ -83,9 +83,9 @@ namespace BeefBall.Screens
 			TeamButton.Name = "TeamButton";
 			BackButton.Click += OnBackClick;
 			BackButton.Click += OnBackClickTunnel;
-
+			BackButton.RollOff += OnBackRollOff;
 			BackButton.RollOff += OnBackRollOffTunnel;
-
+			BackButton.RollOn += OnBackRollOn;
 			BackButton.RollOn += OnBackRollOnTunnel;
 			ProjectButton.Click += OnProjectButtonClick;
 			ProjectButton.Click += OnProjectButtonClickTunnel;

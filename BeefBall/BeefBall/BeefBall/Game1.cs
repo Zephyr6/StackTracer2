@@ -56,7 +56,7 @@ namespace BeefBall
             Renderer.UseRenderTargets = false;
             FlatRedBallServices.InitializeFlatRedBall(this, graphics);
             CameraSetup.SetupCamera(SpriteManager.Camera);
-            GlobalContent.Initialize();
+			GlobalContent.Initialize();
 
             // Are there any gamepads connected?
             if (FlatRedBall.Input.InputManager.Xbox360GamePads[0].IsConnected == false)
@@ -65,7 +65,7 @@ namespace BeefBall
             }
             GamePad = InputManager.Xbox360GamePads[0];
 
-            Screens.ScreenManager.Start(typeof(BeefBall.Screens.MainMenu).FullName);
+			Screens.ScreenManager.Start(typeof(BeefBall.Screens.MainMenu).FullName);
 
             base.Initialize();
 
@@ -81,14 +81,22 @@ namespace BeefBall
             Levels.Add(typeof(BeefBall.Screens.GameScreenCopy).FullName);
         }
 
-        public static string GetNextLevel()
-        {
-            currentLevel++;
-            if (currentLevel > Levels.Count)
-                return typeof(BeefBall.Screens.MainMenu).FullName;
-            else
-                return Levels[currentLevel];
-        }
+         public static string GetNextLevel()
+         {
+             currentLevel++;
+            if (currentLevel >= Levels.Count)
+            {
+                currentLevel = -1;
+                 return typeof(BeefBall.Screens.MainMenu).FullName;
+            }
+             else
+                 return Levels[currentLevel];
+         }
+
+         public static void ResetLevel()
+         {
+             currentLevel = 0;
+         }
 
         protected override void Update(GameTime gameTime)
         {

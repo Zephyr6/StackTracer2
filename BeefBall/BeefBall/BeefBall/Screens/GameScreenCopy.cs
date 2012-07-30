@@ -31,6 +31,7 @@ namespace BeefBall.Screens
     {
         List<Entities.GameScreen.Enemy> enemies;
         List<Entities.CapacitorPlatform> capacitorPlatforms;
+        List<Entities.Battery> playerBatteries;
 
         void CustomInitialize()
         {
@@ -38,6 +39,7 @@ namespace BeefBall.Screens
             SpriteManager.Camera.MinimumY = -93;
 
             SpriteManager.Camera.AttachTo(PlayerInstance.Body, true);
+            //SpriteManager.Camera.BackgroundColor = Color.DeepSkyBlue;
 
             enemies = new List<Entities.GameScreen.Enemy>();
             enemies.Add(EnemyInstance);
@@ -56,12 +58,45 @@ namespace BeefBall.Screens
             PlayerInstance.enemies = enemies;
 
             Game1.Player = PlayerInstance;
+
+            playerBatteries = new List<Entities.Battery>();
+            for (int i = 0; i < PlayerInstance.MaxBatteries; i++)
+            {
+                AddBattery(4 * (i + 1));
+            }
+        }
+
+        void AddBattery(int max)
+        {
+            Console.WriteLine("MAX: " + max);
+            Entities.Battery bat = new Entities.Battery(ContentManagerName, true);
+            bat.posX = -175.1F + (playerBatteries.Count * 40);
+            bat.posY = 135.1F;
+            bat.max = max;
+            playerBatteries.Add(bat);
         }
 
         void CustomActivity(bool firstTimeCalled)
         {
             CollisionActivity();
             CleanUpActivity();
+
+            if (Game1.GamePad.ButtonPushed(Xbox360GamePad.Button.Y))
+                PlayerInstance.Health--;
+
+            foreach (Entities.Battery bat in playerBatteries)
+                bat.Activity();
+
+            if (Game1.Player.Health <= 0)
+            {
+                SpriteManager.Camera.Detach();
+                SpriteManager.Camera.X = 0;
+                SpriteManager.Camera.Y = 0;
+                SpriteManager.Camera.Z = 40;
+                SpriteManager.Camera.MinimumX = -1000;
+                SpriteManager.Camera.MinimumY = -1000;
+                this.MoveToScreen(typeof(GameOver).FullName);
+            }
         }
 
         private void CleanUpActivity()
@@ -146,6 +181,9 @@ namespace BeefBall.Screens
 
             foreach (Entities.CapacitorPlatform cap in capacitorPlatforms)
                 cap.Destroy();
+
+            foreach (Entities.Battery bat in playerBatteries)
+                bat.Destroy();
 
             enemies.Clear();
             capacitorPlatforms.Clear();

@@ -239,6 +239,14 @@ namespace BeefBall.Screens
             
         }
     
+        void OnBackRollOff (FlatRedBall.Gui.IWindow callingWindow)
+        {
+            
+        }
+        void OnBackRollOn (FlatRedBall.Gui.IWindow callingWindow)
+        {
+            
+        }
 
 	}
 }

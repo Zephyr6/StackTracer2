@@ -13,9 +13,9 @@
   <Camera>
     <X>0</X>
     <Y>0</Y>
-    <Z>-40</Z>
-    <Orthogonal>true</Orthogonal>
-    <OrthogonalHeight>2088.568</OrthogonalHeight>
+    <Z>-929.0066</Z>
+    <Orthogonal>false</Orthogonal>
+    <OrthogonalHeight>600</OrthogonalHeight>
     <OrthogonalWidth>-1</OrthogonalWidth>
     <NearClipPlane>1</NearClipPlane>
     <FarClipPlane>1000</FarClipPlane>
@@ -26,7 +26,7 @@
   <FilesToMakeDotDotSlashRelative />
   <TextureDisplayRegionsList>
     <TextureDisplayRegionsSave>
-      <TextureName>capacitor.png</TextureName>
+      <TextureName>capacitorgreen.png</TextureName>
       <DisplayRegions />
     </TextureDisplayRegionsSave>
   </TextureDisplayRegionsList>

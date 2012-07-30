@@ -35,8 +35,12 @@ namespace BeefBall.Screens
 
         void CustomInitialize()
         {
-            SpriteManager.Camera.MinimumX = 100;
-            SpriteManager.Camera.MinimumY = -93;
+            //SpriteManager.Camera.MinimumX = 100;
+            //SpriteManager.Camera.MinimumY = -93;
+
+            SpriteManager.Camera.X = 120;
+            SpriteManager.Camera.Y = -10;
+
 
             SpriteManager.Camera.AttachTo(PlayerInstance.Body, true);
             //SpriteManager.Camera.BackgroundColor = Color.DeepSkyBlue;
@@ -81,11 +85,28 @@ namespace BeefBall.Screens
             CollisionActivity();
             CleanUpActivity();
 
+            SpriteManager.Camera.X += Game1.GamePad.RightStick.Position.X;
+            SpriteManager.Camera.Y += Game1.GamePad.RightStick.Position.Y;
+
+            if (Game1.GamePad.ButtonPushed(Xbox360GamePad.Button.RightStick))
+                Console.WriteLine("X: {0} Y: {1}", SpriteManager.Camera.X, SpriteManager.Camera.Y);
+
             if (Game1.GamePad.ButtonPushed(Xbox360GamePad.Button.Y))
                 PlayerInstance.Health--;
 
             foreach (Entities.Battery bat in playerBatteries)
                 bat.Activity();
+
+            if (Game1.Player.Health <= 0)
+            {
+                SpriteManager.Camera.Detach();
+                SpriteManager.Camera.X = 0;
+                SpriteManager.Camera.Y = 0;
+                SpriteManager.Camera.Z = 40;
+                SpriteManager.Camera.MinimumX = -1000;
+                SpriteManager.Camera.MinimumY = -1000;
+                this.MoveToScreen(typeof(GameOver).FullName);
+            }
         }
 
         private void CleanUpActivity()

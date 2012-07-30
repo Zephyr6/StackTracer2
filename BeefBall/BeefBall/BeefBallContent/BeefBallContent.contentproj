@@ -104,9 +104,25 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Capacitor</Name>
     </None>
+    <None Include="Entities\CapacitorPlatform\capacitorblue.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>capacitorblue</Name>
+    </None>
     <None Include="Entities\CapacitorPlatform\CapacitorCollisionFile.shcx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>CapacitorCollisionFile</Name>
+    </None>
+    <None Include="Entities\CapacitorPlatform\capacitorgreen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>capacitorgreen</Name>
+    </None>
+    <None Include="Entities\CapacitorPlatform\SceneFile2.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile2</Name>
+    </None>
+    <None Include="Entities\CapacitorPlatform\SceneFile1.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile1</Name>
     </None>
     <None Include="Entities\CapacitorPlatform\SceneFile.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -42,7 +42,7 @@ using Model = Microsoft.Xna.Framework.Graphics.Model;
 
 namespace BeefBall.Entities
 {
-	public partial class CapacitorPlatform : PositionedObject, IDestroyable
+	public partial class CapacitorPlatformCopy : PositionedObject, IDestroyable
 	{
         // This is made global so that static lazy-loaded content can access it.
         public static string ContentManagerName
@@ -59,7 +59,7 @@ namespace BeefBall.Entities
 		static bool mHasRegisteredUnload = false;
 		static bool IsStaticContentLoaded = false;
 		private static Texture2D Capacitor;
-		private static Scene SceneFile;
+		private static Scene SceneFile1;
 		private static ShapeCollection CapacitorCollisionFile;
 		
 		private FlatRedBall.Sprite CapacitorScn;
@@ -71,17 +71,18 @@ namespace BeefBall.Entities
 				return mCollision;
 			}
 		}
+		public float followAmount = 0.3f;
 		public int Index { get; set; }
 		public bool Used { get; set; }
 		protected Layer LayerProvidedByContainer = null;
 
-        public CapacitorPlatform(string contentManagerName) :
+        public CapacitorPlatformCopy(string contentManagerName) :
             this(contentManagerName, true)
         {
         }
 
 
-        public CapacitorPlatform(string contentManagerName, bool addToManagers) :
+        public CapacitorPlatformCopy(string contentManagerName, bool addToManagers) :
 			base()
 		{
 			// Don't delete this:
@@ -94,7 +95,7 @@ namespace BeefBall.Entities
 		{
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
-			CapacitorScn = SceneFile.Sprites.FindByName("capacitor1").Clone();
+			CapacitorScn = SceneFile1.Sprites.FindByName("capacitor1").Clone();
 			mCollision = CapacitorCollisionFile.Polygons.FindByName("Polygon1").Clone();
 			
 			PostInitialize();
@@ -152,6 +153,14 @@ namespace BeefBall.Entities
 				CapacitorScn.CopyAbsoluteToRelative();
 				CapacitorScn.AttachTo(this, false);
 			}
+			if (CapacitorScn.Parent == null)
+			{
+				CapacitorScn.Z = -10f;
+			}
+			else
+			{
+				CapacitorScn.RelativeZ = -10f;
+			}
 			if (mCollision!= null && mCollision.Parent == null)
 			{
 				mCollision.CopyAbsoluteToRelative();
@@ -161,6 +170,7 @@ namespace BeefBall.Entities
 			X = 0f;
 			Y = 0f;
 			Z = 0f;
+			followAmount = 0.3f;
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
 		}
 		public virtual void AddToManagersBottomUp (Layer layerToAddTo)
@@ -181,6 +191,14 @@ namespace BeefBall.Entities
 			RotationY = 0;
 			RotationZ = 0;
 			SpriteManager.AddToLayer(CapacitorScn, layerToAddTo);
+			if (CapacitorScn.Parent == null)
+			{
+				CapacitorScn.Z = -10f;
+			}
+			else
+			{
+				CapacitorScn.RelativeZ = -10f;
+			}
 			ShapeManager.AddToLayer(mCollision, layerToAddTo);
 			mCollision.Visible = false;
 			X = oldX;
@@ -216,7 +234,7 @@ namespace BeefBall.Entities
 				{
 					if (!mHasRegisteredUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 					{
-						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("CapacitorPlatformStaticUnload", UnloadStaticContent);
+						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("CapacitorPlatformCopyStaticUnload", UnloadStaticContent);
 						mHasRegisteredUnload = true;
 					}
 				}
@@ -226,11 +244,11 @@ namespace BeefBall.Entities
 					registerUnload = true;
 				}
 				Capacitor = FlatRedBallServices.Load<Texture2D>(@"content/entities/capacitorplatform/capacitor.png", ContentManagerName);
-				if (!FlatRedBallServices.IsLoaded<Scene>(@"content/entities/capacitorplatform/scenefile.scnx", ContentManagerName))
+				if (!FlatRedBallServices.IsLoaded<Scene>(@"content/entities/capacitorplatform/scenefile1.scnx", ContentManagerName))
 				{
 					registerUnload = true;
 				}
-				SceneFile = FlatRedBallServices.Load<Scene>(@"content/entities/capacitorplatform/scenefile.scnx", ContentManagerName);
+				SceneFile1 = FlatRedBallServices.Load<Scene>(@"content/entities/capacitorplatform/scenefile1.scnx", ContentManagerName);
 				if (!FlatRedBallServices.IsLoaded<ShapeCollection>(@"content/entities/capacitorplatform/capacitorcollisionfile.shcx", ContentManagerName))
 				{
 					registerUnload = true;
@@ -242,7 +260,7 @@ namespace BeefBall.Entities
 					{
 						if (!mHasRegisteredUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 						{
-							FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("CapacitorPlatformStaticUnload", UnloadStaticContent);
+							FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("CapacitorPlatformCopyStaticUnload", UnloadStaticContent);
 							mHasRegisteredUnload = true;
 						}
 					}
@@ -258,10 +276,10 @@ namespace BeefBall.Entities
 			{
 				Capacitor= null;
 			}
-			if (SceneFile != null)
+			if (SceneFile1 != null)
 			{
-				SceneFile.RemoveFromManagers(ContentManagerName != "Global");
-				SceneFile= null;
+				SceneFile1.RemoveFromManagers(ContentManagerName != "Global");
+				SceneFile1= null;
 			}
 			if (CapacitorCollisionFile != null)
 			{
@@ -275,8 +293,8 @@ namespace BeefBall.Entities
 			{
 				case  "Capacitor":
 					return Capacitor;
-				case  "SceneFile":
-					return SceneFile;
+				case  "SceneFile1":
+					return SceneFile1;
 				case  "CapacitorCollisionFile":
 					return CapacitorCollisionFile;
 			}
@@ -288,8 +306,8 @@ namespace BeefBall.Entities
 			{
 				case  "Capacitor":
 					return Capacitor;
-				case  "SceneFile":
-					return SceneFile;
+				case  "SceneFile1":
+					return SceneFile1;
 				case  "CapacitorCollisionFile":
 					return CapacitorCollisionFile;
 			}
@@ -312,7 +330,7 @@ namespace BeefBall.Entities
 	
 	
 	// Extra classes
-	public static class CapacitorPlatformExtensionMethods
+	public static class CapacitorPlatformCopyExtensionMethods
 	{
 	}
 	

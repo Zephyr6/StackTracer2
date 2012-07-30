@@ -15,7 +15,7 @@
     <Y>0</Y>
     <Z>-40</Z>
     <Orthogonal>true</Orthogonal>
-    <OrthogonalHeight>2088.568</OrthogonalHeight>
+    <OrthogonalHeight>1268.14722</OrthogonalHeight>
     <OrthogonalWidth>-1</OrthogonalWidth>
     <NearClipPlane>1</NearClipPlane>
     <FarClipPlane>1000</FarClipPlane>
@@ -26,7 +26,7 @@
   <FilesToMakeDotDotSlashRelative />
   <TextureDisplayRegionsList>
     <TextureDisplayRegionsSave>
-      <TextureName>capacitor.png</TextureName>
+      <TextureName>capacitorblue.png</TextureName>
       <DisplayRegions />
     </TextureDisplayRegionsSave>
   </TextureDisplayRegionsList>

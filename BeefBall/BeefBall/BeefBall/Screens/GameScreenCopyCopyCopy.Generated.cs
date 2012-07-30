@@ -36,7 +36,7 @@ using FlatRedBall.Math;
 
 namespace BeefBall.Screens
 {
-	public partial class GameScreen : Screen
+	public partial class GameScreenCopyCopyCopy : Screen
 	{
 		// Generated Fields
 		#if DEBUG
@@ -74,22 +74,9 @@ namespace BeefBall.Screens
 		private BeefBall.Entities.CapacitorPlatform CapacitorPlatformInstance8;
 		private PositionedObjectList<HealthBar> HealthBarList;
 		private BeefBall.Entities.ToQuiz ToQuizInstance;
-		private PositionedObjectList<CapacitorPlatformCopy> capList;
-		private BeefBall.Entities.CapacitorPlatformCopy CapacitorPlatformCopy1;
-		private BeefBall.Entities.CapacitorPlatformCopy CapacitorPlatformCopy2;
-		private BeefBall.Entities.CapacitorPlatformCopy CapacitorPlatformCopy3;
-		private BeefBall.Entities.CapacitorPlatformCopy CapacitorPlatformCopy4;
-		private BeefBall.Entities.CapacitorPlatformCopy CapacitorPlatformCopy5;
-		private BeefBall.Entities.CapacitorPlatformCopy CapacitorPlatformCopy6;
-		private BeefBall.Entities.CapacitorPlatformCopy CapacitorPlatformCopy7;
-		private BeefBall.Entities.CapacitorPlatformCopy CapacitorPlatformCopy8;
-		private BeefBall.Entities.CapacitorPlatformCopy CapacitorPlatformCopy9;
-		private BeefBall.Entities.CapacitorPlatformCopy CapacitorPlatformCopy10;
-		private BeefBall.Entities.CapacitorPlatformCopy CapacitorPlatformCopy11;
-		private BeefBall.Entities.CapacitorPlatformCopy CapacitorPlatformCopy12;
 
-		public GameScreen()
-			: base("GameScreen")
+		public GameScreenCopyCopyCopy()
+			: base("GameScreenCopyCopyCopy")
 		{
 		}
 
@@ -130,43 +117,6 @@ namespace BeefBall.Screens
 			HealthBarList = new PositionedObjectList<HealthBar>();
 			ToQuizInstance = new BeefBall.Entities.ToQuiz(ContentManagerName, false);
 			ToQuizInstance.Name = "ToQuizInstance";
-			capList = new PositionedObjectList<CapacitorPlatformCopy>();
-			CapacitorPlatformCopy1 = new BeefBall.Entities.CapacitorPlatformCopy(ContentManagerName, false);
-			CapacitorPlatformCopy1.Name = "CapacitorPlatformCopy1";
-			CapacitorPlatformCopy2 = new BeefBall.Entities.CapacitorPlatformCopy(ContentManagerName, false);
-			CapacitorPlatformCopy2.Name = "CapacitorPlatformCopy2";
-			CapacitorPlatformCopy3 = new BeefBall.Entities.CapacitorPlatformCopy(ContentManagerName, false);
-			CapacitorPlatformCopy3.Name = "CapacitorPlatformCopy3";
-			CapacitorPlatformCopy4 = new BeefBall.Entities.CapacitorPlatformCopy(ContentManagerName, false);
-			CapacitorPlatformCopy4.Name = "CapacitorPlatformCopy4";
-			CapacitorPlatformCopy5 = new BeefBall.Entities.CapacitorPlatformCopy(ContentManagerName, false);
-			CapacitorPlatformCopy5.Name = "CapacitorPlatformCopy5";
-			CapacitorPlatformCopy6 = new BeefBall.Entities.CapacitorPlatformCopy(ContentManagerName, false);
-			CapacitorPlatformCopy6.Name = "CapacitorPlatformCopy6";
-			CapacitorPlatformCopy7 = new BeefBall.Entities.CapacitorPlatformCopy(ContentManagerName, false);
-			CapacitorPlatformCopy7.Name = "CapacitorPlatformCopy7";
-			CapacitorPlatformCopy8 = new BeefBall.Entities.CapacitorPlatformCopy(ContentManagerName, false);
-			CapacitorPlatformCopy8.Name = "CapacitorPlatformCopy8";
-			CapacitorPlatformCopy9 = new BeefBall.Entities.CapacitorPlatformCopy(ContentManagerName, false);
-			CapacitorPlatformCopy9.Name = "CapacitorPlatformCopy9";
-			CapacitorPlatformCopy10 = new BeefBall.Entities.CapacitorPlatformCopy(ContentManagerName, false);
-			CapacitorPlatformCopy10.Name = "CapacitorPlatformCopy10";
-			CapacitorPlatformCopy11 = new BeefBall.Entities.CapacitorPlatformCopy(ContentManagerName, false);
-			CapacitorPlatformCopy11.Name = "CapacitorPlatformCopy11";
-			CapacitorPlatformCopy12 = new BeefBall.Entities.CapacitorPlatformCopy(ContentManagerName, false);
-			CapacitorPlatformCopy12.Name = "CapacitorPlatformCopy12";
-			capList.Add(CapacitorPlatformCopy1);
-			capList.Add(CapacitorPlatformCopy2);
-			capList.Add(CapacitorPlatformCopy3);
-			capList.Add(CapacitorPlatformCopy4);
-			capList.Add(CapacitorPlatformCopy5);
-			capList.Add(CapacitorPlatformCopy6);
-			capList.Add(CapacitorPlatformCopy7);
-			capList.Add(CapacitorPlatformCopy8);
-			capList.Add(CapacitorPlatformCopy9);
-			capList.Add(CapacitorPlatformCopy10);
-			capList.Add(CapacitorPlatformCopy11);
-			capList.Add(CapacitorPlatformCopy12);
 			
 			
 			PostInitialize();
@@ -217,14 +167,6 @@ namespace BeefBall.Screens
 					}
 				}
 				ToQuizInstance.Activity();
-				for (int i = capList.Count - 1; i > -1; i--)
-				{
-					if (i < capList.Count)
-					{
-						// We do the extra if-check because activity could destroy any number of entities
-						capList[i].Activity();
-					}
-				}
 			}
 			else
 			{
@@ -327,10 +269,6 @@ namespace BeefBall.Screens
 				ToQuizInstance.Destroy();
 				ToQuizInstance.Detach();
 			}
-			for (int i = capList.Count - 1; i > -1; i--)
-			{
-				capList[i].Destroy();
-			}
 
 			base.Destroy();
 
@@ -369,11 +307,11 @@ namespace BeefBall.Screens
 			}
 			if (EnemyInstance.Parent == null)
 			{
-				EnemyInstance.Y = 0f;
+				EnemyInstance.Y = -30f;
 			}
 			else
 			{
-				EnemyInstance.RelativeY = 0f;
+				EnemyInstance.RelativeY = -30f;
 			}
 			EnemyInstance.PathAreaScaleX = 35f;
 			if (EnemyInstance2.Parent == null)
@@ -386,11 +324,11 @@ namespace BeefBall.Screens
 			}
 			if (EnemyInstance2.Parent == null)
 			{
-				EnemyInstance2.Y = 30f;
+				EnemyInstance2.Y = -70f;
 			}
 			else
 			{
-				EnemyInstance2.RelativeY = 30f;
+				EnemyInstance2.RelativeY = -70f;
 			}
 			EnemyInstance2.PathAreaScaleX = 35f;
 			if (CapacitorPlatformInstance.Parent == null)
@@ -419,11 +357,11 @@ namespace BeefBall.Screens
 			}
 			if (CapacitorPlatformInstance2.Parent == null)
 			{
-				CapacitorPlatformInstance2.Y = -270f;
+				CapacitorPlatformInstance2.Y = -300f;
 			}
 			else
 			{
-				CapacitorPlatformInstance2.RelativeY = -270f;
+				CapacitorPlatformInstance2.RelativeY = -300f;
 			}
 			if (CapacitorPlatformInstance2.Parent == null)
 			{
@@ -493,43 +431,43 @@ namespace BeefBall.Screens
 			}
 			if (CapacitorPlatformInstance3.Parent == null)
 			{
-				CapacitorPlatformInstance3.Y = -240f;
+				CapacitorPlatformInstance3.Y = -340f;
 			}
 			else
 			{
-				CapacitorPlatformInstance3.RelativeY = -240f;
+				CapacitorPlatformInstance3.RelativeY = -340f;
 			}
 			if (CapacitorPlatformInstance4.Parent == null)
 			{
-				CapacitorPlatformInstance4.X = 652f;
+				CapacitorPlatformInstance4.X = 685f;
 			}
 			else
 			{
-				CapacitorPlatformInstance4.RelativeX = 652f;
+				CapacitorPlatformInstance4.RelativeX = 685f;
 			}
 			if (CapacitorPlatformInstance4.Parent == null)
 			{
-				CapacitorPlatformInstance4.Y = -210f;
+				CapacitorPlatformInstance4.Y = -340f;
 			}
 			else
 			{
-				CapacitorPlatformInstance4.RelativeY = -210f;
+				CapacitorPlatformInstance4.RelativeY = -340f;
 			}
 			if (CapacitorPlatformInstance5.Parent == null)
 			{
-				CapacitorPlatformInstance5.X = 870f;
+				CapacitorPlatformInstance5.X = 900f;
 			}
 			else
 			{
-				CapacitorPlatformInstance5.RelativeX = 870f;
+				CapacitorPlatformInstance5.RelativeX = 900f;
 			}
 			if (CapacitorPlatformInstance5.Parent == null)
 			{
-				CapacitorPlatformInstance5.Y = -210f;
+				CapacitorPlatformInstance5.Y = -340f;
 			}
 			else
 			{
-				CapacitorPlatformInstance5.RelativeY = -210f;
+				CapacitorPlatformInstance5.RelativeY = -340f;
 			}
 			if (CapacitorPlatformInstance6.Parent == null)
 			{
@@ -541,43 +479,43 @@ namespace BeefBall.Screens
 			}
 			if (CapacitorPlatformInstance6.Parent == null)
 			{
-				CapacitorPlatformInstance6.Y = -210f;
+				CapacitorPlatformInstance6.Y = -340f;
 			}
 			else
 			{
-				CapacitorPlatformInstance6.RelativeY = -210f;
+				CapacitorPlatformInstance6.RelativeY = -340f;
 			}
 			if (CapacitorPlatformInstance7.Parent == null)
 			{
-				CapacitorPlatformInstance7.X = 1310f;
+				CapacitorPlatformInstance7.X = 1273f;
 			}
 			else
 			{
-				CapacitorPlatformInstance7.RelativeX = 1310f;
+				CapacitorPlatformInstance7.RelativeX = 1273f;
 			}
 			if (CapacitorPlatformInstance7.Parent == null)
 			{
-				CapacitorPlatformInstance7.Y = -270f;
+				CapacitorPlatformInstance7.Y = -320f;
 			}
 			else
 			{
-				CapacitorPlatformInstance7.RelativeY = -270f;
+				CapacitorPlatformInstance7.RelativeY = -320f;
 			}
 			if (CapacitorPlatformInstance8.Parent == null)
 			{
-				CapacitorPlatformInstance8.X = 1518f;
+				CapacitorPlatformInstance8.X = 1480f;
 			}
 			else
 			{
-				CapacitorPlatformInstance8.RelativeX = 1518f;
+				CapacitorPlatformInstance8.RelativeX = 1480f;
 			}
 			if (CapacitorPlatformInstance8.Parent == null)
 			{
-				CapacitorPlatformInstance8.Y = -270f;
+				CapacitorPlatformInstance8.Y = -300f;
 			}
 			else
 			{
-				CapacitorPlatformInstance8.RelativeY = -270f;
+				CapacitorPlatformInstance8.RelativeY = -300f;
 			}
 			if (ToQuizInstance.Parent == null)
 			{
@@ -589,163 +527,11 @@ namespace BeefBall.Screens
 			}
 			if (ToQuizInstance.Parent == null)
 			{
-				ToQuizInstance.Y = -5f;
+				ToQuizInstance.Y = -35f;
 			}
 			else
 			{
-				ToQuizInstance.RelativeY = -5f;
-			}
-			if (CapacitorPlatformCopy1.Parent == null)
-			{
-				CapacitorPlatformCopy1.X = 454f;
-			}
-			else
-			{
-				CapacitorPlatformCopy1.RelativeX = 454f;
-			}
-			if (CapacitorPlatformCopy1.Parent == null)
-			{
-				CapacitorPlatformCopy1.Y = 50f;
-			}
-			else
-			{
-				CapacitorPlatformCopy1.RelativeY = 50f;
-			}
-			if (CapacitorPlatformCopy2.Parent == null)
-			{
-				CapacitorPlatformCopy2.X = 348f;
-			}
-			else
-			{
-				CapacitorPlatformCopy2.RelativeX = 348f;
-			}
-			if (CapacitorPlatformCopy3.Parent == null)
-			{
-				CapacitorPlatformCopy3.X = 835f;
-			}
-			else
-			{
-				CapacitorPlatformCopy3.RelativeX = 835f;
-			}
-			if (CapacitorPlatformCopy4.Parent == null)
-			{
-				CapacitorPlatformCopy4.X = 1534f;
-			}
-			else
-			{
-				CapacitorPlatformCopy4.RelativeX = 1534f;
-			}
-			if (CapacitorPlatformCopy4.Parent == null)
-			{
-				CapacitorPlatformCopy4.Y = -130f;
-			}
-			else
-			{
-				CapacitorPlatformCopy4.RelativeY = -130f;
-			}
-			if (CapacitorPlatformCopy5.Parent == null)
-			{
-				CapacitorPlatformCopy5.X = 212f;
-			}
-			else
-			{
-				CapacitorPlatformCopy5.RelativeX = 212f;
-			}
-			if (CapacitorPlatformCopy5.Parent == null)
-			{
-				CapacitorPlatformCopy5.Y = -187f;
-			}
-			else
-			{
-				CapacitorPlatformCopy5.RelativeY = -187f;
-			}
-			if (CapacitorPlatformCopy6.Parent == null)
-			{
-				CapacitorPlatformCopy6.X = 48f;
-			}
-			else
-			{
-				CapacitorPlatformCopy6.RelativeX = 48f;
-			}
-			if (CapacitorPlatformCopy7.Parent == null)
-			{
-				CapacitorPlatformCopy7.X = 1265f;
-			}
-			else
-			{
-				CapacitorPlatformCopy7.RelativeX = 1265f;
-			}
-			if (CapacitorPlatformCopy8.Parent == null)
-			{
-				CapacitorPlatformCopy8.X = 1000f;
-			}
-			else
-			{
-				CapacitorPlatformCopy8.RelativeX = 1000f;
-			}
-			if (CapacitorPlatformCopy9.Parent == null)
-			{
-				CapacitorPlatformCopy9.X = 1152f;
-			}
-			else
-			{
-				CapacitorPlatformCopy9.RelativeX = 1152f;
-			}
-			if (CapacitorPlatformCopy9.Parent == null)
-			{
-				CapacitorPlatformCopy9.Y = -149f;
-			}
-			else
-			{
-				CapacitorPlatformCopy9.RelativeY = -149f;
-			}
-			if (CapacitorPlatformCopy10.Parent == null)
-			{
-				CapacitorPlatformCopy10.X = 612f;
-			}
-			else
-			{
-				CapacitorPlatformCopy10.RelativeX = 612f;
-			}
-			if (CapacitorPlatformCopy10.Parent == null)
-			{
-				CapacitorPlatformCopy10.Y = -72f;
-			}
-			else
-			{
-				CapacitorPlatformCopy10.RelativeY = -72f;
-			}
-			if (CapacitorPlatformCopy11.Parent == null)
-			{
-				CapacitorPlatformCopy11.X = 1375f;
-			}
-			else
-			{
-				CapacitorPlatformCopy11.RelativeX = 1375f;
-			}
-			if (CapacitorPlatformCopy11.Parent == null)
-			{
-				CapacitorPlatformCopy11.Y = -200f;
-			}
-			else
-			{
-				CapacitorPlatformCopy11.RelativeY = -200f;
-			}
-			if (CapacitorPlatformCopy12.Parent == null)
-			{
-				CapacitorPlatformCopy12.X = 700f;
-			}
-			else
-			{
-				CapacitorPlatformCopy12.RelativeX = 700f;
-			}
-			if (CapacitorPlatformCopy12.Parent == null)
-			{
-				CapacitorPlatformCopy12.Y = 120f;
-			}
-			else
-			{
-				CapacitorPlatformCopy12.RelativeY = 120f;
+				ToQuizInstance.RelativeY = -35f;
 			}
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
 		}
@@ -779,11 +565,11 @@ namespace BeefBall.Screens
 			}
 			if (mEnemyInstance.Parent == null)
 			{
-				mEnemyInstance.Y = 0f;
+				mEnemyInstance.Y = -30f;
 			}
 			else
 			{
-				mEnemyInstance.RelativeY = 0f;
+				mEnemyInstance.RelativeY = -30f;
 			}
 			mEnemyInstance.PathAreaScaleX = 35f;
 			mEnemyInstance2.AddToManagers(SpriteLayer);
@@ -797,11 +583,11 @@ namespace BeefBall.Screens
 			}
 			if (mEnemyInstance2.Parent == null)
 			{
-				mEnemyInstance2.Y = 30f;
+				mEnemyInstance2.Y = -70f;
 			}
 			else
 			{
-				mEnemyInstance2.RelativeY = 30f;
+				mEnemyInstance2.RelativeY = -70f;
 			}
 			mEnemyInstance2.PathAreaScaleX = 35f;
 			CapacitorPlatformInstance.AddToManagers(mLayer);
@@ -832,11 +618,11 @@ namespace BeefBall.Screens
 			}
 			if (CapacitorPlatformInstance2.Parent == null)
 			{
-				CapacitorPlatformInstance2.Y = -270f;
+				CapacitorPlatformInstance2.Y = -300f;
 			}
 			else
 			{
-				CapacitorPlatformInstance2.RelativeY = -270f;
+				CapacitorPlatformInstance2.RelativeY = -300f;
 			}
 			if (CapacitorPlatformInstance2.Parent == null)
 			{
@@ -909,45 +695,45 @@ namespace BeefBall.Screens
 			}
 			if (CapacitorPlatformInstance3.Parent == null)
 			{
-				CapacitorPlatformInstance3.Y = -240f;
+				CapacitorPlatformInstance3.Y = -340f;
 			}
 			else
 			{
-				CapacitorPlatformInstance3.RelativeY = -240f;
+				CapacitorPlatformInstance3.RelativeY = -340f;
 			}
 			CapacitorPlatformInstance4.AddToManagers(mLayer);
 			if (CapacitorPlatformInstance4.Parent == null)
 			{
-				CapacitorPlatformInstance4.X = 652f;
+				CapacitorPlatformInstance4.X = 685f;
 			}
 			else
 			{
-				CapacitorPlatformInstance4.RelativeX = 652f;
+				CapacitorPlatformInstance4.RelativeX = 685f;
 			}
 			if (CapacitorPlatformInstance4.Parent == null)
 			{
-				CapacitorPlatformInstance4.Y = -210f;
+				CapacitorPlatformInstance4.Y = -340f;
 			}
 			else
 			{
-				CapacitorPlatformInstance4.RelativeY = -210f;
+				CapacitorPlatformInstance4.RelativeY = -340f;
 			}
 			CapacitorPlatformInstance5.AddToManagers(mLayer);
 			if (CapacitorPlatformInstance5.Parent == null)
 			{
-				CapacitorPlatformInstance5.X = 870f;
+				CapacitorPlatformInstance5.X = 900f;
 			}
 			else
 			{
-				CapacitorPlatformInstance5.RelativeX = 870f;
+				CapacitorPlatformInstance5.RelativeX = 900f;
 			}
 			if (CapacitorPlatformInstance5.Parent == null)
 			{
-				CapacitorPlatformInstance5.Y = -210f;
+				CapacitorPlatformInstance5.Y = -340f;
 			}
 			else
 			{
-				CapacitorPlatformInstance5.RelativeY = -210f;
+				CapacitorPlatformInstance5.RelativeY = -340f;
 			}
 			CapacitorPlatformInstance6.AddToManagers(mLayer);
 			if (CapacitorPlatformInstance6.Parent == null)
@@ -960,45 +746,45 @@ namespace BeefBall.Screens
 			}
 			if (CapacitorPlatformInstance6.Parent == null)
 			{
-				CapacitorPlatformInstance6.Y = -210f;
+				CapacitorPlatformInstance6.Y = -340f;
 			}
 			else
 			{
-				CapacitorPlatformInstance6.RelativeY = -210f;
+				CapacitorPlatformInstance6.RelativeY = -340f;
 			}
 			CapacitorPlatformInstance7.AddToManagers(mLayer);
 			if (CapacitorPlatformInstance7.Parent == null)
 			{
-				CapacitorPlatformInstance7.X = 1310f;
+				CapacitorPlatformInstance7.X = 1273f;
 			}
 			else
 			{
-				CapacitorPlatformInstance7.RelativeX = 1310f;
+				CapacitorPlatformInstance7.RelativeX = 1273f;
 			}
 			if (CapacitorPlatformInstance7.Parent == null)
 			{
-				CapacitorPlatformInstance7.Y = -270f;
+				CapacitorPlatformInstance7.Y = -320f;
 			}
 			else
 			{
-				CapacitorPlatformInstance7.RelativeY = -270f;
+				CapacitorPlatformInstance7.RelativeY = -320f;
 			}
 			CapacitorPlatformInstance8.AddToManagers(mLayer);
 			if (CapacitorPlatformInstance8.Parent == null)
 			{
-				CapacitorPlatformInstance8.X = 1518f;
+				CapacitorPlatformInstance8.X = 1480f;
 			}
 			else
 			{
-				CapacitorPlatformInstance8.RelativeX = 1518f;
+				CapacitorPlatformInstance8.RelativeX = 1480f;
 			}
 			if (CapacitorPlatformInstance8.Parent == null)
 			{
-				CapacitorPlatformInstance8.Y = -270f;
+				CapacitorPlatformInstance8.Y = -300f;
 			}
 			else
 			{
-				CapacitorPlatformInstance8.RelativeY = -270f;
+				CapacitorPlatformInstance8.RelativeY = -300f;
 			}
 			ToQuizInstance.AddToManagers(mLayer);
 			if (ToQuizInstance.Parent == null)
@@ -1011,175 +797,11 @@ namespace BeefBall.Screens
 			}
 			if (ToQuizInstance.Parent == null)
 			{
-				ToQuizInstance.Y = -5f;
+				ToQuizInstance.Y = -35f;
 			}
 			else
 			{
-				ToQuizInstance.RelativeY = -5f;
-			}
-			CapacitorPlatformCopy1.AddToManagers(mLayer);
-			if (CapacitorPlatformCopy1.Parent == null)
-			{
-				CapacitorPlatformCopy1.X = 454f;
-			}
-			else
-			{
-				CapacitorPlatformCopy1.RelativeX = 454f;
-			}
-			if (CapacitorPlatformCopy1.Parent == null)
-			{
-				CapacitorPlatformCopy1.Y = 50f;
-			}
-			else
-			{
-				CapacitorPlatformCopy1.RelativeY = 50f;
-			}
-			CapacitorPlatformCopy2.AddToManagers(mLayer);
-			if (CapacitorPlatformCopy2.Parent == null)
-			{
-				CapacitorPlatformCopy2.X = 348f;
-			}
-			else
-			{
-				CapacitorPlatformCopy2.RelativeX = 348f;
-			}
-			CapacitorPlatformCopy3.AddToManagers(mLayer);
-			if (CapacitorPlatformCopy3.Parent == null)
-			{
-				CapacitorPlatformCopy3.X = 835f;
-			}
-			else
-			{
-				CapacitorPlatformCopy3.RelativeX = 835f;
-			}
-			CapacitorPlatformCopy4.AddToManagers(mLayer);
-			if (CapacitorPlatformCopy4.Parent == null)
-			{
-				CapacitorPlatformCopy4.X = 1534f;
-			}
-			else
-			{
-				CapacitorPlatformCopy4.RelativeX = 1534f;
-			}
-			if (CapacitorPlatformCopy4.Parent == null)
-			{
-				CapacitorPlatformCopy4.Y = -130f;
-			}
-			else
-			{
-				CapacitorPlatformCopy4.RelativeY = -130f;
-			}
-			CapacitorPlatformCopy5.AddToManagers(mLayer);
-			if (CapacitorPlatformCopy5.Parent == null)
-			{
-				CapacitorPlatformCopy5.X = 212f;
-			}
-			else
-			{
-				CapacitorPlatformCopy5.RelativeX = 212f;
-			}
-			if (CapacitorPlatformCopy5.Parent == null)
-			{
-				CapacitorPlatformCopy5.Y = -187f;
-			}
-			else
-			{
-				CapacitorPlatformCopy5.RelativeY = -187f;
-			}
-			CapacitorPlatformCopy6.AddToManagers(mLayer);
-			if (CapacitorPlatformCopy6.Parent == null)
-			{
-				CapacitorPlatformCopy6.X = 48f;
-			}
-			else
-			{
-				CapacitorPlatformCopy6.RelativeX = 48f;
-			}
-			CapacitorPlatformCopy7.AddToManagers(mLayer);
-			if (CapacitorPlatformCopy7.Parent == null)
-			{
-				CapacitorPlatformCopy7.X = 1265f;
-			}
-			else
-			{
-				CapacitorPlatformCopy7.RelativeX = 1265f;
-			}
-			CapacitorPlatformCopy8.AddToManagers(mLayer);
-			if (CapacitorPlatformCopy8.Parent == null)
-			{
-				CapacitorPlatformCopy8.X = 1000f;
-			}
-			else
-			{
-				CapacitorPlatformCopy8.RelativeX = 1000f;
-			}
-			CapacitorPlatformCopy9.AddToManagers(mLayer);
-			if (CapacitorPlatformCopy9.Parent == null)
-			{
-				CapacitorPlatformCopy9.X = 1152f;
-			}
-			else
-			{
-				CapacitorPlatformCopy9.RelativeX = 1152f;
-			}
-			if (CapacitorPlatformCopy9.Parent == null)
-			{
-				CapacitorPlatformCopy9.Y = -149f;
-			}
-			else
-			{
-				CapacitorPlatformCopy9.RelativeY = -149f;
-			}
-			CapacitorPlatformCopy10.AddToManagers(mLayer);
-			if (CapacitorPlatformCopy10.Parent == null)
-			{
-				CapacitorPlatformCopy10.X = 612f;
-			}
-			else
-			{
-				CapacitorPlatformCopy10.RelativeX = 612f;
-			}
-			if (CapacitorPlatformCopy10.Parent == null)
-			{
-				CapacitorPlatformCopy10.Y = -72f;
-			}
-			else
-			{
-				CapacitorPlatformCopy10.RelativeY = -72f;
-			}
-			CapacitorPlatformCopy11.AddToManagers(mLayer);
-			if (CapacitorPlatformCopy11.Parent == null)
-			{
-				CapacitorPlatformCopy11.X = 1375f;
-			}
-			else
-			{
-				CapacitorPlatformCopy11.RelativeX = 1375f;
-			}
-			if (CapacitorPlatformCopy11.Parent == null)
-			{
-				CapacitorPlatformCopy11.Y = -200f;
-			}
-			else
-			{
-				CapacitorPlatformCopy11.RelativeY = -200f;
-			}
-			CapacitorPlatformCopy12.AddToManagers(mLayer);
-			if (CapacitorPlatformCopy12.Parent == null)
-			{
-				CapacitorPlatformCopy12.X = 700f;
-			}
-			else
-			{
-				CapacitorPlatformCopy12.RelativeX = 700f;
-			}
-			if (CapacitorPlatformCopy12.Parent == null)
-			{
-				CapacitorPlatformCopy12.Y = 120f;
-			}
-			else
-			{
-				CapacitorPlatformCopy12.RelativeY = 120f;
+				ToQuizInstance.RelativeY = -35f;
 			}
 		}
 		public virtual void ConvertToManuallyUpdated ()
@@ -1202,10 +824,6 @@ namespace BeefBall.Screens
 				HealthBarList[i].ConvertToManuallyUpdated();
 			}
 			ToQuizInstance.ConvertToManuallyUpdated();
-			for (int i = 0; i < capList.Count; i++)
-			{
-				capList[i].ConvertToManuallyUpdated();
-			}
 		}
 		public static void LoadStaticContent (string contentManagerName)
 		{

@@ -396,6 +396,7 @@ namespace BeefBall.Entities.GameScreen
 			EntireSceneCurrentChainName = "L_Hustle";
 			StartingHealth = 50;
 			PathAreaScaleX = 10f;
+			Z = 5f;
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
 		}
 		public virtual void AddToManagersBottomUp (Layer layerToAddTo)

@@ -48,6 +48,8 @@ namespace BeefBall.Screens
             enemies = new List<Entities.GameScreen.Enemy>();
             enemies.Add(EnemyInstance);
             enemies.Add(EnemyInstance2);
+            enemies.Add(EnemyInstance3);
+            enemies.Add(EnemyInstance4);
 
             capacitorPlatforms = new List<Entities.CapacitorPlatform>();
             capacitorPlatforms.Add(CapacitorPlatformInstance);
@@ -119,8 +121,6 @@ namespace BeefBall.Screens
 
             foreach (Entities.GameScreen.Enemy en in enemiesToRemove)
             {
-                enemies.Remove(en);
-                PlayerInstance.enemies.Remove(en);
                 en.Destroy();
             }
         }
@@ -195,8 +195,17 @@ namespace BeefBall.Screens
             foreach (Entities.Battery bat in playerBatteries)
                 bat.Destroy();
 
+            foreach (Entities.CapacitorPlatformCopy c in capList)
+                c.Destroy();
+
+            foreach (Entities.CapacitorPlatformCopyCopy c in foregroundCaps)
+                c.Destroy();
+
+            
+
             enemies.Clear();
             capacitorPlatforms.Clear();
+            playerBatteries.Clear();
 
         }
 

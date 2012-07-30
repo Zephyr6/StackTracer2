@@ -16,11 +16,11 @@
     </ElementCameraSave>
     <ElementCameraSave>
       <CameraSave>
-        <X>789.5948</X>
-        <Y>104.064133</Y>
+        <X>1339.34143</X>
+        <Y>66.56137</Y>
         <Z>40</Z>
         <Orthogonal>true</Orthogonal>
-        <OrthogonalHeight>1057.94885</OrthogonalHeight>
+        <OrthogonalHeight>503.054474</OrthogonalHeight>
         <OrthogonalWidth>-1</OrthogonalWidth>
         <NearClipPlane>1</NearClipPlane>
         <FarClipPlane>1000</FarClipPlane>
@@ -432,11 +432,11 @@
     </ElementCameraSave>
     <ElementCameraSave>
       <CameraSave>
-        <X>28.3354759</X>
-        <Y>217.497238</Y>
+        <X>-0.9145241</X>
+        <Y>3.74723816</Y>
         <Z>338.2852</Z>
         <Orthogonal>true</Orthogonal>
-        <OrthogonalHeight>600</OrthogonalHeight>
+        <OrthogonalHeight>540</OrthogonalHeight>
         <OrthogonalWidth>-1</OrthogonalWidth>
         <NearClipPlane>1</NearClipPlane>
         <FarClipPlane>1000</FarClipPlane>
@@ -481,6 +481,71 @@
         <FarClipPlane>1000</FarClipPlane>
       </CameraSave>
       <ElementName>Screens\GameScreenCopyCopyCopyCopyCopyCopy</ElementName>
+    </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>188.810638</X>
+        <Y>8.685071</Y>
+        <Z>40</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>480</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+      </CameraSave>
+      <ElementName>Entities\Select</ElementName>
+    </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>29.1214046</X>
+        <Y>209.767715</Y>
+        <Z>338.2852</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>480</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+      </CameraSave>
+      <ElementName>Entities\StartButton</ElementName>
+    </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>381.804382</X>
+        <Y>8.544386</Y>
+        <Z>40</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>480</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+      </CameraSave>
+      <ElementName>Screens\GameScreenCopyCopyCopy</ElementName>
+    </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>381.804382</X>
+        <Y>8.544386</Y>
+        <Z>40</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>480</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+      </CameraSave>
+      <ElementName>Screens\GameScreenCopyCopyCopyCopy</ElementName>
+    </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>381.804382</X>
+        <Y>8.544386</Y>
+        <Z>40</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>480</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+      </CameraSave>
+      <ElementName>Screens\GameScreenCopyCopyCopyCopyCopy</ElementName>
     </ElementCameraSave>
   </ElementCameraSaves>
 </ElementSettingsSave>

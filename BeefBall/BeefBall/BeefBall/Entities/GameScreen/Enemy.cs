@@ -241,6 +241,9 @@ namespace BeefBall.Entities.GameScreen
 
         private void CustomDestroy()
         {
+            foreach (Text t in damageTexts)
+                TextManager.RemoveText(t);
+
             mHealthBar.Destroy();
             isDead = true;
         }

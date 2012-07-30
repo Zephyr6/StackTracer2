@@ -87,6 +87,30 @@ namespace BeefBall.Screens
 		private BeefBall.Entities.CapacitorPlatformCopy CapacitorPlatformCopy10;
 		private BeefBall.Entities.CapacitorPlatformCopy CapacitorPlatformCopy11;
 		private BeefBall.Entities.CapacitorPlatformCopy CapacitorPlatformCopy12;
+		private PositionedObjectList<CapacitorPlatformCopyCopy> foregroundCaps;
+		private BeefBall.Entities.CapacitorPlatformCopyCopy CapacitorPlatformCopyCopy1;
+		private BeefBall.Entities.CapacitorPlatformCopyCopy CapacitorPlatformCopyCopy2;
+		private BeefBall.Entities.CapacitorPlatformCopyCopy CapacitorPlatformCopyCopy3;
+		private BeefBall.Entities.CapacitorPlatformCopyCopy CapacitorPlatformCopyCopy4;
+		private BeefBall.Entities.CapacitorPlatformCopyCopy CapacitorPlatformCopyCopy5;
+		private BeefBall.Entities.CapacitorPlatformCopyCopy CapacitorPlatformCopyCopy6;
+		private BeefBall.Entities.CapacitorPlatformCopyCopy CapacitorPlatformCopyCopy7;
+		private BeefBall.Entities.CapacitorPlatformCopyCopy CapacitorPlatformCopyCopy8;
+		private BeefBall.Entities.CapacitorPlatformCopyCopy CapacitorPlatformCopyCopy9;
+		private BeefBall.Entities.CapacitorPlatformCopyCopy CapacitorPlatformCopyCopy10;
+		private BeefBall.Entities.CapacitorPlatformCopyCopy CapacitorPlatformCopyCopy11;
+		private BeefBall.Entities.CapacitorPlatformCopyCopy CapacitorPlatformCopyCopy12;
+		private BeefBall.Entities.CapacitorPlatformCopyCopy CapacitorPlatformCopyCopy13;
+		private BeefBall.Entities.CapacitorPlatformCopyCopy CapacitorPlatformCopyCopy14;
+		private BeefBall.Entities.CapacitorPlatformCopyCopy CapacitorPlatformCopyCopy15;
+		private BeefBall.Entities.CapacitorPlatformCopyCopy CapacitorPlatformCopyCopy16;
+		private BeefBall.Entities.CapacitorPlatformCopyCopy CapacitorPlatformCopyCopy17;
+		private BeefBall.Entities.CapacitorPlatformCopyCopy CapacitorPlatformCopyCopy18;
+		private BeefBall.Entities.GameScreen.Enemy EnemyInstance3;
+		private BeefBall.Entities.GameScreen.Enemy EnemyInstance4;
+		private BeefBall.Entities.ResistorStamp ResistorStampInstance3;
+		private BeefBall.Entities.ResistorStamp ResistorStampInstance4;
+		private BeefBall.Entities.ResistorStamp ResistorStampInstance5;
 
 		public GameScreen()
 			: base("GameScreen")
@@ -155,6 +179,53 @@ namespace BeefBall.Screens
 			CapacitorPlatformCopy11.Name = "CapacitorPlatformCopy11";
 			CapacitorPlatformCopy12 = new BeefBall.Entities.CapacitorPlatformCopy(ContentManagerName, false);
 			CapacitorPlatformCopy12.Name = "CapacitorPlatformCopy12";
+			foregroundCaps = new PositionedObjectList<CapacitorPlatformCopyCopy>();
+			CapacitorPlatformCopyCopy1 = new BeefBall.Entities.CapacitorPlatformCopyCopy(ContentManagerName, false);
+			CapacitorPlatformCopyCopy1.Name = "CapacitorPlatformCopyCopy1";
+			CapacitorPlatformCopyCopy2 = new BeefBall.Entities.CapacitorPlatformCopyCopy(ContentManagerName, false);
+			CapacitorPlatformCopyCopy2.Name = "CapacitorPlatformCopyCopy2";
+			CapacitorPlatformCopyCopy3 = new BeefBall.Entities.CapacitorPlatformCopyCopy(ContentManagerName, false);
+			CapacitorPlatformCopyCopy3.Name = "CapacitorPlatformCopyCopy3";
+			CapacitorPlatformCopyCopy4 = new BeefBall.Entities.CapacitorPlatformCopyCopy(ContentManagerName, false);
+			CapacitorPlatformCopyCopy4.Name = "CapacitorPlatformCopyCopy4";
+			CapacitorPlatformCopyCopy5 = new BeefBall.Entities.CapacitorPlatformCopyCopy(ContentManagerName, false);
+			CapacitorPlatformCopyCopy5.Name = "CapacitorPlatformCopyCopy5";
+			CapacitorPlatformCopyCopy6 = new BeefBall.Entities.CapacitorPlatformCopyCopy(ContentManagerName, false);
+			CapacitorPlatformCopyCopy6.Name = "CapacitorPlatformCopyCopy6";
+			CapacitorPlatformCopyCopy7 = new BeefBall.Entities.CapacitorPlatformCopyCopy(ContentManagerName, false);
+			CapacitorPlatformCopyCopy7.Name = "CapacitorPlatformCopyCopy7";
+			CapacitorPlatformCopyCopy8 = new BeefBall.Entities.CapacitorPlatformCopyCopy(ContentManagerName, false);
+			CapacitorPlatformCopyCopy8.Name = "CapacitorPlatformCopyCopy8";
+			CapacitorPlatformCopyCopy9 = new BeefBall.Entities.CapacitorPlatformCopyCopy(ContentManagerName, false);
+			CapacitorPlatformCopyCopy9.Name = "CapacitorPlatformCopyCopy9";
+			CapacitorPlatformCopyCopy10 = new BeefBall.Entities.CapacitorPlatformCopyCopy(ContentManagerName, false);
+			CapacitorPlatformCopyCopy10.Name = "CapacitorPlatformCopyCopy10";
+			CapacitorPlatformCopyCopy11 = new BeefBall.Entities.CapacitorPlatformCopyCopy(ContentManagerName, false);
+			CapacitorPlatformCopyCopy11.Name = "CapacitorPlatformCopyCopy11";
+			CapacitorPlatformCopyCopy12 = new BeefBall.Entities.CapacitorPlatformCopyCopy(ContentManagerName, false);
+			CapacitorPlatformCopyCopy12.Name = "CapacitorPlatformCopyCopy12";
+			CapacitorPlatformCopyCopy13 = new BeefBall.Entities.CapacitorPlatformCopyCopy(ContentManagerName, false);
+			CapacitorPlatformCopyCopy13.Name = "CapacitorPlatformCopyCopy13";
+			CapacitorPlatformCopyCopy14 = new BeefBall.Entities.CapacitorPlatformCopyCopy(ContentManagerName, false);
+			CapacitorPlatformCopyCopy14.Name = "CapacitorPlatformCopyCopy14";
+			CapacitorPlatformCopyCopy15 = new BeefBall.Entities.CapacitorPlatformCopyCopy(ContentManagerName, false);
+			CapacitorPlatformCopyCopy15.Name = "CapacitorPlatformCopyCopy15";
+			CapacitorPlatformCopyCopy16 = new BeefBall.Entities.CapacitorPlatformCopyCopy(ContentManagerName, false);
+			CapacitorPlatformCopyCopy16.Name = "CapacitorPlatformCopyCopy16";
+			CapacitorPlatformCopyCopy17 = new BeefBall.Entities.CapacitorPlatformCopyCopy(ContentManagerName, false);
+			CapacitorPlatformCopyCopy17.Name = "CapacitorPlatformCopyCopy17";
+			CapacitorPlatformCopyCopy18 = new BeefBall.Entities.CapacitorPlatformCopyCopy(ContentManagerName, false);
+			CapacitorPlatformCopyCopy18.Name = "CapacitorPlatformCopyCopy18";
+			EnemyInstance3 = new BeefBall.Entities.GameScreen.Enemy(ContentManagerName, false);
+			EnemyInstance3.Name = "EnemyInstance3";
+			EnemyInstance4 = new BeefBall.Entities.GameScreen.Enemy(ContentManagerName, false);
+			EnemyInstance4.Name = "EnemyInstance4";
+			ResistorStampInstance3 = new BeefBall.Entities.ResistorStamp(ContentManagerName, false);
+			ResistorStampInstance3.Name = "ResistorStampInstance3";
+			ResistorStampInstance4 = new BeefBall.Entities.ResistorStamp(ContentManagerName, false);
+			ResistorStampInstance4.Name = "ResistorStampInstance4";
+			ResistorStampInstance5 = new BeefBall.Entities.ResistorStamp(ContentManagerName, false);
+			ResistorStampInstance5.Name = "ResistorStampInstance5";
 			capList.Add(CapacitorPlatformCopy1);
 			capList.Add(CapacitorPlatformCopy2);
 			capList.Add(CapacitorPlatformCopy3);
@@ -167,6 +238,24 @@ namespace BeefBall.Screens
 			capList.Add(CapacitorPlatformCopy10);
 			capList.Add(CapacitorPlatformCopy11);
 			capList.Add(CapacitorPlatformCopy12);
+			foregroundCaps.Add(CapacitorPlatformCopyCopy1);
+			foregroundCaps.Add(CapacitorPlatformCopyCopy2);
+			foregroundCaps.Add(CapacitorPlatformCopyCopy3);
+			foregroundCaps.Add(CapacitorPlatformCopyCopy4);
+			foregroundCaps.Add(CapacitorPlatformCopyCopy5);
+			foregroundCaps.Add(CapacitorPlatformCopyCopy6);
+			foregroundCaps.Add(CapacitorPlatformCopyCopy7);
+			foregroundCaps.Add(CapacitorPlatformCopyCopy8);
+			foregroundCaps.Add(CapacitorPlatformCopyCopy9);
+			foregroundCaps.Add(CapacitorPlatformCopyCopy10);
+			foregroundCaps.Add(CapacitorPlatformCopyCopy11);
+			foregroundCaps.Add(CapacitorPlatformCopyCopy12);
+			foregroundCaps.Add(CapacitorPlatformCopyCopy13);
+			foregroundCaps.Add(CapacitorPlatformCopyCopy14);
+			foregroundCaps.Add(CapacitorPlatformCopyCopy15);
+			foregroundCaps.Add(CapacitorPlatformCopyCopy16);
+			foregroundCaps.Add(CapacitorPlatformCopyCopy17);
+			foregroundCaps.Add(CapacitorPlatformCopyCopy18);
 			
 			
 			PostInitialize();
@@ -225,6 +314,19 @@ namespace BeefBall.Screens
 						capList[i].Activity();
 					}
 				}
+				for (int i = foregroundCaps.Count - 1; i > -1; i--)
+				{
+					if (i < foregroundCaps.Count)
+					{
+						// We do the extra if-check because activity could destroy any number of entities
+						foregroundCaps[i].Activity();
+					}
+				}
+				EnemyInstance3.Activity();
+				EnemyInstance4.Activity();
+				ResistorStampInstance3.Activity();
+				ResistorStampInstance4.Activity();
+				ResistorStampInstance5.Activity();
 			}
 			else
 			{
@@ -331,6 +433,35 @@ namespace BeefBall.Screens
 			{
 				capList[i].Destroy();
 			}
+			for (int i = foregroundCaps.Count - 1; i > -1; i--)
+			{
+				foregroundCaps[i].Destroy();
+			}
+			if (EnemyInstance3 != null)
+			{
+				EnemyInstance3.Destroy();
+				EnemyInstance3.Detach();
+			}
+			if (EnemyInstance4 != null)
+			{
+				EnemyInstance4.Destroy();
+				EnemyInstance4.Detach();
+			}
+			if (ResistorStampInstance3 != null)
+			{
+				ResistorStampInstance3.Destroy();
+				ResistorStampInstance3.Detach();
+			}
+			if (ResistorStampInstance4 != null)
+			{
+				ResistorStampInstance4.Destroy();
+				ResistorStampInstance4.Detach();
+			}
+			if (ResistorStampInstance5 != null)
+			{
+				ResistorStampInstance5.Destroy();
+				ResistorStampInstance5.Detach();
+			}
 
 			base.Destroy();
 
@@ -435,11 +566,11 @@ namespace BeefBall.Screens
 			}
 			if (ResistorStampInstance.Parent == null)
 			{
-				ResistorStampInstance.X = 0f;
+				ResistorStampInstance.X = 80f;
 			}
 			else
 			{
-				ResistorStampInstance.RelativeX = 0f;
+				ResistorStampInstance.RelativeX = 80f;
 			}
 			if (ResistorStampInstance.Parent == null)
 			{
@@ -460,19 +591,19 @@ namespace BeefBall.Screens
 			ResistorStampInstance.followAmount = 0.4f;
 			if (ResistorStampInstance2.Parent == null)
 			{
-				ResistorStampInstance2.X = 300f;
+				ResistorStampInstance2.X = 280f;
 			}
 			else
 			{
-				ResistorStampInstance2.RelativeX = 300f;
+				ResistorStampInstance2.RelativeX = 280f;
 			}
 			if (ResistorStampInstance2.Parent == null)
 			{
-				ResistorStampInstance2.Y = -20f;
+				ResistorStampInstance2.Y = -10f;
 			}
 			else
 			{
-				ResistorStampInstance2.RelativeY = -20f;
+				ResistorStampInstance2.RelativeY = -10f;
 			}
 			if (ResistorStampInstance2.Parent == null)
 			{
@@ -747,6 +878,374 @@ namespace BeefBall.Screens
 			{
 				CapacitorPlatformCopy12.RelativeY = 120f;
 			}
+			if (CapacitorPlatformCopyCopy1.Parent == null)
+			{
+				CapacitorPlatformCopyCopy1.X = 149f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy1.RelativeX = 149f;
+			}
+			if (CapacitorPlatformCopyCopy1.Parent == null)
+			{
+				CapacitorPlatformCopyCopy1.Y = -320f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy1.RelativeY = -320f;
+			}
+			if (CapacitorPlatformCopyCopy2.Parent == null)
+			{
+				CapacitorPlatformCopyCopy2.X = 1300f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy2.RelativeX = 1300f;
+			}
+			if (CapacitorPlatformCopyCopy2.Parent == null)
+			{
+				CapacitorPlatformCopyCopy2.Y = -420f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy2.RelativeY = -420f;
+			}
+			if (CapacitorPlatformCopyCopy3.Parent == null)
+			{
+				CapacitorPlatformCopyCopy3.X = 715f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy3.RelativeX = 715f;
+			}
+			if (CapacitorPlatformCopyCopy3.Parent == null)
+			{
+				CapacitorPlatformCopyCopy3.Y = -270f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy3.RelativeY = -270f;
+			}
+			if (CapacitorPlatformCopyCopy4.Parent == null)
+			{
+				CapacitorPlatformCopyCopy4.X = 390f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy4.RelativeX = 390f;
+			}
+			if (CapacitorPlatformCopyCopy4.Parent == null)
+			{
+				CapacitorPlatformCopyCopy4.Y = -320f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy4.RelativeY = -320f;
+			}
+			if (CapacitorPlatformCopyCopy5.Parent == null)
+			{
+				CapacitorPlatformCopyCopy5.X = 904f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy5.RelativeX = 904f;
+			}
+			if (CapacitorPlatformCopyCopy5.Parent == null)
+			{
+				CapacitorPlatformCopyCopy5.Y = -260f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy5.RelativeY = -260f;
+			}
+			if (CapacitorPlatformCopyCopy6.Parent == null)
+			{
+				CapacitorPlatformCopyCopy6.X = 1470f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy6.RelativeX = 1470f;
+			}
+			if (CapacitorPlatformCopyCopy6.Parent == null)
+			{
+				CapacitorPlatformCopyCopy6.Y = -360f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy6.RelativeY = -360f;
+			}
+			if (CapacitorPlatformCopyCopy7.Parent == null)
+			{
+				CapacitorPlatformCopyCopy7.X = 1124f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy7.RelativeX = 1124f;
+			}
+			if (CapacitorPlatformCopyCopy7.Parent == null)
+			{
+				CapacitorPlatformCopyCopy7.Y = -330f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy7.RelativeY = -330f;
+			}
+			if (CapacitorPlatformCopyCopy8.Parent == null)
+			{
+				CapacitorPlatformCopyCopy8.X = 209f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy8.RelativeX = 209f;
+			}
+			if (CapacitorPlatformCopyCopy8.Parent == null)
+			{
+				CapacitorPlatformCopyCopy8.Y = -360f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy8.RelativeY = -360f;
+			}
+			if (CapacitorPlatformCopyCopy9.Parent == null)
+			{
+				CapacitorPlatformCopyCopy9.X = 1720f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy9.RelativeX = 1720f;
+			}
+			if (CapacitorPlatformCopyCopy9.Parent == null)
+			{
+				CapacitorPlatformCopyCopy9.Y = -350f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy9.RelativeY = -350f;
+			}
+			if (CapacitorPlatformCopyCopy10.Parent == null)
+			{
+				CapacitorPlatformCopyCopy10.X = 550f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy10.RelativeX = 550f;
+			}
+			if (CapacitorPlatformCopyCopy10.Parent == null)
+			{
+				CapacitorPlatformCopyCopy10.Y = -300f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy10.RelativeY = -300f;
+			}
+			if (CapacitorPlatformCopyCopy11.Parent == null)
+			{
+				CapacitorPlatformCopyCopy11.X = 0f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy11.RelativeX = 0f;
+			}
+			if (CapacitorPlatformCopyCopy11.Parent == null)
+			{
+				CapacitorPlatformCopyCopy11.Y = -360f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy11.RelativeY = -360f;
+			}
+			if (CapacitorPlatformCopyCopy12.Parent == null)
+			{
+				CapacitorPlatformCopyCopy12.X = 1890f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy12.RelativeX = 1890f;
+			}
+			if (CapacitorPlatformCopyCopy12.Parent == null)
+			{
+				CapacitorPlatformCopyCopy12.Y = -310f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy12.RelativeY = -310f;
+			}
+			if (CapacitorPlatformCopyCopy13.Parent == null)
+			{
+				CapacitorPlatformCopyCopy13.X = 1600f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy13.RelativeX = 1600f;
+			}
+			if (CapacitorPlatformCopyCopy13.Parent == null)
+			{
+				CapacitorPlatformCopyCopy13.Y = -300f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy13.RelativeY = -300f;
+			}
+			if (CapacitorPlatformCopyCopy14.Parent == null)
+			{
+				CapacitorPlatformCopyCopy14.X = 1000f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy14.RelativeX = 1000f;
+			}
+			if (CapacitorPlatformCopyCopy14.Parent == null)
+			{
+				CapacitorPlatformCopyCopy14.Y = -300f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy14.RelativeY = -300f;
+			}
+			if (CapacitorPlatformCopyCopy15.Parent == null)
+			{
+				CapacitorPlatformCopyCopy15.X = 2340f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy15.RelativeX = 2340f;
+			}
+			if (CapacitorPlatformCopyCopy15.Parent == null)
+			{
+				CapacitorPlatformCopyCopy15.Y = -310f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy15.RelativeY = -310f;
+			}
+			if (CapacitorPlatformCopyCopy16.Parent == null)
+			{
+				CapacitorPlatformCopyCopy16.X = 2500f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy16.RelativeX = 2500f;
+			}
+			if (CapacitorPlatformCopyCopy16.Parent == null)
+			{
+				CapacitorPlatformCopyCopy16.Y = -330f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy16.RelativeY = -330f;
+			}
+			if (CapacitorPlatformCopyCopy17.Parent == null)
+			{
+				CapacitorPlatformCopyCopy17.X = 2200f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy17.RelativeX = 2200f;
+			}
+			if (CapacitorPlatformCopyCopy17.Parent == null)
+			{
+				CapacitorPlatformCopyCopy17.Y = -340f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy17.RelativeY = -340f;
+			}
+			if (CapacitorPlatformCopyCopy18.Parent == null)
+			{
+				CapacitorPlatformCopyCopy18.X = 2060f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy18.RelativeX = 2060f;
+			}
+			if (CapacitorPlatformCopyCopy18.Parent == null)
+			{
+				CapacitorPlatformCopyCopy18.Y = -369f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy18.RelativeY = -369f;
+			}
+			if (EnemyInstance3.Parent == null)
+			{
+				EnemyInstance3.X = 1090f;
+			}
+			else
+			{
+				EnemyInstance3.RelativeX = 1090f;
+			}
+			if (EnemyInstance3.Parent == null)
+			{
+				EnemyInstance3.Y = 50f;
+			}
+			else
+			{
+				EnemyInstance3.RelativeY = 50f;
+			}
+			if (EnemyInstance4.Parent == null)
+			{
+				EnemyInstance4.X = 1310f;
+			}
+			else
+			{
+				EnemyInstance4.RelativeX = 1310f;
+			}
+			if (EnemyInstance4.Parent == null)
+			{
+				EnemyInstance4.Y = 0f;
+			}
+			else
+			{
+				EnemyInstance4.RelativeY = 0f;
+			}
+			if (ResistorStampInstance3.Parent == null)
+			{
+				ResistorStampInstance3.X = 1000f;
+			}
+			else
+			{
+				ResistorStampInstance3.RelativeX = 1000f;
+			}
+			if (ResistorStampInstance3.Parent == null)
+			{
+				ResistorStampInstance3.Y = 0f;
+			}
+			else
+			{
+				ResistorStampInstance3.RelativeY = 0f;
+			}
+			if (ResistorStampInstance4.Parent == null)
+			{
+				ResistorStampInstance4.X = 600f;
+			}
+			else
+			{
+				ResistorStampInstance4.RelativeX = 600f;
+			}
+			if (ResistorStampInstance4.Parent == null)
+			{
+				ResistorStampInstance4.Y = 25f;
+			}
+			else
+			{
+				ResistorStampInstance4.RelativeY = 25f;
+			}
+			if (ResistorStampInstance5.Parent == null)
+			{
+				ResistorStampInstance5.X = 1300f;
+			}
+			else
+			{
+				ResistorStampInstance5.RelativeX = 1300f;
+			}
+			if (ResistorStampInstance5.Parent == null)
+			{
+				ResistorStampInstance5.Y = -100f;
+			}
+			else
+			{
+				ResistorStampInstance5.RelativeY = -100f;
+			}
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
 		}
 		public virtual void AddToManagersBottomUp ()
@@ -849,11 +1348,11 @@ namespace BeefBall.Screens
 			ResistorStampInstance.AddToManagers(mLayer);
 			if (ResistorStampInstance.Parent == null)
 			{
-				ResistorStampInstance.X = 0f;
+				ResistorStampInstance.X = 80f;
 			}
 			else
 			{
-				ResistorStampInstance.RelativeX = 0f;
+				ResistorStampInstance.RelativeX = 80f;
 			}
 			if (ResistorStampInstance.Parent == null)
 			{
@@ -875,19 +1374,19 @@ namespace BeefBall.Screens
 			ResistorStampInstance2.AddToManagers(mLayer);
 			if (ResistorStampInstance2.Parent == null)
 			{
-				ResistorStampInstance2.X = 300f;
+				ResistorStampInstance2.X = 280f;
 			}
 			else
 			{
-				ResistorStampInstance2.RelativeX = 300f;
+				ResistorStampInstance2.RelativeX = 280f;
 			}
 			if (ResistorStampInstance2.Parent == null)
 			{
-				ResistorStampInstance2.Y = -20f;
+				ResistorStampInstance2.Y = -10f;
 			}
 			else
 			{
-				ResistorStampInstance2.RelativeY = -20f;
+				ResistorStampInstance2.RelativeY = -10f;
 			}
 			if (ResistorStampInstance2.Parent == null)
 			{
@@ -1181,6 +1680,397 @@ namespace BeefBall.Screens
 			{
 				CapacitorPlatformCopy12.RelativeY = 120f;
 			}
+			CapacitorPlatformCopyCopy1.AddToManagers(mLayer);
+			if (CapacitorPlatformCopyCopy1.Parent == null)
+			{
+				CapacitorPlatformCopyCopy1.X = 149f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy1.RelativeX = 149f;
+			}
+			if (CapacitorPlatformCopyCopy1.Parent == null)
+			{
+				CapacitorPlatformCopyCopy1.Y = -320f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy1.RelativeY = -320f;
+			}
+			CapacitorPlatformCopyCopy2.AddToManagers(mLayer);
+			if (CapacitorPlatformCopyCopy2.Parent == null)
+			{
+				CapacitorPlatformCopyCopy2.X = 1300f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy2.RelativeX = 1300f;
+			}
+			if (CapacitorPlatformCopyCopy2.Parent == null)
+			{
+				CapacitorPlatformCopyCopy2.Y = -420f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy2.RelativeY = -420f;
+			}
+			CapacitorPlatformCopyCopy3.AddToManagers(mLayer);
+			if (CapacitorPlatformCopyCopy3.Parent == null)
+			{
+				CapacitorPlatformCopyCopy3.X = 715f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy3.RelativeX = 715f;
+			}
+			if (CapacitorPlatformCopyCopy3.Parent == null)
+			{
+				CapacitorPlatformCopyCopy3.Y = -270f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy3.RelativeY = -270f;
+			}
+			CapacitorPlatformCopyCopy4.AddToManagers(mLayer);
+			if (CapacitorPlatformCopyCopy4.Parent == null)
+			{
+				CapacitorPlatformCopyCopy4.X = 390f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy4.RelativeX = 390f;
+			}
+			if (CapacitorPlatformCopyCopy4.Parent == null)
+			{
+				CapacitorPlatformCopyCopy4.Y = -320f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy4.RelativeY = -320f;
+			}
+			CapacitorPlatformCopyCopy5.AddToManagers(mLayer);
+			if (CapacitorPlatformCopyCopy5.Parent == null)
+			{
+				CapacitorPlatformCopyCopy5.X = 904f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy5.RelativeX = 904f;
+			}
+			if (CapacitorPlatformCopyCopy5.Parent == null)
+			{
+				CapacitorPlatformCopyCopy5.Y = -260f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy5.RelativeY = -260f;
+			}
+			CapacitorPlatformCopyCopy6.AddToManagers(mLayer);
+			if (CapacitorPlatformCopyCopy6.Parent == null)
+			{
+				CapacitorPlatformCopyCopy6.X = 1470f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy6.RelativeX = 1470f;
+			}
+			if (CapacitorPlatformCopyCopy6.Parent == null)
+			{
+				CapacitorPlatformCopyCopy6.Y = -360f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy6.RelativeY = -360f;
+			}
+			CapacitorPlatformCopyCopy7.AddToManagers(mLayer);
+			if (CapacitorPlatformCopyCopy7.Parent == null)
+			{
+				CapacitorPlatformCopyCopy7.X = 1124f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy7.RelativeX = 1124f;
+			}
+			if (CapacitorPlatformCopyCopy7.Parent == null)
+			{
+				CapacitorPlatformCopyCopy7.Y = -330f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy7.RelativeY = -330f;
+			}
+			CapacitorPlatformCopyCopy8.AddToManagers(mLayer);
+			if (CapacitorPlatformCopyCopy8.Parent == null)
+			{
+				CapacitorPlatformCopyCopy8.X = 209f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy8.RelativeX = 209f;
+			}
+			if (CapacitorPlatformCopyCopy8.Parent == null)
+			{
+				CapacitorPlatformCopyCopy8.Y = -360f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy8.RelativeY = -360f;
+			}
+			CapacitorPlatformCopyCopy9.AddToManagers(mLayer);
+			if (CapacitorPlatformCopyCopy9.Parent == null)
+			{
+				CapacitorPlatformCopyCopy9.X = 1720f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy9.RelativeX = 1720f;
+			}
+			if (CapacitorPlatformCopyCopy9.Parent == null)
+			{
+				CapacitorPlatformCopyCopy9.Y = -350f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy9.RelativeY = -350f;
+			}
+			CapacitorPlatformCopyCopy10.AddToManagers(mLayer);
+			if (CapacitorPlatformCopyCopy10.Parent == null)
+			{
+				CapacitorPlatformCopyCopy10.X = 550f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy10.RelativeX = 550f;
+			}
+			if (CapacitorPlatformCopyCopy10.Parent == null)
+			{
+				CapacitorPlatformCopyCopy10.Y = -300f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy10.RelativeY = -300f;
+			}
+			CapacitorPlatformCopyCopy11.AddToManagers(mLayer);
+			if (CapacitorPlatformCopyCopy11.Parent == null)
+			{
+				CapacitorPlatformCopyCopy11.X = 0f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy11.RelativeX = 0f;
+			}
+			if (CapacitorPlatformCopyCopy11.Parent == null)
+			{
+				CapacitorPlatformCopyCopy11.Y = -360f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy11.RelativeY = -360f;
+			}
+			CapacitorPlatformCopyCopy12.AddToManagers(mLayer);
+			if (CapacitorPlatformCopyCopy12.Parent == null)
+			{
+				CapacitorPlatformCopyCopy12.X = 1890f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy12.RelativeX = 1890f;
+			}
+			if (CapacitorPlatformCopyCopy12.Parent == null)
+			{
+				CapacitorPlatformCopyCopy12.Y = -310f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy12.RelativeY = -310f;
+			}
+			CapacitorPlatformCopyCopy13.AddToManagers(mLayer);
+			if (CapacitorPlatformCopyCopy13.Parent == null)
+			{
+				CapacitorPlatformCopyCopy13.X = 1600f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy13.RelativeX = 1600f;
+			}
+			if (CapacitorPlatformCopyCopy13.Parent == null)
+			{
+				CapacitorPlatformCopyCopy13.Y = -300f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy13.RelativeY = -300f;
+			}
+			CapacitorPlatformCopyCopy14.AddToManagers(mLayer);
+			if (CapacitorPlatformCopyCopy14.Parent == null)
+			{
+				CapacitorPlatformCopyCopy14.X = 1000f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy14.RelativeX = 1000f;
+			}
+			if (CapacitorPlatformCopyCopy14.Parent == null)
+			{
+				CapacitorPlatformCopyCopy14.Y = -300f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy14.RelativeY = -300f;
+			}
+			CapacitorPlatformCopyCopy15.AddToManagers(mLayer);
+			if (CapacitorPlatformCopyCopy15.Parent == null)
+			{
+				CapacitorPlatformCopyCopy15.X = 2340f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy15.RelativeX = 2340f;
+			}
+			if (CapacitorPlatformCopyCopy15.Parent == null)
+			{
+				CapacitorPlatformCopyCopy15.Y = -310f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy15.RelativeY = -310f;
+			}
+			CapacitorPlatformCopyCopy16.AddToManagers(mLayer);
+			if (CapacitorPlatformCopyCopy16.Parent == null)
+			{
+				CapacitorPlatformCopyCopy16.X = 2500f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy16.RelativeX = 2500f;
+			}
+			if (CapacitorPlatformCopyCopy16.Parent == null)
+			{
+				CapacitorPlatformCopyCopy16.Y = -330f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy16.RelativeY = -330f;
+			}
+			CapacitorPlatformCopyCopy17.AddToManagers(mLayer);
+			if (CapacitorPlatformCopyCopy17.Parent == null)
+			{
+				CapacitorPlatformCopyCopy17.X = 2200f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy17.RelativeX = 2200f;
+			}
+			if (CapacitorPlatformCopyCopy17.Parent == null)
+			{
+				CapacitorPlatformCopyCopy17.Y = -340f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy17.RelativeY = -340f;
+			}
+			CapacitorPlatformCopyCopy18.AddToManagers(mLayer);
+			if (CapacitorPlatformCopyCopy18.Parent == null)
+			{
+				CapacitorPlatformCopyCopy18.X = 2060f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy18.RelativeX = 2060f;
+			}
+			if (CapacitorPlatformCopyCopy18.Parent == null)
+			{
+				CapacitorPlatformCopyCopy18.Y = -369f;
+			}
+			else
+			{
+				CapacitorPlatformCopyCopy18.RelativeY = -369f;
+			}
+			EnemyInstance3.AddToManagers(SpriteLayer);
+			if (EnemyInstance3.Parent == null)
+			{
+				EnemyInstance3.X = 1090f;
+			}
+			else
+			{
+				EnemyInstance3.RelativeX = 1090f;
+			}
+			if (EnemyInstance3.Parent == null)
+			{
+				EnemyInstance3.Y = 50f;
+			}
+			else
+			{
+				EnemyInstance3.RelativeY = 50f;
+			}
+			EnemyInstance4.AddToManagers(SpriteLayer);
+			if (EnemyInstance4.Parent == null)
+			{
+				EnemyInstance4.X = 1310f;
+			}
+			else
+			{
+				EnemyInstance4.RelativeX = 1310f;
+			}
+			if (EnemyInstance4.Parent == null)
+			{
+				EnemyInstance4.Y = 0f;
+			}
+			else
+			{
+				EnemyInstance4.RelativeY = 0f;
+			}
+			ResistorStampInstance3.AddToManagers(mLayer);
+			if (ResistorStampInstance3.Parent == null)
+			{
+				ResistorStampInstance3.X = 1000f;
+			}
+			else
+			{
+				ResistorStampInstance3.RelativeX = 1000f;
+			}
+			if (ResistorStampInstance3.Parent == null)
+			{
+				ResistorStampInstance3.Y = 0f;
+			}
+			else
+			{
+				ResistorStampInstance3.RelativeY = 0f;
+			}
+			ResistorStampInstance4.AddToManagers(mLayer);
+			if (ResistorStampInstance4.Parent == null)
+			{
+				ResistorStampInstance4.X = 600f;
+			}
+			else
+			{
+				ResistorStampInstance4.RelativeX = 600f;
+			}
+			if (ResistorStampInstance4.Parent == null)
+			{
+				ResistorStampInstance4.Y = 25f;
+			}
+			else
+			{
+				ResistorStampInstance4.RelativeY = 25f;
+			}
+			ResistorStampInstance5.AddToManagers(mLayer);
+			if (ResistorStampInstance5.Parent == null)
+			{
+				ResistorStampInstance5.X = 1300f;
+			}
+			else
+			{
+				ResistorStampInstance5.RelativeX = 1300f;
+			}
+			if (ResistorStampInstance5.Parent == null)
+			{
+				ResistorStampInstance5.Y = -100f;
+			}
+			else
+			{
+				ResistorStampInstance5.RelativeY = -100f;
+			}
 		}
 		public virtual void ConvertToManuallyUpdated ()
 		{
@@ -1206,6 +2096,15 @@ namespace BeefBall.Screens
 			{
 				capList[i].ConvertToManuallyUpdated();
 			}
+			for (int i = 0; i < foregroundCaps.Count; i++)
+			{
+				foregroundCaps[i].ConvertToManuallyUpdated();
+			}
+			EnemyInstance3.ConvertToManuallyUpdated();
+			EnemyInstance4.ConvertToManuallyUpdated();
+			ResistorStampInstance3.ConvertToManuallyUpdated();
+			ResistorStampInstance4.ConvertToManuallyUpdated();
+			ResistorStampInstance5.ConvertToManuallyUpdated();
 		}
 		public static void LoadStaticContent (string contentManagerName)
 		{

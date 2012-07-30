@@ -71,6 +71,7 @@ namespace BeefBall.Entities
 				return mCollision;
 			}
 		}
+		public float followAmount = -0.35f;
 		public int Index { get; set; }
 		public bool Used { get; set; }
 		protected Layer LayerProvidedByContainer = null;
@@ -162,7 +163,8 @@ namespace BeefBall.Entities
 			Collision.Visible = false;
 			X = 0f;
 			Y = 0f;
-			Z = 0f;
+			Z = 10f;
+			followAmount = -0.35f;
 			FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
 		}
 		public virtual void AddToManagersBottomUp (Layer layerToAddTo)

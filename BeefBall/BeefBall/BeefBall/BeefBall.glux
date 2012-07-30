@@ -372,6 +372,10 @@
             <Type>int</Type>
             <Member>MaxBatteries</Member>
           </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+          </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Player</SourceClassType>
           <InstanceName>PlayerInstance</InstanceName>
@@ -406,6 +410,10 @@
             <Type>float</Type>
             <Member>PathAreaScaleX</Member>
             <ValueAsFloat>35</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
           </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Enemy</SourceClassType>
@@ -442,6 +450,10 @@
             <Type>float</Type>
             <Member>PathAreaScaleX</Member>
             <ValueAsFloat>35</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
           </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Enemy</SourceClassType>
@@ -518,7 +530,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>X</Member>
-            <ValueAsFloat>0</ValueAsFloat>
+            <ValueAsFloat>80</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -545,12 +557,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>X</Member>
-            <ValueAsFloat>300</ValueAsFloat>
+            <ValueAsFloat>280</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Y</Member>
-            <ValueAsFloat>-20</ValueAsFloat>
+            <ValueAsFloat>-10</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -1028,6 +1040,618 @@
             </NamedObjectSave>
           </ContainedObjects>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
+          <SourceClassGenericType>Entities\CapacitorPlatformCopyCopy</SourceClassGenericType>
+          <InstanceName>foregroundCaps</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>true</AddToManagers>
+          <ContainedObjects>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>149</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Y</Member>
+                <ValueAsFloat>-320</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>followAmount</Member>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\CapacitorPlatformCopyCopy</SourceClassType>
+              <InstanceName>CapacitorPlatformCopyCopy1</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <AddToManagers>true</AddToManagers>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>1300</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Y</Member>
+                <ValueAsFloat>-420</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>followAmount</Member>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\CapacitorPlatformCopyCopy</SourceClassType>
+              <InstanceName>CapacitorPlatformCopyCopy2</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <AddToManagers>true</AddToManagers>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>715</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Y</Member>
+                <ValueAsFloat>-270</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>followAmount</Member>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\CapacitorPlatformCopyCopy</SourceClassType>
+              <InstanceName>CapacitorPlatformCopyCopy3</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <AddToManagers>true</AddToManagers>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>390</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Y</Member>
+                <ValueAsFloat>-320</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>followAmount</Member>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\CapacitorPlatformCopyCopy</SourceClassType>
+              <InstanceName>CapacitorPlatformCopyCopy4</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <AddToManagers>true</AddToManagers>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>904</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Y</Member>
+                <ValueAsFloat>-260</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>followAmount</Member>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\CapacitorPlatformCopyCopy</SourceClassType>
+              <InstanceName>CapacitorPlatformCopyCopy5</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <AddToManagers>true</AddToManagers>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>1470</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Y</Member>
+                <ValueAsFloat>-360</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>followAmount</Member>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\CapacitorPlatformCopyCopy</SourceClassType>
+              <InstanceName>CapacitorPlatformCopyCopy6</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <AddToManagers>true</AddToManagers>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>1124</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Y</Member>
+                <ValueAsFloat>-330</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>followAmount</Member>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\CapacitorPlatformCopyCopy</SourceClassType>
+              <InstanceName>CapacitorPlatformCopyCopy7</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <AddToManagers>true</AddToManagers>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>209</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Y</Member>
+                <ValueAsFloat>-360</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>followAmount</Member>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\CapacitorPlatformCopyCopy</SourceClassType>
+              <InstanceName>CapacitorPlatformCopyCopy8</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <AddToManagers>true</AddToManagers>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>1720</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Y</Member>
+                <ValueAsFloat>-350</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>followAmount</Member>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\CapacitorPlatformCopyCopy</SourceClassType>
+              <InstanceName>CapacitorPlatformCopyCopy9</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <AddToManagers>true</AddToManagers>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>550</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Y</Member>
+                <ValueAsFloat>-300</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>followAmount</Member>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\CapacitorPlatformCopyCopy</SourceClassType>
+              <InstanceName>CapacitorPlatformCopyCopy10</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <AddToManagers>true</AddToManagers>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>0</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Y</Member>
+                <ValueAsFloat>-360</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>followAmount</Member>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\CapacitorPlatformCopyCopy</SourceClassType>
+              <InstanceName>CapacitorPlatformCopyCopy11</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <AddToManagers>true</AddToManagers>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>1890</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Y</Member>
+                <ValueAsFloat>-310</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>followAmount</Member>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\CapacitorPlatformCopyCopy</SourceClassType>
+              <InstanceName>CapacitorPlatformCopyCopy12</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <AddToManagers>true</AddToManagers>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>1600</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Y</Member>
+                <ValueAsFloat>-300</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>followAmount</Member>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\CapacitorPlatformCopyCopy</SourceClassType>
+              <InstanceName>CapacitorPlatformCopyCopy13</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <AddToManagers>true</AddToManagers>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>1000</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Y</Member>
+                <ValueAsFloat>-300</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>followAmount</Member>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\CapacitorPlatformCopyCopy</SourceClassType>
+              <InstanceName>CapacitorPlatformCopyCopy14</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <AddToManagers>true</AddToManagers>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>2340</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Y</Member>
+                <ValueAsFloat>-310</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>followAmount</Member>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\CapacitorPlatformCopyCopy</SourceClassType>
+              <InstanceName>CapacitorPlatformCopyCopy15</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <AddToManagers>true</AddToManagers>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>2500</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Y</Member>
+                <ValueAsFloat>-330</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>followAmount</Member>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\CapacitorPlatformCopyCopy</SourceClassType>
+              <InstanceName>CapacitorPlatformCopyCopy16</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <AddToManagers>true</AddToManagers>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>2200</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Y</Member>
+                <ValueAsFloat>-340</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>followAmount</Member>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\CapacitorPlatformCopyCopy</SourceClassType>
+              <InstanceName>CapacitorPlatformCopyCopy17</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <AddToManagers>true</AddToManagers>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>2060</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Y</Member>
+                <ValueAsFloat>-369</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>followAmount</Member>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\CapacitorPlatformCopyCopy</SourceClassType>
+              <InstanceName>CapacitorPlatformCopyCopy18</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <AddToManagers>true</AddToManagers>
+            </NamedObjectSave>
+          </ContainedObjects>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>X</Member>
+            <ValueAsFloat>1090</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>50</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Color</Type>
+            <Member>BodyColor</Member>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>EntireSceneCurrentChainName</Member>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>int</Type>
+            <Member>StartingHealth</Member>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>PathAreaScaleX</Member>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+          </CustomProperty>
+          <SourceType>Entity</SourceType>
+          <SourceClassType>Entities\GameScreen\Enemy</SourceClassType>
+          <InstanceName>EnemyInstance3</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>true</AddToManagers>
+          <LayerOn>SpriteLayer</LayerOn>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>X</Member>
+            <ValueAsFloat>1310</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Color</Type>
+            <Member>BodyColor</Member>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>EntireSceneCurrentChainName</Member>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>int</Type>
+            <Member>StartingHealth</Member>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>PathAreaScaleX</Member>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+          </CustomProperty>
+          <SourceType>Entity</SourceType>
+          <SourceClassType>Entities\GameScreen\Enemy</SourceClassType>
+          <InstanceName>EnemyInstance4</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>true</AddToManagers>
+          <LayerOn>SpriteLayer</LayerOn>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>X</Member>
+            <ValueAsFloat>1000</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>followAmount</Member>
+          </CustomProperty>
+          <SourceType>Entity</SourceType>
+          <SourceClassType>Entities\ResistorStamp</SourceClassType>
+          <InstanceName>ResistorStampInstance3</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>true</AddToManagers>
+          <LayerOn />
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>X</Member>
+            <ValueAsFloat>600</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>25</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>followAmount</Member>
+          </CustomProperty>
+          <SourceType>Entity</SourceType>
+          <SourceClassType>Entities\ResistorStamp</SourceClassType>
+          <InstanceName>ResistorStampInstance4</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>true</AddToManagers>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>X</Member>
+            <ValueAsFloat>1300</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>-100</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>followAmount</Member>
+          </CustomProperty>
+          <SourceType>Entity</SourceType>
+          <SourceClassType>Entities\ResistorStamp</SourceClassType>
+          <InstanceName>ResistorStampInstance5</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>true</AddToManagers>
+        </NamedObjectSave>
       </NamedObjects>
     </ScreenSave>
     <ScreenSave>
@@ -1080,6 +1704,10 @@
             <Type>int</Type>
             <Member>MaxBatteries</Member>
           </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+          </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Player</SourceClassType>
           <InstanceName>PlayerInstance</InstanceName>
@@ -1114,6 +1742,10 @@
             <Type>float</Type>
             <Member>PathAreaScaleX</Member>
             <ValueAsFloat>35</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
           </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Enemy</SourceClassType>
@@ -1150,6 +1782,10 @@
             <Type>float</Type>
             <Member>PathAreaScaleX</Member>
             <ValueAsFloat>35</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
           </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Enemy</SourceClassType>
@@ -1483,6 +2119,10 @@
             <Type>int</Type>
             <Member>MaxBatteries</Member>
           </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+          </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Player</SourceClassType>
           <InstanceName>PlayerInstance</InstanceName>
@@ -1517,6 +2157,10 @@
             <Type>float</Type>
             <Member>PathAreaScaleX</Member>
             <ValueAsFloat>35</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
           </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Enemy</SourceClassType>
@@ -1553,6 +2197,10 @@
             <Type>float</Type>
             <Member>PathAreaScaleX</Member>
             <ValueAsFloat>35</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
           </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Enemy</SourceClassType>
@@ -1886,6 +2534,10 @@
             <Type>int</Type>
             <Member>MaxBatteries</Member>
           </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+          </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Player</SourceClassType>
           <InstanceName>PlayerInstance</InstanceName>
@@ -1920,6 +2572,10 @@
             <Type>float</Type>
             <Member>PathAreaScaleX</Member>
             <ValueAsFloat>35</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
           </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Enemy</SourceClassType>
@@ -1956,6 +2612,10 @@
             <Type>float</Type>
             <Member>PathAreaScaleX</Member>
             <ValueAsFloat>35</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
           </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Enemy</SourceClassType>
@@ -2289,6 +2949,10 @@
             <Type>int</Type>
             <Member>MaxBatteries</Member>
           </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+          </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Player</SourceClassType>
           <InstanceName>PlayerInstance</InstanceName>
@@ -2323,6 +2987,10 @@
             <Type>float</Type>
             <Member>PathAreaScaleX</Member>
             <ValueAsFloat>35</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
           </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Enemy</SourceClassType>
@@ -2359,6 +3027,10 @@
             <Type>float</Type>
             <Member>PathAreaScaleX</Member>
             <ValueAsFloat>35</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
           </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Enemy</SourceClassType>
@@ -2692,6 +3364,10 @@
             <Type>int</Type>
             <Member>MaxBatteries</Member>
           </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+          </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Player</SourceClassType>
           <InstanceName>PlayerInstance</InstanceName>
@@ -2726,6 +3402,10 @@
             <Type>float</Type>
             <Member>PathAreaScaleX</Member>
             <ValueAsFloat>35</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
           </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Enemy</SourceClassType>
@@ -2762,6 +3442,10 @@
             <Type>float</Type>
             <Member>PathAreaScaleX</Member>
             <ValueAsFloat>35</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
           </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Enemy</SourceClassType>
@@ -3095,6 +3779,10 @@
             <Type>int</Type>
             <Member>MaxBatteries</Member>
           </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+          </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Player</SourceClassType>
           <InstanceName>PlayerInstance</InstanceName>
@@ -3129,6 +3817,10 @@
             <Type>float</Type>
             <Member>PathAreaScaleX</Member>
             <ValueAsFloat>35</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
           </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Enemy</SourceClassType>
@@ -3165,6 +3857,10 @@
             <Type>float</Type>
             <Member>PathAreaScaleX</Member>
             <ValueAsFloat>35</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
           </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Enemy</SourceClassType>
@@ -3498,6 +4194,10 @@
             <Type>int</Type>
             <Member>MaxBatteries</Member>
           </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+          </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Player</SourceClassType>
           <InstanceName>PlayerInstance</InstanceName>
@@ -3532,6 +4232,10 @@
             <Type>float</Type>
             <Member>PathAreaScaleX</Member>
             <ValueAsFloat>35</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
           </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Enemy</SourceClassType>
@@ -3568,6 +4272,10 @@
             <Type>float</Type>
             <Member>PathAreaScaleX</Member>
             <ValueAsFloat>35</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
           </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GameScreen\Enemy</SourceClassType>
@@ -5473,7 +6181,18 @@
           </Properties>
           <Name>Z</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>followAmount</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">-0.35</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <Name>Entities\CapacitorPlatformCopyCopy</Name>
@@ -5698,6 +6417,17 @@
           <DefaultValue xsi:type="xsd:float">10</DefaultValue>
           <SourceObject>PathArea</SourceObject>
           <SourceObjectProperty>ScaleX</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">5</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <Name>Entities\GameScreen\Enemy</Name>
@@ -6171,7 +6901,18 @@
           </Properties>
           <Name>MaxBatteries</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">4</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">2</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">6</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <Name>Entities\GameScreen\Player</Name>
@@ -6893,7 +7634,7 @@
           </Properties>
           <Name>Z</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">-5</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -6904,7 +7645,7 @@
           </Properties>
           <Name>followAmount</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.4</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <Name>Entities\ResistorStamp</Name>
@@ -7772,6 +8513,14 @@
     </TranslatedFileSave>
     <TranslatedFileSave>
       <FileName>Screens\QuizScreenCopy.cs</FileName>
+      <TranslationStyle>PerformTranslate</TranslationStyle>
+    </TranslatedFileSave>
+    <TranslatedFileSave>
+      <FileName>Screens\GameScreen.Generated.cs</FileName>
+      <TranslationStyle>PerformTranslate</TranslationStyle>
+    </TranslatedFileSave>
+    <TranslatedFileSave>
+      <FileName>Screens\GameScreen.cs</FileName>
       <TranslationStyle>PerformTranslate</TranslationStyle>
     </TranslatedFileSave>
   </TranslatedFiles>

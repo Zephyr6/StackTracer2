@@ -113,7 +113,7 @@ namespace BeefBall.Screens
 
         void HideButtons() 
         {
-            Game1.StartGameSFX.Play();
+            Game1.BeepSFX.Play();
             buttonsHidden = true;
             TeamButton.Visible = false;
             ProjectButton.Visible = false;

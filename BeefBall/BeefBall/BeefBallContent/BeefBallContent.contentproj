@@ -272,20 +272,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutSound.mp3">
-      <Name>AboutSound</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
     <Compile Include="Entities\GameScreen\Player\hurt.wav">
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Name>hurt</Name>
-    </Compile>
-    <Compile Include="ExitSound.mp3">
-      <Name>ExitSound</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SoundEffectProcessor</Processor>
     </Compile>
     <Compile Include="Screens\MainMenu\beep.wav">
       <Importer>WavImporter</Importer>
@@ -343,6 +333,21 @@
       <Name>Hex</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Blue Ruin.mp3">
+      <Name>Blue Ruin</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="beep.wav">
+      <Name>beep</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
   </ItemGroup>

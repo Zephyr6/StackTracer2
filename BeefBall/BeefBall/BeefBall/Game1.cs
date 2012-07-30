@@ -22,8 +22,7 @@ namespace BeefBall
         GraphicsDeviceManager graphics;
 
         public static SoundEffect StartGameSFX;
-        public static SoundEffect AboutGameSFX;
-        public static SoundEffect ExitGameSFX;
+        public static SoundEffect BeepSFX;
 
         public static int RIGHT = 0;
         public static int LEFT = 1;
@@ -72,10 +71,8 @@ namespace BeefBall
             FlatRedBallServices.GraphicsOptions.UseMultiSampling = false;
             FlatRedBallServices.GraphicsOptions.TextureFilter = TextureFilter.Point;
 
-            AboutGameSFX = Content.Load<SoundEffect>("AboutSound");
-            ExitGameSFX = Content.Load<SoundEffect>("ExitSound");
             StartGameSFX = Content.Load<SoundEffect>("StartSound");
-
+            BeepSFX = Content.Load<SoundEffect>("beep");
 
             Levels = new List<string>();
             Levels.Add(typeof(BeefBall.Screens.GameScreen).FullName);

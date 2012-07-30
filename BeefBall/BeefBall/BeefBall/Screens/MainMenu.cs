@@ -102,7 +102,6 @@ namespace BeefBall.Screens
                     else if (currentButton == MainMenuButtons.About)
                     {
                         this.MoveToScreen(typeof(About).FullName);
-                        Game1.AboutGameSFX.Play();
                     }
                     else if (currentButton == MainMenuButtons.Exit)
                     {

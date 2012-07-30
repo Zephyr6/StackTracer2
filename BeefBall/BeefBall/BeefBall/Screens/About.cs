@@ -20,12 +20,16 @@ using Keys = Microsoft.Xna.Framework.Input.Keys;
 using Vector3 = Microsoft.Xna.Framework.Vector3;
 using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 using FlatRedBall.Graphics;
+using Microsoft.Xna.Framework.Media;
 #endif
 
 namespace BeefBall.Screens
 {
 	public partial class About
 	{
+        static string songManager = "ContentManager";
+        static Song song = FlatRedBallServices.Load<Song>(@"Content/Blue Ruin", songManager);
+		
         enum AboutButtons 
         {
             Team,
@@ -44,6 +48,7 @@ namespace BeefBall.Screens
 		
         void CustomInitialize()
 		{
+            Microsoft.Xna.Framework.Media.MediaPlayer.Play(song);
             TeamButton.CurrentState = Entities.Button.VariableState.Regular;
             mGamePad = InputManager.Xbox360GamePads[0];
 
@@ -124,7 +129,7 @@ namespace BeefBall.Screens
                         if (!buttonsHidden)
                         {
                             TeamButtonActivity();
-                            Game1.StartGameSFX.Play();
+                            Game1.BeepSFX.Play();
                         }
                     }
                     else if (currentButton == AboutButtons.Story)
@@ -142,7 +147,7 @@ namespace BeefBall.Screens
                         if (!buttonsHidden)
                         {  
                             ProjectButtonActivity();
-                            Game1.StartGameSFX.Play();
+                            Game1.BeepSFX.Play();
                         }
                     }
                     else if (currentButton == AboutButtons.Quiz)
@@ -151,7 +156,7 @@ namespace BeefBall.Screens
                         if (!buttonsHidden)
                         {
                             QuizButtonActivity();
-                            Game1.StartGameSFX.Play();
+                            Game1.BeepSFX.Play();
                         }
                     }
                     else if (currentButton == AboutButtons.Back)
@@ -159,7 +164,7 @@ namespace BeefBall.Screens
                         BackButtonActivity();
                         if (!buttonsHidden)
                         {
-                            Game1.StartGameSFX.Play();
+                            Game1.BeepSFX.Play();
                         }
                     }
                 }
@@ -209,6 +214,7 @@ namespace BeefBall.Screens
 		void CustomDestroy()
 		{
             TextManager.RemoveText(aboutText);
+            Microsoft.Xna.Framework.Media.MediaPlayer.Stop();
 		}
 
         static void CustomLoadStaticContent(string contentManagerName)

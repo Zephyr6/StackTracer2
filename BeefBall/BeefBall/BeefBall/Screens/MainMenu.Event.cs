@@ -18,7 +18,6 @@ namespace BeefBall.Screens
         void OnAboutButtonClick (FlatRedBall.Gui.IWindow callingWindow)
         {
             this.MoveToScreen(typeof(About).FullName);
-            Game1.AboutGameSFX.Play();
         }
         void OnExitButtonClick (FlatRedBall.Gui.IWindow callingWindow)
         {
@@ -60,7 +59,6 @@ namespace BeefBall.Screens
             StartGameButton.CurrentState = Button.VariableState.Disabled;
             isMousedOver = true;
             beep.Play();
-            Game1.ExitGameSFX.Play();
         }
         void OnExitButtonRollOff (FlatRedBall.Gui.IWindow callingWindow)
         {

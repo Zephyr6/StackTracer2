@@ -84,6 +84,7 @@ namespace BeefBall.Entities.GameScreen
         {
             Velocity.X = 0;
 
+
             // Move left/right
             if (!IsAttacking() || CurrentState == VariableState.Jumping)
             {
@@ -117,7 +118,6 @@ namespace BeefBall.Entities.GameScreen
             }
 
             AttackActivity();
-
             if (mGamePad.ButtonPushed(Xbox360GamePad.Button.Y))
                 Console.WriteLine(InnerExScene.CurrentChain.TotalLength);
         }

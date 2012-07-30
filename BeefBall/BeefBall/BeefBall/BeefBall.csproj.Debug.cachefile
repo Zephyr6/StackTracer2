@@ -2,11 +2,20 @@ Content\Entities\Player\hit.xnb
 Content\Entities\Player\jump.xnb
 Content\Entities\Player\swing.xnb
 Content\Entities\Player\swing2.xnb
+Content\Entities\GameScreen\Player\hurt.xnb
 Content\Screens\MainMenu\beep.xnb
 Content\AboutSound.xnb
 Content\ExitSound.xnb
 Content\StartSound.xnb
-Content\Entities\GameScreen\Player\hurt.xnb
+Content\15th Night - Night Tower.xnb
+Content\Acrostics.xnb
+Content\She fights alone M.xnb
+Content\15th Night - Night Tower.wma
+Content\Acrostics.wma
+Content\She fights alone M.wma
+Content\15th Night - Night Tower.mp3
+Content\Acrostics.mp3
+Content\She fights alone M.mp3
 Content\Entities\AButton\xbox-button-a.png
 Content\Entities\AButton\XBoxA.scnx
 Content\Entities\Battery\AnimationChainListFile.achx
@@ -21,7 +30,11 @@ Content\Entities\Button\button_inactive.png
 Content\Entities\Button\button_up.png
 Content\Entities\Button\SceneFile.scnx
 Content\Entities\CapacitorPlatform\Capacitor.png
+Content\Entities\CapacitorPlatform\capacitorblue.png
 Content\Entities\CapacitorPlatform\CapacitorCollisionFile.shcx
+Content\Entities\CapacitorPlatform\capacitorgreen.png
+Content\Entities\CapacitorPlatform\SceneFile2.scnx
+Content\Entities\CapacitorPlatform\SceneFile1.scnx
 Content\Entities\CapacitorPlatform\SceneFile.scnx
 Content\Entities\Enemy\testsprite32x32.png
 Content\Entities\GameScreen\Enemy\animationchainlistfile.achx

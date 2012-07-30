@@ -22,6 +22,7 @@ using Vector3 = Microsoft.Xna.Framework.Vector3;
 using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 using System.IO;
 using FlatRedBall.Graphics;
+using Microsoft.Xna.Framework.Media;
 #endif
 
 namespace BeefBall.Screens
@@ -39,10 +40,13 @@ namespace BeefBall.Screens
         Text keyText = TextManager.AddText("");
         Xbox360GamePad GamePad;
         static Random rnd;
+        static string songManager = "ContentManager";
+        static Song song = FlatRedBallServices.Load<Song>(@"Content/She fights alone M", songManager);
 
         //TextArial ta = new TextArial();
         void CustomInitialize()
         {
+            Microsoft.Xna.Framework.Media.MediaPlayer.Play(song);
             SpriteManager.Camera.X = 0;
             SpriteManager.Camera.Y = 20;
             InitializeCustomEvents();
@@ -81,6 +85,7 @@ namespace BeefBall.Screens
             TextManager.RemoveText(answerXText);
             TextManager.RemoveText(answerYText);
             TextManager.RemoveText(keyText);
+            Microsoft.Xna.Framework.Media.MediaPlayer.Stop();
 
         }
 

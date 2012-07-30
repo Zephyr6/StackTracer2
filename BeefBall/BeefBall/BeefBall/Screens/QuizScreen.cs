@@ -22,6 +22,7 @@ using Vector3 = Microsoft.Xna.Framework.Vector3;
 using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 using System.IO;
 using FlatRedBall.Graphics;
+using Microsoft.Xna.Framework.Media;
 #endif
 
 namespace BeefBall.Screens
@@ -40,9 +41,13 @@ namespace BeefBall.Screens
         Text headerText = TextManager.AddText("");
         Xbox360GamePad GamePad;
 
+        static string songManager = "ContentManager";
+        static Song song = FlatRedBallServices.Load<Song>(@"Content/Acrostics", songManager);
+
         //TextArial ta = new TextArial();
         void CustomInitialize()
         {
+            Microsoft.Xna.Framework.Media.MediaPlayer.Play(song);
             InitializeCustomEvents();
             InitializeHeaderText();
             FlatRedBallServices.IsWindowsCursorVisible = true;
@@ -75,7 +80,8 @@ namespace BeefBall.Screens
             TextManager.RemoveText(answerBText);
             TextManager.RemoveText(answerXText);
             TextManager.RemoveText(answerYText);
-            TextManager.RemoveText(headerText);  
+            TextManager.RemoveText(headerText);
+            Microsoft.Xna.Framework.Media.MediaPlayer.Stop();
         }
 
         static void CustomLoadStaticContent(string contentManagerName)

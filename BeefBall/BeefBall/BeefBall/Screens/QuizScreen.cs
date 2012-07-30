@@ -37,12 +37,14 @@ namespace BeefBall.Screens
         Text answerYText = TextManager.AddText("");
         Text answerBText = TextManager.AddText("");
         Text answerAText = TextManager.AddText("");
+        Text headerText = TextManager.AddText("");
         Xbox360GamePad GamePad;
 
         //TextArial ta = new TextArial();
         void CustomInitialize()
         {
             InitializeCustomEvents();
+            InitializeHeaderText();
             FlatRedBallServices.IsWindowsCursorVisible = true;
             StartButtonInst.Visible = false;
             NextQuestion.Visible = false;
@@ -72,8 +74,8 @@ namespace BeefBall.Screens
             TextManager.RemoveText(answerAText);
             TextManager.RemoveText(answerBText);
             TextManager.RemoveText(answerXText);
-            TextManager.RemoveText(answerYText);  
-
+            TextManager.RemoveText(answerYText);
+            TextManager.RemoveText(headerText);  
         }
 
         static void CustomLoadStaticContent(string contentManagerName)
@@ -157,13 +159,22 @@ namespace BeefBall.Screens
             threeQuestions[2] = questions[indexQuestion3];
         }
 
-
+        public void InitializeHeaderText() 
+        {
+            headerText.Scale = 8f;
+            headerText.Spacing = 8;
+            headerText.X = -200;
+            headerText.Y = 140;
+            headerText.SetColor(0, 255, 255);
+            headerText.DisplayText = "Must get 3 questions correct to advance";
+        }
+        
         public void DisplayQuestions()
         {
             questionText.DisplayText = threeQuestions[questionIndex].QuestionText;
             questionText.Scale = 8f;
             questionText.Spacing = 8;
-            questionText.X = -80;
+            questionText.X = -200;
             questionText.Y = 100;
 
             answerXText.DisplayText = string.Format("X)   {0}", threeQuestions[questionIndex].answerList[0]);

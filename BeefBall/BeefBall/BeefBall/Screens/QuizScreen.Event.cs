@@ -15,6 +15,7 @@ namespace BeefBall.Screens
         bool canRollOver = true;
         bool canClick = true;
         bool lastScreen = false;
+        bool allQuestionsCorrect = false;
 
 
         void StartButtonPress() 
@@ -244,7 +245,14 @@ namespace BeefBall.Screens
 
             if (questionIndex > 2)
             {
-                this.MoveToScreen(Game1.GetNextLevel());
+                if (numCorrect == 3)
+                {
+                    this.MoveToScreen(Game1.GetNextLevel());
+                }
+                else
+                {
+                    this.MoveToScreen(typeof(QuizScreen).FullName);
+                }
             }
         }
 

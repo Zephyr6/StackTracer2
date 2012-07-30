@@ -1,19 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
+using BeefBall.Screens;
 using FlatRedBall;
 using FlatRedBall.Graphics;
-using FlatRedBall.Utilities;
-
-using BeefBall.Screens;
 using FlatRedBall.Input;
+using FlatRedBall.Utilities;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace BeefBall
 {
@@ -41,13 +36,11 @@ namespace BeefBall
 
             BackStack<string> bs = new BackStack<string>();
             bs.Current = string.Empty;
-
-#if WINDOWS_PHONE
+            #if WINDOWS_PHONE
 			// Frame rate is 30 fps by default for Windows Phone.
             TargetElapsedTime = TimeSpan.FromTicks(333333);
             graphics.IsFullScreen = true;
-			
-#endif
+            #endif
         }
 
         protected override void Initialize()
@@ -55,7 +48,7 @@ namespace BeefBall
             Renderer.UseRenderTargets = false;
             FlatRedBallServices.InitializeFlatRedBall(this, graphics);
             CameraSetup.SetupCamera(SpriteManager.Camera);
-			GlobalContent.Initialize();
+            GlobalContent.Initialize();
 
             // Are there any gamepads connected?
             if (FlatRedBall.Input.InputManager.Xbox360GamePads[0].IsConnected == false)
@@ -64,7 +57,7 @@ namespace BeefBall
             }
             GamePad = InputManager.Xbox360GamePads[0];
 
-			Screens.ScreenManager.Start(typeof(BeefBall.Screens.MainMenu).FullName);
+            Screens.ScreenManager.Start(typeof(BeefBall.Screens.MainMenu).FullName);
 
             base.Initialize();
 
@@ -79,22 +72,22 @@ namespace BeefBall
             Levels.Add(typeof(BeefBall.Screens.GameScreenCopy).FullName);
         }
 
-         public static string GetNextLevel()
-         {
-             currentLevel++;
+        public static string GetNextLevel()
+        {
+            currentLevel++;
             if (currentLevel >= Levels.Count)
             {
                 currentLevel = -1;
-                 return typeof(BeefBall.Screens.MainMenu).FullName;
+                return typeof(BeefBall.Screens.MainMenu).FullName;
             }
-             else
-                 return Levels[currentLevel];
-         }
+            else
+                return Levels[currentLevel];
+        }
 
-         public static void ResetLevel()
-         {
-             currentLevel = 0;
-         }
+        public static void ResetLevel()
+        {
+            currentLevel = 0;
+        }
 
         protected override void Update(GameTime gameTime)
         {

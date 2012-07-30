@@ -1,25 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-using FlatRedBall.AI.Pathfinding;
-using FlatRedBall.Graphics.Model;
-
-using FlatRedBall.Input;
-using FlatRedBall.Utilities;
-
 using FlatRedBall.Instructions;
-using FlatRedBall.Math.Splines;
-using BitmapFont = FlatRedBall.Graphics.BitmapFont;
-using Cursor = FlatRedBall.Gui.Cursor;
-using GuiManager = FlatRedBall.Gui.GuiManager;
 // Generated Usings
-using BeefBall.Screens;
-using Matrix = Microsoft.Xna.Framework.Matrix;
 using FlatRedBall.Graphics;
-using FlatRedBall.Math;
-using FlatRedBall.Broadcasting;
-using BeefBall.Entities;
-using BeefBall.Entities.GameScreen;
 using FlatRedBall;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Graphics.Animation;
@@ -32,13 +14,9 @@ using Color = Microsoft.Xna.Framework.Graphics.Color;
 #endif
 
 #if FRB_XNA || SILVERLIGHT
-using Keys = Microsoft.Xna.Framework.Input.Keys;
-using Vector3 = Microsoft.Xna.Framework.Vector3;
-using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 #endif
 
 #if FRB_XNA && !MONODROID
-using Model = Microsoft.Xna.Framework.Graphics.Model;
 #endif
 
 namespace BeefBall.Entities.GameScreen

@@ -1,11 +1,6 @@
 using System;
-using FlatRedBall;
 using FlatRedBall.Input;
-using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Specialized;
-using BeefBall.Entities;
-using BeefBall.Entities.GameScreen;
-using BeefBall.Screens;
+
 namespace BeefBall.Screens
 {
     public partial class QuizScreen
@@ -17,11 +12,10 @@ namespace BeefBall.Screens
         bool lastScreen = false;
         bool allQuestionsCorrect = false;
 
-
         void StartButtonPress() 
         {
-           if(GamePad.ButtonPushed(Xbox360GamePad.Button.Start))
-               StartButtonActivity();
+            if (GamePad.ButtonPushed(Xbox360GamePad.Button.Start))
+                StartButtonActivity();
         }
 
         void XButtonPress() 
@@ -50,7 +44,6 @@ namespace BeefBall.Screens
         
         void OnXBoxXButtonClick(FlatRedBall.Gui.IWindow callingWindow)
         {
-
             XActivity();
         }
 
@@ -72,7 +65,7 @@ namespace BeefBall.Screens
             }
         }
 
-        void onXBoxYButtonClick(FlatRedBall.Gui.IWindow callingWindow)
+        void OnXBoxYButtonClick(FlatRedBall.Gui.IWindow callingWindow)
         {
             YActivity();
         }
@@ -145,229 +138,5 @@ namespace BeefBall.Screens
         {
             StartButtonActivity();
         }
-
-        void StartButtonActivity() 
-        {
-            NextQuestionAdvance();
-        }
-        
-        void AActivity()
-        {
-            if (questionIndex < 3 && canClick)
-            {
-                if (IsRightAnswer(3))
-                {
-                    numCorrect++;
-                    answerAText.SetColor(0, 255, 0);
-                }
-                else
-                {
-                    answerAText.SetColor(255, 0, 0);
-                }
-
-                ButtonPressCommonActivity();
-            }
-        }
-
-        void BActivity()
-        {
-            if (questionIndex < 3 && canClick)
-            {
-                if (IsRightAnswer(2))
-                {
-                    numCorrect++;
-                    answerBText.SetColor(0, 255, 0);
-                }
-                else
-                {
-                    answerBText.SetColor(255, 0, 0);
-                }
-                ButtonPressCommonActivity();
-            }
-        }
-
-        void XActivity()
-        {
-            if (questionIndex < 3 && canClick)
-            {
-                if (IsRightAnswer(0))
-                {
-                    numCorrect++;
-                    answerXText.SetColor(0, 255, 0);
-                }
-                else
-                {
-                    answerXText.SetColor(255, 0, 0);
-                }
-                ButtonPressCommonActivity();
-            }
-        }
-
-        void YActivity()
-        {
-            if (questionIndex < 3 && canClick)
-            {
-                if (IsRightAnswer(1))
-                {
-                    numCorrect++;
-                    answerYText.SetColor(0, 255, 0);
-                }
-                else
-                {
-                    answerYText.SetColor(255, 0, 0);
-                }
-                ButtonPressCommonActivity();
-            }
-        }
-
-        void ButtonPressCommonActivity()
-        {
-            CollapseWrongAnswers();
-            questionIndex++;
-            UpdateNumCorrect();
-            NextQuestionVisible();
-        }
-        
-        void OnNextQuestionClick(FlatRedBall.Gui.IWindow callingWindow)
-        {
-            NextQuestionAdvance();      
-        }
-
-        void NextQuestionAdvance()
-        {
-            ResetTextColors();
-            if (questionIndex < 3)
-            {
-                DisplayQuestions();
-                InflateAllAnswers();
-            }
-            NextQuestionNotVisible();
-
-            if (questionIndex > 2)
-            {
-                if (numCorrect == 3)
-                {
-                    this.MoveToScreen(Game1.GetNextLevel());
-                }
-                else
-                {
-                    this.MoveToScreen(typeof(QuizScreen).FullName);
-                }
-            }
-        }
-
-        void AnyKeyDone() 
-        {
-            this.MoveToScreen(Game1.GetNextLevel());   
-        }
-
-        void CollapseWrongAnswers()
-        {
-            canClick = false;
-            if (!IsRightAnswer(0))
-            {
-                canRollOver = false;
-                XButtoninst.RotationX = 5;
-                XButtoninst.RotationY = 5;
-                answerXText.DisplayText = "X)";
-            }
-            if (!IsRightAnswer(1))
-            {
-                canRollOver = false;
-                YButtonInst.RotationX = 5;
-                YButtonInst.RotationY = 5;
-                answerYText.DisplayText = "Y)";
-            }
-            if (!IsRightAnswer(2))
-            {
-                canRollOver = false;
-                BButtonInst.RotationX = 5;
-                BButtonInst.RotationY = 5;
-                answerBText.DisplayText = "B)";
-            }
-            if (!IsRightAnswer(3))
-            {
-                canRollOver = false;
-                AButtonInst.RotationX = 5;
-                AButtonInst.RotationY = 5;
-                answerAText.DisplayText = "A)";
-            }
-        }
-
-        void ResetTextColors()
-        {
-            answerAText.SetColor(255, 255, 255);
-            answerBText.SetColor(255, 255, 255);
-            answerXText.SetColor(255, 255, 255);
-            answerYText.SetColor(255, 255, 255);
-
-        }
-
-        void InflateAllAnswers()
-        {
-            canClick = true;
-            canRollOver = true;
-            XButtoninst.RotationX = 0;
-            XButtoninst.RotationY = 0;
-            XButtoninst.RotationZ = 0;
-            YButtonInst.RotationX = 0;
-            YButtonInst.RotationY = 0;
-            YButtonInst.RotationZ = 0;
-            BButtonInst.RotationX = 0;
-            BButtonInst.RotationY = 0;
-            BButtonInst.RotationZ = 0;
-            AButtonInst.RotationX = 0;
-            AButtonInst.RotationY = 0;
-            AButtonInst.RotationZ = 0;
-
-        }
-
-        public bool IsRightAnswer(int index)
-        {
-            if (threeQuestions[questionIndex].answerIndex == index)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        
-        
-        void NextQuestionVisible()
-        {
-            this.StartButtonInst.Visible = true;
-            if (questionIndex > 2)
-            {
-                this.NextQuestion.DisplayText = "Done";
-            }
-        }
-
-        void NextQuestionNotVisible()
-        {
-            if (questionIndex < 3)
-            {
-                this.StartButtonInst.Visible = false;
-            }
-            else
-                EndQuiz();
-        }
-
-        void EndQuiz()
-        {
-            this.XButtoninst.Visible = false;
-            this.YButtonInst.Visible = false;
-            this.BButtonInst.Visible = false;
-            this.AButtonInst.Visible = false;
-        }
-
-        void UpdateNumCorrect()
-        {
-            this.NumberCorrect.CurrentState = Button.VariableState.Hover;
-            string score = string.Format("{0} out of {1}", numCorrect, questionIndex);
-            NumberCorrect.DisplayText = (score);
-        }
-        
     }
 }

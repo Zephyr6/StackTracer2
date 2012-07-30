@@ -1,30 +1,28 @@
 using System;
-using FlatRedBall;
-using FlatRedBall.Input;
-using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Specialized;
 using BeefBall.Entities;
-using BeefBall.Entities.GameScreen;
-using BeefBall.Screens;
+using FlatRedBall;
+
 namespace BeefBall.Screens
 {
-	public partial class MainMenu
-	{
-        void OnStartButtonClick (FlatRedBall.Gui.IWindow callingWindow)
+    public partial class MainMenu
+    {
+        void OnStartButtonClick(FlatRedBall.Gui.IWindow callingWindow)
         {
             this.MoveToScreen(typeof(GameScreen).FullName);
             Game1.StartGameSFX.Play();
         }
-        void OnAboutButtonClick (FlatRedBall.Gui.IWindow callingWindow)
+        
+        void OnAboutButtonClick(FlatRedBall.Gui.IWindow callingWindow)
         {
             this.MoveToScreen(typeof(About).FullName);
         }
-        void OnExitButtonClick (FlatRedBall.Gui.IWindow callingWindow)
+        
+        void OnExitButtonClick(FlatRedBall.Gui.IWindow callingWindow)
         {
             FlatRedBallServices.Game.Exit();
         }
 
-        void OnStartButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)
+        void OnStartButtonRollOn(FlatRedBall.Gui.IWindow callingWindow)
         {
             AboutButton.CurrentState = Button.VariableState.Disabled;
             ExitButton.CurrentState = Button.VariableState.Disabled;
@@ -32,13 +30,15 @@ namespace BeefBall.Screens
             isMousedOver = true;
             beep.Play();
         }
-        void OnStartButtonRollOff (FlatRedBall.Gui.IWindow callingWindow)
+        
+        void OnStartButtonRollOff(FlatRedBall.Gui.IWindow callingWindow)
         {
             AboutButton.CurrentState = Button.VariableState.Disabled;
             ExitButton.CurrentState = Button.VariableState.Disabled;
             StartGameButton.CurrentState = Button.VariableState.Disabled;
         }
-        void OnAboutButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)
+        
+        void OnAboutButtonRollOn(FlatRedBall.Gui.IWindow callingWindow)
         {
             AboutButton.CurrentState = Button.VariableState.Regular;
             ExitButton.CurrentState = Button.VariableState.Disabled;
@@ -46,13 +46,15 @@ namespace BeefBall.Screens
             isMousedOver = true;
             beep.Play();
         }
-        void OnAboutButtonRollOff (FlatRedBall.Gui.IWindow callingWindow)
+        
+        void OnAboutButtonRollOff(FlatRedBall.Gui.IWindow callingWindow)
         {
             AboutButton.CurrentState = Button.VariableState.Disabled;
             ExitButton.CurrentState = Button.VariableState.Disabled;
             StartGameButton.CurrentState = Button.VariableState.Disabled;
         }
-        void OnExitButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)
+        
+        void OnExitButtonRollOn(FlatRedBall.Gui.IWindow callingWindow)
         {
             AboutButton.CurrentState = Button.VariableState.Disabled;
             ExitButton.CurrentState = Button.VariableState.Regular;
@@ -60,12 +62,12 @@ namespace BeefBall.Screens
             isMousedOver = true;
             beep.Play();
         }
-        void OnExitButtonRollOff (FlatRedBall.Gui.IWindow callingWindow)
+        
+        void OnExitButtonRollOff(FlatRedBall.Gui.IWindow callingWindow)
         {
             AboutButton.CurrentState = Button.VariableState.Disabled;
             ExitButton.CurrentState = Button.VariableState.Disabled;
             StartGameButton.CurrentState = Button.VariableState.Disabled;
         }
-
-	}
+    }
 }

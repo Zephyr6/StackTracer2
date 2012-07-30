@@ -1,28 +1,13 @@
 using System;
 using System.Collections.Generic;
 using BeefBall.Entities;
-using System.Text;
 using FlatRedBall;
 using FlatRedBall.Input;
-using FlatRedBall.AI.Pathfinding;
-using FlatRedBall.Graphics.Animation;
-using FlatRedBall.Graphics.Particle;
-
-using FlatRedBall.Graphics.Model;
-using FlatRedBall.Math.Geometry;
-using FlatRedBall.Math.Splines;
-
-using Cursor = FlatRedBall.Gui.Cursor;
-using GuiManager = FlatRedBall.Gui.GuiManager;
-using FlatRedBall.Localization;
-
 #if FRB_XNA || SILVERLIGHT
-using Keys = Microsoft.Xna.Framework.Input.Keys;
-using Vector3 = Microsoft.Xna.Framework.Vector3;
-using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 using System.IO;
 using FlatRedBall.Graphics;
 using Microsoft.Xna.Framework.Media;
+
 #endif
 
 namespace BeefBall.Screens
@@ -40,11 +25,9 @@ namespace BeefBall.Screens
         Text answerAText = TextManager.AddText("");
         Text headerText = TextManager.AddText("");
         Xbox360GamePad GamePad;
-
         static string songManager = "ContentManager";
         static Song song = FlatRedBallServices.Load<Song>(@"Content/Acrostics", songManager);
 
-        //TextArial ta = new TextArial();
         void CustomInitialize()
         {
             Microsoft.Xna.Framework.Media.MediaPlayer.Play(song);
@@ -86,8 +69,6 @@ namespace BeefBall.Screens
 
         static void CustomLoadStaticContent(string contentManagerName)
         {
-
-
         }
 
         public void InitializeCustomEvents() 
@@ -96,7 +77,7 @@ namespace BeefBall.Screens
             XButtoninst.RollOn += OnXboxXButtonRollOn;
             XButtoninst.RollOff += OnXBoxXButtonRollOff;
             
-            YButtonInst.Click += onXBoxYButtonClick;
+            YButtonInst.Click += OnXBoxYButtonClick;
             YButtonInst.RollOn += OnXboxYButtonRollOn;
             YButtonInst.RollOff += OnXBoxYButtonRollOff;
             
@@ -129,8 +110,6 @@ namespace BeefBall.Screens
                     q.SetAnswers();
                     questions.Add(q);
                 }
-
-
             }
         }
 
@@ -153,12 +132,14 @@ namespace BeefBall.Screens
             do
             {
                 indexQuestion2 = rnd.Next(listSize);
-            } while (indexQuestion2 == indexQuestion1);
+            }
+            while (indexQuestion2 == indexQuestion1);
 
             do
             {
                 indexQuestion3 = rnd.Next(listSize);
-            } while (indexQuestion3 == indexQuestion1 || indexQuestion3 == indexQuestion2);
+            }
+            while (indexQuestion3 == indexQuestion1 || indexQuestion3 == indexQuestion2);
 
             threeQuestions[0] = questions[indexQuestion1];
             threeQuestions[1] = questions[indexQuestion2];
@@ -189,36 +170,243 @@ namespace BeefBall.Screens
             answerXText.X = -130;
             answerXText.Y = 60;
 
-            answerYText.DisplayText = string.Format("Y)   {0}",threeQuestions[questionIndex].answerList[1]);
+            answerYText.DisplayText = string.Format("Y)   {0}", threeQuestions[questionIndex].answerList[1]);
             answerYText.Scale = 6f;
             answerYText.Spacing = 6;
             answerYText.X = -130;
             answerYText.Y = 20;
 
-            answerBText.DisplayText = string.Format("B)   {0}",threeQuestions[questionIndex].answerList[2]);
+            answerBText.DisplayText = string.Format("B)   {0}", threeQuestions[questionIndex].answerList[2]);
             answerBText.Scale = 6f;
             answerBText.Spacing = 6;
             answerBText.X = -130;
             answerBText.Y = -20;
 
-            answerAText.DisplayText = string.Format("A)   {0}",threeQuestions[questionIndex].answerList[3]);
+            answerAText.DisplayText = string.Format("A)   {0}", threeQuestions[questionIndex].answerList[3]);
             answerAText.Scale = 6f;
             answerAText.Spacing = 6;
             answerAText.X = -130;
             answerAText.Y = -60;
-
-
         }
 
-        public void DisplayCorrectAnswer()
+        void StartButtonActivity()
         {
-            
+            NextQuestionAdvance();
         }
 
-        public Boolean IsRightAnswer()
+        void AActivity()
         {
-            return false;
+            if (questionIndex < 3 && canClick)
+            {
+                if (IsRightAnswer(3))
+                {
+                    numCorrect++;
+                    answerAText.SetColor(0, 255, 0);
+                }
+                else
+                {
+                    answerAText.SetColor(255, 0, 0);
+                }
+
+                ButtonPressCommonActivity();
+            }
         }
 
+        void BActivity()
+        {
+            if (questionIndex < 3 && canClick)
+            {
+                if (IsRightAnswer(2))
+                {
+                    numCorrect++;
+                    answerBText.SetColor(0, 255, 0);
+                }
+                else
+                {
+                    answerBText.SetColor(255, 0, 0);
+                }
+                ButtonPressCommonActivity();
+            }
+        }
+
+        void XActivity()
+        {
+            if (questionIndex < 3 && canClick)
+            {
+                if (IsRightAnswer(0))
+                {
+                    numCorrect++;
+                    answerXText.SetColor(0, 255, 0);
+                }
+                else
+                {
+                    answerXText.SetColor(255, 0, 0);
+                }
+                ButtonPressCommonActivity();
+            }
+        }
+
+        void YActivity()
+        {
+            if (questionIndex < 3 && canClick)
+            {
+                if (IsRightAnswer(1))
+                {
+                    numCorrect++;
+                    answerYText.SetColor(0, 255, 0);
+                }
+                else
+                {
+                    answerYText.SetColor(255, 0, 0);
+                }
+                ButtonPressCommonActivity();
+            }
+        }
+
+        void ButtonPressCommonActivity()
+        {
+            CollapseWrongAnswers();
+            questionIndex++;
+            UpdateNumCorrect();
+            NextQuestionVisible();
+        }
+
+        void OnNextQuestionClick(FlatRedBall.Gui.IWindow callingWindow)
+        {
+            NextQuestionAdvance();
+        }
+
+        void NextQuestionAdvance()
+        {
+            ResetTextColors();
+            if (questionIndex < 3)
+            {
+                DisplayQuestions();
+                InflateAllAnswers();
+            }
+            NextQuestionNotVisible();
+
+            if (questionIndex > 2)
+            {
+                if (numCorrect == 3)
+                {
+                    this.MoveToScreen(Game1.GetNextLevel());
+                }
+                else
+                {
+                    this.MoveToScreen(typeof(QuizScreen).FullName);
+                }
+            }
+        }
+
+        void AnyKeyDone()
+        {
+            this.MoveToScreen(Game1.GetNextLevel());
+        }
+
+        void CollapseWrongAnswers()
+        {
+            canClick = false;
+            if (!IsRightAnswer(0))
+            {
+                canRollOver = false;
+                XButtoninst.RotationX = 5;
+                XButtoninst.RotationY = 5;
+                answerXText.DisplayText = "X)";
+            }
+            if (!IsRightAnswer(1))
+            {
+                canRollOver = false;
+                YButtonInst.RotationX = 5;
+                YButtonInst.RotationY = 5;
+                answerYText.DisplayText = "Y)";
+            }
+            if (!IsRightAnswer(2))
+            {
+                canRollOver = false;
+                BButtonInst.RotationX = 5;
+                BButtonInst.RotationY = 5;
+                answerBText.DisplayText = "B)";
+            }
+            if (!IsRightAnswer(3))
+            {
+                canRollOver = false;
+                AButtonInst.RotationX = 5;
+                AButtonInst.RotationY = 5;
+                answerAText.DisplayText = "A)";
+            }
+        }
+
+        void ResetTextColors()
+        {
+            answerAText.SetColor(255, 255, 255);
+            answerBText.SetColor(255, 255, 255);
+            answerXText.SetColor(255, 255, 255);
+            answerYText.SetColor(255, 255, 255);
+        }
+
+        void InflateAllAnswers()
+        {
+            canClick = true;
+            canRollOver = true;
+            XButtoninst.RotationX = 0;
+            XButtoninst.RotationY = 0;
+            XButtoninst.RotationZ = 0;
+            YButtonInst.RotationX = 0;
+            YButtonInst.RotationY = 0;
+            YButtonInst.RotationZ = 0;
+            BButtonInst.RotationX = 0;
+            BButtonInst.RotationY = 0;
+            BButtonInst.RotationZ = 0;
+            AButtonInst.RotationX = 0;
+            AButtonInst.RotationY = 0;
+            AButtonInst.RotationZ = 0;
+        }
+
+        public bool IsRightAnswer(int index)
+        {
+            if (threeQuestions[questionIndex].answerIndex == index)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        void NextQuestionVisible()
+        {
+            this.StartButtonInst.Visible = true;
+            if (questionIndex > 2)
+            {
+                this.NextQuestion.DisplayText = "Done";
+            }
+        }
+
+        void NextQuestionNotVisible()
+        {
+            if (questionIndex < 3)
+            {
+                this.StartButtonInst.Visible = false;
+            }
+            else
+                EndQuiz();
+        }
+
+        void EndQuiz()
+        {
+            this.XButtoninst.Visible = false;
+            this.YButtonInst.Visible = false;
+            this.BButtonInst.Visible = false;
+            this.AButtonInst.Visible = false;
+        }
+
+        void UpdateNumCorrect()
+        {
+            this.NumberCorrect.CurrentState = Button.VariableState.Hover;
+            string score = string.Format("{0} out of {1}", numCorrect, questionIndex);
+            NumberCorrect.DisplayText = (score);
+        }
     }
 }

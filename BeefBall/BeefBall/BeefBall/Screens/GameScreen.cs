@@ -1,29 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using FlatRedBall;
 using FlatRedBall.Input;
-using FlatRedBall.AI.Pathfinding;
-using FlatRedBall.Graphics.Animation;
-using FlatRedBall.Graphics.Particle;
-
-using FlatRedBall.Graphics.Model;
-using FlatRedBall.Math.Geometry;
-using FlatRedBall.Math.Splines;
-
-using Cursor = FlatRedBall.Gui.Cursor;
-using GuiManager = FlatRedBall.Gui.GuiManager;
-using FlatRedBall.Localization;
-
-using Microsoft.Xna.Framework;
-using Microsoft.Xna;
-
 #if FRB_XNA || SILVERLIGHT
-using Keys = Microsoft.Xna.Framework.Input.Keys;
 using Vector3 = Microsoft.Xna.Framework.Vector3;
-using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
-using FlatRedBall.Math;
 using Microsoft.Xna.Framework.Media;
+
 #endif
 
 namespace BeefBall.Screens
@@ -43,7 +25,6 @@ namespace BeefBall.Screens
             Microsoft.Xna.Framework.Media.MediaPlayer.Play(song);
             SpriteManager.Camera.X = 120;
             SpriteManager.Camera.Y = -10;
-
 
             SpriteManager.Camera.AttachTo(PlayerInstance.Body, true);
             //SpriteManager.Camera.BackgroundColor = Color.DeepSkyBlue;
@@ -184,7 +165,8 @@ namespace BeefBall.Screens
                     this.MoveToScreen(typeof(QuizScreen).FullName);
                 }
             }
-            else ToQuizInstance.InstructionTextVisible = false;
+            else
+                ToQuizInstance.InstructionTextVisible = false;
         }
 
         void CustomDestroy()
@@ -204,20 +186,14 @@ namespace BeefBall.Screens
             foreach (Entities.CapacitorPlatformCopyCopy c in foregroundCaps)
                 c.Destroy();
 
-            
-
             enemies.Clear();
             capacitorPlatforms.Clear();
             playerBatteries.Clear();
             Microsoft.Xna.Framework.Media.MediaPlayer.Stop();
-
         }
 
         static void CustomLoadStaticContent(string contentManagerName)
         {
-
-
         }
-
     }
 }

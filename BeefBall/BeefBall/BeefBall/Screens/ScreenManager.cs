@@ -1,19 +1,14 @@
 #region Using
 using System;
 using System.Collections.Generic;
-
 using FlatRedBall;
 using FlatRedBall.Graphics;
-
 #if !SILVERLIGHT
 using FlatRedBall.Graphics.Model;
 #endif
-
 using FlatRedBall.ManagedSpriteGroups;
-
 using FlatRedBall.Math;
 using FlatRedBall.Math.Geometry;
-
 using FlatRedBall.Gui;
 using FlatRedBall.Utilities;
 using FlatRedBall.IO;
@@ -27,18 +22,16 @@ using Microsoft.Phone.Shell;
 
 namespace BeefBall.Screens
 {
-
     public static partial class ScreenManager
     {
         #region Fields
-
         private static Screen mCurrentScreen;
 
         private static bool mSuppressStatePush = false;
 
-#if !MONODROID && !FRB_MDX && !SILVERLIGHT
+        #if !MONODROID && !FRB_MDX && !SILVERLIGHT
         private static BackStack<StackItem?> mBackStack = new BackStack<StackItem?>();
-#endif
+        #endif
 
         private static bool mWarnIfNotEmptyBetweenScreens = true;
 
@@ -61,46 +54,59 @@ namespace BeefBall.Screens
 
         public static Screen CurrentScreen
         {
-            get { return mCurrentScreen; }
+            get
+            {
+                return mCurrentScreen;
+            }
         }
 
         public static Layer NextScreenLayer
         {
-            get { return mNextScreenLayer; }
+            get
+            {
+                return mNextScreenLayer;
+            }
         }
 
         public static PositionedObjectList<Camera> PersistentCameras
         {
-            get { return mPersistentCameras; }
+            get
+            {
+                return mPersistentCameras;
+            }
         }
 
         public static PositionedObjectList<SpriteFrame> PersistentSpriteFrames
         {
-            get { return mPersistentSpriteFrames; }
+            get
+            {
+                return mPersistentSpriteFrames;
+            }
         }
 
         public static PositionedObjectList<Text> PersistentTexts
         {
-            get { return mPersistentTexts; }
+            get
+            {
+                return mPersistentTexts;
+            }
         }
 
         public static bool WarnIfNotEmptyBetweenScreens
         {
-            get { return mWarnIfNotEmptyBetweenScreens; }
-            set { mWarnIfNotEmptyBetweenScreens = value; }
+            get
+            {
+                return mWarnIfNotEmptyBetweenScreens;
+            }
+            set
+            {
+                mWarnIfNotEmptyBetweenScreens = value;
+            }
         }
 		
-		public static bool ShouldActivateScreen
-        {
-            get;
-            set;
-        }
+        public static bool ShouldActivateScreen { get; set; }
 		
-		public static Action<string> RehydrateAction
-		{
-			get;
-			set;
-		}
+        public static Action<string> RehydrateAction { get; set; }
 		
         #endregion
 
@@ -108,7 +114,7 @@ namespace BeefBall.Screens
 
         #region Public Methods
 
-#if !MONODROID && !FRB_MDX && !SILVERLIGHT
+        #if !MONODROID && !FRB_MDX && !SILVERLIGHT
         public static void PushStateToStack(int state)
         {
             if (!mSuppressStatePush && PlatformServices.BackStackEnabled)
@@ -163,7 +169,8 @@ namespace BeefBall.Screens
                 mCurrentScreen.MoveToState(stackItem.State);
             }
         }
-#endif
+
+        #endif
 
         #region XML Docs
         /// <summary>
@@ -174,7 +181,8 @@ namespace BeefBall.Screens
         #endregion
         public static void Activity()
         {
-            if (mCurrentScreen == null) return;
+            if (mCurrentScreen == null)
+                return;
 
             mCurrentScreen.Activity(false);
 
@@ -186,13 +194,13 @@ namespace BeefBall.Screens
                 string type = mCurrentScreen.NextScreen;
                 Screen asyncLoadedScreen = mCurrentScreen.mNextScreenToLoadAsync;
 
-#if !MONODROID && !FRB_MDX && !SILVERLIGHT
+                #if !MONODROID && !FRB_MDX && !SILVERLIGHT
                 if (!mCurrentScreen.IsMovingBack && PlatformServices.BackStackEnabled)
                 {
                     StackItem item = new StackItem { Screen = mCurrentScreen.GetType().FullName, State = -1 };
                     mBackStack.MoveTo(item, mCurrentScreen.BackStackBehavior);
                 }
-#endif
+                #endif
 
                 mCurrentScreen.Destroy();
 
@@ -205,28 +213,23 @@ namespace BeefBall.Screens
 
                 if (asyncLoadedScreen == null)
                 {
-
                     // Loads the Screen, suspends input for one frame, and
                     // calls Activity on the Screen.
                     // The Activity call is required for objects like SpriteGrids
                     // which need to be managed internally.
-
                     // No need to assign mCurrentScreen - this is done by the 4th argument "true"
                     //mCurrentScreen = 
                     LoadScreen(type, null, true, true);
 
                     mNumberOfFramesSinceLastScreenLoad = 0;
-
                 }
                 else
                 {
-
                     mCurrentScreen = asyncLoadedScreen;
 
                     mCurrentScreen.AddToManagers();
 
                     mCurrentScreen.Activity(true);
-
 
                     mCurrentScreen.ActivityCallCount++;
                     mNumberOfFramesSinceLastScreenLoad = 0;
@@ -237,7 +240,6 @@ namespace BeefBall.Screens
                 mNumberOfFramesSinceLastScreenLoad++;
             }
         }
-
 
         public static Screen LoadScreen(string screen, bool createNewLayer)
         {
@@ -251,27 +253,26 @@ namespace BeefBall.Screens
             }
         }
 
-
         public static T LoadScreen<T>(Layer layerToLoadScreenOn) where T : Screen
         {
             mNextScreenLayer = layerToLoadScreenOn;
 
-#if XBOX360
+            #if XBOX360
             T newScreen = (T)Activator.CreateInstance(typeof(T));
-#else
+            #else
             T newScreen = (T)Activator.CreateInstance(typeof(T), new object[0]);
-#endif
+            #endif
 
             FlatRedBall.Input.InputManager.CurrentFrameInputSuspended = true;
 
             newScreen.Initialize(true);
 
-#if !MONODROID && !FRB_MDX && !SILVERLIGHT
+            #if !MONODROID && !FRB_MDX && !SILVERLIGHT
             if (mBackStack.Current.HasValue && mBackStack.Current.Value.State > -1 && PlatformServices.BackStackEnabled)
             {
                 newScreen.MoveToState(mBackStack.Current.Value.State);
             }
-#endif
+            #endif
 
             newScreen.Activity(true);
 
@@ -279,7 +280,6 @@ namespace BeefBall.Screens
 
             return newScreen;
         }
-
 
         public static Screen LoadScreen(string screen, Layer layerToLoadScreenOn)
         {
@@ -301,42 +301,41 @@ namespace BeefBall.Screens
 
             if (screen != null && screen != "")
             {
-#if XBOX360
+                #if XBOX360
                 newScreen = (Screen)Activator.CreateInstance(typeOfScreen);
-#else
+                #else
                 newScreen = (Screen)Activator.CreateInstance(typeOfScreen, new object[0]);
-#endif
+                #endif
             }
 
             if (newScreen != null)
             {
                 FlatRedBall.Input.InputManager.CurrentFrameInputSuspended = true;
 
-#if !MONODROID && !FRB_MDX && !SILVERLIGHT
+                #if !MONODROID && !FRB_MDX && !SILVERLIGHT
                 mSuppressStatePush = mBackStack.Current.HasValue && mBackStack.Current.Value.State > -1;
-#endif
+                #endif
 
                 newScreen.Initialize(addToManagers);
 
-#if !MONODROID && !FRB_MDX && !SILVERLIGHT
+                #if !MONODROID && !FRB_MDX && !SILVERLIGHT
                 if (mSuppressStatePush)
                 {
                     newScreen.MoveToState(mBackStack.Current.Value.State);
                 }
-#endif
+                #endif
                 mSuppressStatePush = false;
 
                 if (addToManagers)
                 {
-					// We do this so that new Screens are the CurrentScreen in Activity.
-					// This is useful in custom logic.
-				    if (makeCurrentScreen)
+                    // We do this so that new Screens are the CurrentScreen in Activity.
+                    // This is useful in custom logic.
+                    if (makeCurrentScreen)
                     {
                         mCurrentScreen = newScreen;
                     }
 					
                     newScreen.Activity(true);
-
 
                     newScreen.ActivityCallCount++;
                 }
@@ -364,27 +363,27 @@ namespace BeefBall.Screens
             }
             else
             {
-#if !FRB_MDX
+                #if !FRB_MDX
                 StateManager.Current.Activating += new Action(OnStateActivating);
                 StateManager.Current.Deactivating += new Action(OnStateDeactivating);
                 StateManager.Current.Initialize();
 
-#if !MONODROID && !SILVERLIGHT
+                #if !MONODROID && !SILVERLIGHT
                 //if the state manager overwrote the backstack from tombstone (WP7), it will have a different current, 
                 //otherwise, it will be the same value as screenToStartWith.
                 if (mBackStack.Count > 0)
                 {
                     System.Diagnostics.Debug.WriteLine("resuming with backstack containing " +
-                        mBackStack.Count + " items with current being " + mBackStack.Current.Value.Screen);
+                                                       mBackStack.Count + " items with current being " + mBackStack.Current.Value.Screen);
                     screenToStartWith = mBackStack.Current.Value.Screen;
                     mBackStack.Back();
                 }
-#endif
-#endif
+                #endif
+                #endif
 
                 if (ShouldActivateScreen && RehydrateAction != null)
                 {
-					RehydrateAction(screenToStartWith);
+                    RehydrateAction(screenToStartWith);
                 }
                 else
                 {
@@ -398,22 +397,21 @@ namespace BeefBall.Screens
         /// <summary>Do all state deactivation work here.</summary>
         private static void OnStateDeactivating()
         {
-#if !MONODROID && !FRB_MDX && !SILVERLIGHT
+            #if !MONODROID && !FRB_MDX && !SILVERLIGHT
             mBackStack.MoveTo(new StackItem { Screen = mCurrentScreen.GetType().FullName, State = -1 });
             StateManager.Current["backstack"] = mBackStack;
-#endif
+            #endif
         }
 
         /// <summary>Do all state activation work here</summary>
         private static void OnStateActivating()
         {
-#if !MONODROID && !FRB_MDX && !SILVERLIGHT
+            #if !MONODROID && !FRB_MDX && !SILVERLIGHT
             mBackStack = StateManager.Current.Get<BackStack<StackItem?>>("backstack");
         
-			ShouldActivateScreen = true;
-#endif
-		}
-
+            ShouldActivateScreen = true;
+            #endif
+        }
 
         public static new string ToString()
         {
@@ -450,7 +448,7 @@ namespace BeefBall.Screens
                     if (count > 1)
                     {
                         messages.Add("There are " + count +
-                            " Cameras in the SpriteManager (excluding ignored Cameras).  There should only be 1.");
+                                     " Cameras in the SpriteManager (excluding ignored Cameras).  There should only be 1.");
                     }
                 }
                 #endregion
@@ -483,16 +481,15 @@ namespace BeefBall.Screens
                     if (spriteCount != 0)
                     {
                         messages.Add("There are " + spriteCount +
-                            " AutomaticallyUpdatedSprites in the SpriteManager.");
+                                     " AutomaticallyUpdatedSprites in the SpriteManager.");
                     }
-
                 }
                 #endregion
 
                 #region Manually updated Sprites
                 if (SpriteManager.ManuallyUpdatedSpriteCount != 0)
                     messages.Add("There are " + SpriteManager.ManuallyUpdatedSpriteCount +
-                        " ManuallyUpdatedSprites in the SpriteManager.");
+                                 " ManuallyUpdatedSprites in the SpriteManager.");
                 #endregion
 
                 #region Ordered by distance Sprites
@@ -515,9 +512,8 @@ namespace BeefBall.Screens
                     if (spriteCount != 0)
                     {
                         messages.Add("There are " + spriteCount +
-                            " Ordered (Drawn) Sprites in the SpriteManager.");
+                                     " Ordered (Drawn) Sprites in the SpriteManager.");
                     }
-
                 }
 
                 #endregion
@@ -525,14 +521,14 @@ namespace BeefBall.Screens
                 #region Managed Positionedobjects
                 if (SpriteManager.ManagedPositionedObjects.Count != 0)
                     messages.Add("There are " + SpriteManager.ManagedPositionedObjects.Count +
-                        " Managed PositionedObjects in the SpriteManager.");
+                                 " Managed PositionedObjects in the SpriteManager.");
 
                 #endregion
 
                 #region Layers
                 if (SpriteManager.LayerCount != 0)
                     messages.Add("There are " + SpriteManager.LayerCount +
-                        " Layers in the SpriteManager.");
+                                 " Layers in the SpriteManager.");
 
                 #endregion
 
@@ -541,7 +537,7 @@ namespace BeefBall.Screens
                 if (SpriteManager.TopLayer.Sprites.Count != 0)
                 {
                     messages.Add("There are " + SpriteManager.TopLayer.Sprites.Count +
-                        " Sprites in the SpriteManager's TopLayer.");
+                                 " Sprites in the SpriteManager's TopLayer.");
                 }
 
                 #endregion
@@ -549,7 +545,7 @@ namespace BeefBall.Screens
                 #region Particles
                 if (SpriteManager.ParticleCount != 0)
                     messages.Add("There are " + SpriteManager.ParticleCount +
-                        " Particle Sprites in the SpriteManager.");
+                                 " Particle Sprites in the SpriteManager.");
 
                 #endregion
 
@@ -569,9 +565,8 @@ namespace BeefBall.Screens
                     if (spriteFrameCount != 0)
                     {
                         messages.Add("There are " + spriteFrameCount +
-                            " SpriteFrames in the SpriteManager.");
+                                     " SpriteFrames in the SpriteManager.");
                     }
-
                 }
                 #endregion
 
@@ -591,7 +586,7 @@ namespace BeefBall.Screens
                     if (textCount != 0)
                     {
                         messages.Add("There are " + textCount +
-                            "automatically updated Texts in the TextManager.");
+                                     "automatically updated Texts in the TextManager.");
                     }
                 }
                 #endregion
@@ -599,20 +594,20 @@ namespace BeefBall.Screens
                 #region Managed Shapes
                 if (ShapeManager.AutomaticallyUpdatedShapes.Count != 0)
                     messages.Add("There are " + ShapeManager.AutomaticallyUpdatedShapes.Count +
-                        " Automatically Updated Shapes in the ShapeManager.");
+                                 " Automatically Updated Shapes in the ShapeManager.");
                 #endregion
 
                 #region  Visible Circles
                 if (ShapeManager.VisibleCircles.Count != 0)
                     messages.Add("There are " + ShapeManager.VisibleCircles.Count +
-                        " visible Circles in the ShapeManager.");
+                                 " visible Circles in the ShapeManager.");
                 #endregion
 
                 #region Visible Rectangles
 
                 if (ShapeManager.VisibleRectangles.Count != 0)
                     messages.Add("There are " + ShapeManager.VisibleRectangles.Count +
-                        " visible AxisAlignedRectangles in the VisibleRectangles.");
+                                 " visible AxisAlignedRectangles in the VisibleRectangles.");
 
                 #endregion
 
@@ -620,24 +615,24 @@ namespace BeefBall.Screens
 
                 if (ShapeManager.VisiblePolygons.Count != 0)
                     messages.Add("There are " + ShapeManager.VisiblePolygons.Count +
-                        " visible Polygons in the ShapeManager.");
+                                 " visible Polygons in the ShapeManager.");
                 #endregion
 
                 #region Visible Lines
 
                 if (ShapeManager.VisibleLines.Count != 0)
                     messages.Add("There are " + ShapeManager.VisibleLines.Count +
-                        " visible Lines in the ShapeManager.");
+                                 " visible Lines in the ShapeManager.");
                 #endregion
 
                 #region Automatically Updated Positioned Models
-#if !SILVERLIGHT && !MONODROID
+                #if !SILVERLIGHT && !MONODROID
                 if (ModelManager.AutomaticallyUpdatedModels.Count != 0)
                 {
                     messages.Add("There are " + ModelManager.AutomaticallyUpdatedModels.Count +
-                        " managed PositionedModels in the ModelManager.");
+                                 " managed PositionedModels in the ModelManager.");
                 }
-#endif
+                #endif
                 #endregion
 
                 if (messages.Count != 0)
@@ -651,8 +646,6 @@ namespace BeefBall.Screens
             }
         }
         #endregion
-
         #endregion
     }
 }
-

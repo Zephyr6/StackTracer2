@@ -2,25 +2,15 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
-
 using FlatRedBall;
 using FlatRedBall.Math;
-using FlatRedBall.Math.Geometry;
 using FlatRedBall.Gui;
 using FlatRedBall.Instructions;
 #if !SILVERLIGHT
-
-using FlatRedBall.Graphics.Model;
 #endif
-
 using FlatRedBall.ManagedSpriteGroups;
 using FlatRedBall.Graphics;
 using FlatRedBall.Utilities;
-
-
-
-using PolygonSaveList = FlatRedBall.Content.Polygon.PolygonSaveList;
 using System.Threading;
 using FlatRedBall.Input;
 using FlatRedBall.IO;
@@ -41,7 +31,6 @@ namespace BeefBall.Screens
     public class Screen
     {
         #region Fields
-
         protected bool IsPaused = false;
 
         protected double mTimeScreenWasCreated;
@@ -50,24 +39,19 @@ namespace BeefBall.Screens
         protected Camera mCamera;
         protected Layer mLayer;
 
-		
-		
-        public bool ShouldRemoveLayer
-        {
-            get;
-            set;
-        }
+        public bool ShouldRemoveLayer { get; set; }
 
         public double PauseAdjustedCurrentTime
         {
-            get { return TimeManager.CurrentTime - mAccumulatedPausedTime; }
+            get
+            {
+                return TimeManager.CurrentTime - mAccumulatedPausedTime;
+            }
         }
-
 
         protected List<Screen> mPopups = new List<Screen>();
 
         private string mContentManagerName;
-
 
         // The following are objects which belong to the screen.
         // These are removed by the Screen when it is Destroyed
@@ -80,7 +64,6 @@ namespace BeefBall.Screens
 
         // These variables control the flow from one Screen to the next.
 
-
         protected Scene mLastLoadedScene;
         private bool mIsActivityFinished;
         private string mNextScreen;
@@ -89,26 +72,23 @@ namespace BeefBall.Screens
 
         internal Screen mNextScreenToLoadAsync;
 
-#if !FRB_MDX
+        #if !FRB_MDX
         Action ActivatingAction;
         Action DeactivatingAction;
-#endif
+        #endif
 
         #endregion
 
         #region Properties
 
-
-
-        public int ActivityCallCount
-        {
-            get;
-            set;
-        }
+        public int ActivityCallCount { get; set; }
 
         public string ContentManagerName
         {
-            get { return mContentManagerName; }
+            get
+            {
+                return mContentManagerName;
+            }
         }
 
         #region XML Docs
@@ -122,30 +102,40 @@ namespace BeefBall.Screens
         #endregion
         public bool IsActivityFinished
         {
-            get { return mIsActivityFinished; }
-            set { mIsActivityFinished = value; }
-
+            get
+            {
+                return mIsActivityFinished;
+            }
+            set
+            {
+                mIsActivityFinished = value;
+            }
         }
 
-
-        public AsyncLoadingState AsyncLoadingState
-        {
-            get;
-            private set;
-        }
-
+        public AsyncLoadingState AsyncLoadingState { get; private set; }
 
         public Layer Layer
         {
-            get { return mLayer; }
-            set { mLayer = value; }
+            get
+            {
+                return mLayer;
+            }
+            set
+            {
+                mLayer = value;
+            }
         }
-
 
         public bool ManageSpriteGrids
         {
-            get { return mManageSpriteGrids; }
-            set { mManageSpriteGrids = value; }
+            get
+            {
+                return mManageSpriteGrids;
+            }
+            set
+            {
+                mManageSpriteGrids = value;
+            }
         }
 
         #region XML Docs
@@ -161,22 +151,23 @@ namespace BeefBall.Screens
         #endregion
         public string NextScreen
         {
-            get { return mNextScreen; }
-            set { mNextScreen = value; }
+            get
+            {
+                return mNextScreen;
+            }
+            set
+            {
+                mNextScreen = value;
+            }
         }
 
         public bool IsMovingBack { get; set; }
 
-#if !MONODROID && !FRB_MDX && !SILVERLIGHT
+        #if !MONODROID && !FRB_MDX && !SILVERLIGHT
         public BackStackBehavior BackStackBehavior = BackStackBehavior.Move;
-#endif
+        #endif
 
-
-        protected bool UnloadsContentManagerWhenDestroyed
-        {
-            get;
-            set;
-        }
+        protected bool UnloadsContentManagerWhenDestroyed { get; set; }
 
         #endregion
 
@@ -194,39 +185,39 @@ namespace BeefBall.Screens
 
             mLayer = ScreenManager.NextScreenLayer;
 
-#if !FRB_MDX
+            #if !FRB_MDX
             ActivatingAction = new Action(Activating);
             DeactivatingAction = new Action(OnDeactivating);
 
             StateManager.Current.Activating += ActivatingAction;
             StateManager.Current.Deactivating += DeactivatingAction;
 			
-			if (ScreenManager.ShouldActivateScreen)
+            if (ScreenManager.ShouldActivateScreen)
             {
                 Activating();
             }
-#endif
+            #endif
         }
 
         #endregion
 
         #region Public Methods
-#if !FRB_MDX
+        #if !FRB_MDX
         public virtual void Activating()
         {
             this.PreActivate();// for generated code to override, to reload the statestack
             this.OnActivate(PlatformServices.State);// for user created code
         }
 
-
         private void OnDeactivating()
         {
             this.PreDeactivate();// for generated code to override, to save the statestack
             this.OnDeactivate(PlatformServices.State);// for user generated code;
         }
-#endif
+
+        #endif
         #region Activation Methods
-#if !FRB_MDX
+        #if !FRB_MDX
         protected virtual void OnActivate(StateManager state)
         {
         }
@@ -242,7 +233,8 @@ namespace BeefBall.Screens
         protected virtual void PreDeactivate()
         {
         }
-#endif		
+
+        #endif		
         #endregion
 
         public virtual void Activity(bool firstTimeCalled)
@@ -282,7 +274,7 @@ namespace BeefBall.Screens
                 }
             }
 
-#if !MONODROID && !FRB_MDX && !SILVERLIGHT
+            #if !MONODROID && !FRB_MDX && !SILVERLIGHT
             // This needs to happen after popup activity
             // in case the Screen creates a popup - we don't
             // want 2 activity calls for one frame.  We also want
@@ -292,29 +284,27 @@ namespace BeefBall.Screens
             {
                 this.HandleBackNavigation();
             }
-#endif
+            #endif
         }
 
         Type asyncScreenTypeToLoad = null;
-
 
         public void StartAsyncLoad(string screenType)
         {
             if (AsyncLoadingState == Screens.AsyncLoadingState.LoadingScreen)
             {
-#if DEBUG
+                #if DEBUG
                 throw new InvalidOperationException("This Screen is already loading a Screen of type " + asyncScreenTypeToLoad + ".  This is a DEBUG-only exception");
-#endif
+                #endif
             }
             else if (AsyncLoadingState == Screens.AsyncLoadingState.Done)
             {
-#if DEBUG
+                #if DEBUG
                 throw new InvalidOperationException("This Screen has already loaded a Screen of type " + asyncScreenTypeToLoad + ".  This is a DEBUG-only exception");
-#endif
+                #endif
             }
             else
             {
-
                 asyncScreenTypeToLoad = Type.GetType(screenType);
 
                 if (asyncScreenTypeToLoad == null)
@@ -333,14 +323,13 @@ namespace BeefBall.Screens
 
         private void PerformAsyncLoad()
         {
-#if XBOX360
-            
+            #if XBOX360
             // We can not use threads 0 or 2  
             Thread.CurrentThread.SetProcessorAffinity(4);
             mNextScreenToLoadAsync = (Screen)Activator.CreateInstance(asyncScreenTypeToLoad);
-#else
+            #else
             mNextScreenToLoadAsync = (Screen)Activator.CreateInstance(asyncScreenTypeToLoad, new object[0]);
-#endif
+            #endif
             // Don't add it to the manager!
             mNextScreenToLoadAsync.Initialize(false);
 
@@ -349,29 +338,25 @@ namespace BeefBall.Screens
 
         public virtual void Initialize(bool addToManagers)
         {
-
         }
 
-
         public virtual void AddToManagers()
-        {	
-			// We want to start the timer when we actually add to managers - this is when the activity for the Screen starts
-			mAccumulatedPausedTime = TimeManager.CurrentTime;
+        { 
+            // We want to start the timer when we actually add to managers - this is when the activity for the Screen starts
+            mAccumulatedPausedTime = TimeManager.CurrentTime;
             mTimeScreenWasCreated = TimeManager.CurrentTime;
         }
 
-
         public virtual void Destroy()
         {
-#if !FRB_MDX
-		    StateManager.Current.Activating -= ActivatingAction;
+            #if !FRB_MDX
+            StateManager.Current.Activating -= ActivatingAction;
             StateManager.Current.Deactivating -= DeactivatingAction;
-#endif			
+            #endif			
             if (mLastLoadedScene != null)
             {
                 mLastLoadedScene.Clear();
             }
-
 
             FlatRedBall.Debugging.Debugger.DestroyText();
 
@@ -394,7 +379,6 @@ namespace BeefBall.Screens
             foreach (SpriteGrid sg in mSpriteGrids)
                 sg.Destroy();
 
-
             // Destroy all SpriteFrames that belong to this Screen
             while (mSpriteFrames.Count != 0)
                 SpriteManager.RemoveSpriteFrame(mSpriteFrames[0]);
@@ -414,16 +398,14 @@ namespace BeefBall.Screens
                 UnpauseThisScreen();
             }
 			
-			GuiManager.Cursor.IgnoreNextClick = true;
+            GuiManager.Cursor.IgnoreNextClick = true;
         }
 
         protected virtual void PauseThisScreen()
         {
             //base.PauseThisScreen();
-
             this.IsPaused = true;
             InstructionManager.PauseEngine();
-
         }
 
         protected virtual void UnpauseThisScreen()
@@ -489,17 +471,15 @@ namespace BeefBall.Screens
         /// <remarks>Override this method if you want to have custom behavior when the back button is pressed.</remarks>
         protected virtual void HandleBackNavigation()
         {
-			// This is to prevent popups from unexpectedly going back
+            // This is to prevent popups from unexpectedly going back
             if (ScreenManager.CurrentScreen == this)
             {
-#if !MONODROID && !FRB_MDX && !SILVERLIGHT
+                #if !MONODROID && !FRB_MDX && !SILVERLIGHT
                 ScreenManager.NavigateBack();
-#endif
+                #endif
             }
         }
-
         #endregion
-
         #endregion
     }
 }

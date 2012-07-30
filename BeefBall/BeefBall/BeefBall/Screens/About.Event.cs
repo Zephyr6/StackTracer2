@@ -1,20 +1,15 @@
 using System;
-using FlatRedBall;
-using FlatRedBall.Input;
-using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Specialized;
-using BeefBall.Entities;
-using BeefBall.Entities.GameScreen;
-using BeefBall.Screens;
 using System.Text;
+using BeefBall.Entities;
+
 namespace BeefBall.Screens
 {
-	public partial class About
-	{
+    public partial class About
+    {
         bool toMainMenu = true;
         bool buttonsHidden = false;
         StringBuilder sb = new StringBuilder();
-        void OnBackButtonClick (FlatRedBall.Gui.IWindow callingWindow)
+        void OnBackButtonClick(FlatRedBall.Gui.IWindow callingWindow)
         {
             BackButtonActivity();
         }
@@ -32,15 +27,17 @@ namespace BeefBall.Screens
             Game1.BeepSFX.Play();
         }
 
-        void OnBackButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)
+        void OnBackButtonRollOn(FlatRedBall.Gui.IWindow callingWindow)
         {
             BackButton.CurrentState = Button.VariableState.Regular;
         }
-        void OnBackButtonRollOff (FlatRedBall.Gui.IWindow callingWindow)
+
+        void OnBackButtonRollOff(FlatRedBall.Gui.IWindow callingWindow)
         {
             BackButton.CurrentState = Button.VariableState.Disabled;
         }
-        void OnProjectButtonClick (FlatRedBall.Gui.IWindow callingWindow)
+
+        void OnProjectButtonClick(FlatRedBall.Gui.IWindow callingWindow)
         {
             ProjectButtonActivity();
         }
@@ -50,15 +47,18 @@ namespace BeefBall.Screens
             HideButtons();
             ProjectbuttonText();
         }
-        void OnProjectButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)
+
+        void OnProjectButtonRollOn(FlatRedBall.Gui.IWindow callingWindow)
         {
             ProjectButton.CurrentState = Button.VariableState.Regular;
         }
-        void OnProjectButtonRollOff (FlatRedBall.Gui.IWindow callingWindow)
+
+        void OnProjectButtonRollOff(FlatRedBall.Gui.IWindow callingWindow)
         {
             ProjectButton.CurrentState = Button.VariableState.Disabled;
         }
-        void OnQuizButtonClick (FlatRedBall.Gui.IWindow callingWindow)
+
+        void OnQuizButtonClick(FlatRedBall.Gui.IWindow callingWindow)
         {
             QuizButtonActivity();
         }
@@ -68,15 +68,18 @@ namespace BeefBall.Screens
             Game1.BeepSFX.Play();
             this.MoveToScreen(typeof(QuizScreenCopy).FullName);
         }
-        void OnQuizButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)
+
+        void OnQuizButtonRollOn(FlatRedBall.Gui.IWindow callingWindow)
         {
             QuizButton.CurrentState = Button.VariableState.Regular;
         }
-        void OnQuizButtonRollOff (FlatRedBall.Gui.IWindow callingWindow)
+
+        void OnQuizButtonRollOff(FlatRedBall.Gui.IWindow callingWindow)
         {
             QuizButton.CurrentState = Button.VariableState.Disabled;
         }
-        void OnStoryButtonClick (FlatRedBall.Gui.IWindow callingWindow)
+
+        void OnStoryButtonClick(FlatRedBall.Gui.IWindow callingWindow)
         {
             StoryButtonActivity();
         }
@@ -86,15 +89,18 @@ namespace BeefBall.Screens
             HideButtons();
             StoryButtonText();
         }
-        void OnStoryButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)
+
+        void OnStoryButtonRollOn(FlatRedBall.Gui.IWindow callingWindow)
         {
             StoryButton.CurrentState = Button.VariableState.Regular;
         }
-        void OnStoryButtonRollOff (FlatRedBall.Gui.IWindow callingWindow)
+
+        void OnStoryButtonRollOff(FlatRedBall.Gui.IWindow callingWindow)
         {
             StoryButton.CurrentState = Button.VariableState.Disabled;
         }
-        void OnTeamButtonClick (FlatRedBall.Gui.IWindow callingWindow)
+
+        void OnTeamButtonClick(FlatRedBall.Gui.IWindow callingWindow)
         {
             TeamButtonActivity();
         }
@@ -104,11 +110,13 @@ namespace BeefBall.Screens
             HideButtons();
             TeamButtonText();
         }
-        void OnTeamButtonRollOn (FlatRedBall.Gui.IWindow callingWindow)
+
+        void OnTeamButtonRollOn(FlatRedBall.Gui.IWindow callingWindow)
         {
             TeamButton.CurrentState = Button.VariableState.Regular;
         }
-        void OnTeamButtonRollOff (FlatRedBall.Gui.IWindow callingWindow)
+
+        void OnTeamButtonRollOff(FlatRedBall.Gui.IWindow callingWindow)
         {
             TeamButton.CurrentState = Button.VariableState.Disabled;
         }
@@ -122,7 +130,6 @@ namespace BeefBall.Screens
             StoryButton.Visible = false;
             QuizButton.Visible = false;
             toMainMenu = false;
-           
         }
 
         void ShowButtons() 
@@ -241,19 +248,18 @@ namespace BeefBall.Screens
             aboutText.X = -90;
             aboutText.Y = 80;
             aboutText.DisplayText = text;
-        }        void OnBackClick (FlatRedBall.Gui.IWindow callingWindow)
-        {
-            
-        }
-    
-        void OnBackRollOff (FlatRedBall.Gui.IWindow callingWindow)
-        {
-            
-        }
-        void OnBackRollOn (FlatRedBall.Gui.IWindow callingWindow)
-        {
-            
         }
 
-	}
+        void OnBackClick(FlatRedBall.Gui.IWindow callingWindow)
+        {
+        }
+    
+        void OnBackRollOff(FlatRedBall.Gui.IWindow callingWindow)
+        {
+        }
+
+        void OnBackRollOn(FlatRedBall.Gui.IWindow callingWindow)
+        {
+        }
+    }
 }

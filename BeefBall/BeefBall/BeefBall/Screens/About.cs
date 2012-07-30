@@ -1,32 +1,16 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using FlatRedBall;
 using FlatRedBall.Input;
-using FlatRedBall.AI.Pathfinding;
-using FlatRedBall.Graphics.Animation;
-using FlatRedBall.Graphics.Particle;
-
-using FlatRedBall.Graphics.Model;
-using FlatRedBall.Math.Geometry;
-using FlatRedBall.Math.Splines;
-
-using Cursor = FlatRedBall.Gui.Cursor;
-using GuiManager = FlatRedBall.Gui.GuiManager;
-using FlatRedBall.Localization;
-
 #if FRB_XNA || SILVERLIGHT
-using Keys = Microsoft.Xna.Framework.Input.Keys;
-using Vector3 = Microsoft.Xna.Framework.Vector3;
-using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 using FlatRedBall.Graphics;
 using Microsoft.Xna.Framework.Media;
+
 #endif
 
 namespace BeefBall.Screens
 {
-	public partial class About
-	{
+    public partial class About
+    {
         static string songManager = "ContentManager";
         static Song song = FlatRedBallServices.Load<Song>(@"Content/Blue Ruin", songManager);
 		
@@ -47,7 +31,7 @@ namespace BeefBall.Screens
         Text aboutText = TextManager.AddText("");
 		
         void CustomInitialize()
-		{
+        {
             Microsoft.Xna.Framework.Media.MediaPlayer.Play(song);
             TeamButton.CurrentState = Entities.Button.VariableState.Regular;
             mGamePad = InputManager.Xbox360GamePads[0];
@@ -58,10 +42,10 @@ namespace BeefBall.Screens
             BackButton.Click += OnBackButtonClick;
             BackButton.RollOff += OnBackButtonRollOff;
             BackButton.RollOn += OnBackButtonRollOn;
-		}
+        }
 
-		void CustomActivity(bool firstTimeCalled)
-		{
+        void CustomActivity(bool firstTimeCalled)
+        {
             if (!isMousedOver)
             {
                 if (canMove)
@@ -94,7 +78,6 @@ namespace BeefBall.Screens
                     QuizButton.CurrentState = Entities.Button.VariableState.Disabled;
                     BackButton.CurrentState = Entities.Button.VariableState.Disabled;
                 }
-
                 else if (currentButton == AboutButtons.Quiz)
                 {
                     TeamButton.CurrentState = Entities.Button.VariableState.Disabled;
@@ -103,7 +86,6 @@ namespace BeefBall.Screens
                     QuizButton.CurrentState = Entities.Button.VariableState.Regular;
                     BackButton.CurrentState = Entities.Button.VariableState.Disabled;
                 }
-
                 else if (currentButton == AboutButtons.Back)
                 {
                     TeamButton.CurrentState = Entities.Button.VariableState.Disabled;
@@ -125,7 +107,6 @@ namespace BeefBall.Screens
                 {
                     if (currentButton == AboutButtons.Team)
                     {
-                        
                         if (!buttonsHidden)
                         {
                             TeamButtonActivity();
@@ -134,25 +115,21 @@ namespace BeefBall.Screens
                     }
                     else if (currentButton == AboutButtons.Story)
                     {
-                       
                         if (!buttonsHidden)
                         {
                             StoryButtonActivity();
-                            
                         }
                     }
                     else if (currentButton == AboutButtons.Project)
                     {
-                      
                         if (!buttonsHidden)
-                        {  
+                        { 
                             ProjectButtonActivity();
                             Game1.BeepSFX.Play();
                         }
                     }
                     else if (currentButton == AboutButtons.Quiz)
                     {
-                        
                         if (!buttonsHidden)
                         {
                             QuizButtonActivity();
@@ -170,14 +147,12 @@ namespace BeefBall.Screens
                 }
                 else
                     isMousedOver = false;
-
             }
-
-		}
+        }
 
         void SelectActivity()
         {
-            if(mGamePad.ButtonPushed(Xbox360GamePad.Button.B))
+            if (mGamePad.ButtonPushed(Xbox360GamePad.Button.B))
                 BackButtonActivity();
 
             if (mGamePad.LeftStick.Position.Y > 0) // up
@@ -195,7 +170,6 @@ namespace BeefBall.Screens
             }
             else if (mGamePad.LeftStick.Position.Y < 0) // down
             {
-
                 if (currentButton == AboutButtons.Team)
                     currentButton = AboutButtons.Story;
                 else if (currentButton == AboutButtons.Project)
@@ -211,17 +185,14 @@ namespace BeefBall.Screens
             canMove = false;
         }
 
-		void CustomDestroy()
-		{
+        void CustomDestroy()
+        {
             TextManager.RemoveText(aboutText);
             Microsoft.Xna.Framework.Media.MediaPlayer.Stop();
-		}
+        }
 
         static void CustomLoadStaticContent(string contentManagerName)
         {
-
-
         }
-
-	}
+    }
 }

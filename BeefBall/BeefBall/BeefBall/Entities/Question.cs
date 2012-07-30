@@ -19,7 +19,6 @@ namespace BeefBall.Entities
         
         public Question() 
         {
-            
             //string[] initAnswers = { CorrectAnswer, WrongAnswer1, WrongAnswer2, WrongAnswer3};
             //answerList = initAnswers;
             //SetAnswers();
@@ -41,7 +40,7 @@ namespace BeefBall.Entities
                 answerList[index] = answerList[count];
                 answerList[count] = value;
                 GetCorrectAnswerIndex();
-            } 
+            }
         }
 
         public void GetCorrectAnswerIndex()
@@ -55,7 +54,6 @@ namespace BeefBall.Entities
                     answerIndex = i;
                 }
             }
-            
         }
 
         public override string ToString()
@@ -68,7 +66,6 @@ namespace BeefBall.Entities
             stringBuilder.Append(Environment.NewLine);
             stringBuilder.Append(Environment.NewLine);
             stringBuilder.Append(Environment.NewLine);
-
 
             line = String.Format("X)   {0}", answerList[0]); 
             stringBuilder.Append(line);
@@ -108,6 +105,5 @@ namespace BeefBall.Entities
           
             return stringBuilder.ToString();
         }
-
     }
 }

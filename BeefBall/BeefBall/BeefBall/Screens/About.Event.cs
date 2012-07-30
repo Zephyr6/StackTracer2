@@ -212,7 +212,12 @@ namespace BeefBall.Screens
             sb = sb.Append(Environment.NewLine);
             sb = sb.Append(Environment.NewLine);
             sb = sb.Append(Environment.NewLine);
-            sb = sb.Append("Art and animation by :  Nathan Christie");
+            sb = sb.Append("Art and animation by:  Nathan Christie & Carlos Cruz");
+            sb = sb.Append(Environment.NewLine);
+            sb = sb.Append(Environment.NewLine);
+            sb = sb.Append(Environment.NewLine);
+            sb = sb.Append(Environment.NewLine);
+            sb = sb.Append("Music by:  Brandon Ellis");
             sb = sb.Append(Environment.NewLine);
             sb = sb.Append(Environment.NewLine);
             sb = sb.Append(Environment.NewLine);

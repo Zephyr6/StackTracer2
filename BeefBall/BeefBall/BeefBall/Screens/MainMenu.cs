@@ -19,6 +19,7 @@ using FlatRedBall.Localization;
 using Keys = Microsoft.Xna.Framework.Input.Keys;
 using Vector3 = Microsoft.Xna.Framework.Vector3;
 using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
+using Microsoft.Xna.Framework.Media;
 #endif
 
 namespace BeefBall.Screens
@@ -36,11 +37,14 @@ namespace BeefBall.Screens
         Xbox360GamePad mGamePad;
         bool canMove;
         bool isMousedOver;
+        static string songManager = "ContentManager";
+        static Song song = FlatRedBallServices.Load<Song>(@"Content/Hex", songManager);
 
 		void CustomInitialize()
 		{
             SpriteManager.Camera.X = 50;
             SpriteManager.Camera.Y = 40;
+            Microsoft.Xna.Framework.Media.MediaPlayer.Play(song);
 
             StartGameButton.CurrentState = Entities.Button.VariableState.Regular;
 
@@ -139,7 +143,7 @@ namespace BeefBall.Screens
 
         void CustomDestroy()
 		{
-
+            Microsoft.Xna.Framework.Media.MediaPlayer.Stop();
 
 		}
 

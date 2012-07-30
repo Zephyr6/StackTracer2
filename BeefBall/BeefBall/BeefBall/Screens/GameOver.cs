@@ -19,15 +19,18 @@ using FlatRedBall.Localization;
 using Keys = Microsoft.Xna.Framework.Input.Keys;
 using Vector3 = Microsoft.Xna.Framework.Vector3;
 using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
+using Microsoft.Xna.Framework.Media;
 #endif
 
 namespace BeefBall.Screens
 {
 	public partial class GameOver
 	{
-
+        static string songManager = "ContentManager";
+        static Song song = FlatRedBallServices.Load<Song>(@"Content/Find a smile, bring it home", songManager);
 		void CustomInitialize()
 		{
+            Microsoft.Xna.Framework.Media.MediaPlayer.Play(song);
             Game1.ResetLevel();
 
 		}
@@ -41,7 +44,7 @@ namespace BeefBall.Screens
 
 		void CustomDestroy()
 		{
-
+            Microsoft.Xna.Framework.Media.MediaPlayer.Stop();
 
 		}
 

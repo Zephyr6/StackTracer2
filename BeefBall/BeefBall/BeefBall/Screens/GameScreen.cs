@@ -23,6 +23,7 @@ using Keys = Microsoft.Xna.Framework.Input.Keys;
 using Vector3 = Microsoft.Xna.Framework.Vector3;
 using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 using FlatRedBall.Math;
+using Microsoft.Xna.Framework.Media;
 #endif
 
 namespace BeefBall.Screens
@@ -32,12 +33,14 @@ namespace BeefBall.Screens
         List<Entities.GameScreen.Enemy> enemies;
         List<Entities.CapacitorPlatform> capacitorPlatforms;
         List<Entities.Battery> playerBatteries;
+        static string songManager = "ContentManager";
+        static Song song = FlatRedBallServices.Load<Song>(@"Content/Dreamkiller", songManager);
 
         void CustomInitialize()
         {
             //SpriteManager.Camera.MinimumX = 100;
             //SpriteManager.Camera.MinimumY = -93;
-
+            Microsoft.Xna.Framework.Media.MediaPlayer.Play(song);
             SpriteManager.Camera.X = 120;
             SpriteManager.Camera.Y = -10;
 
@@ -206,6 +209,7 @@ namespace BeefBall.Screens
             enemies.Clear();
             capacitorPlatforms.Clear();
             playerBatteries.Clear();
+            Microsoft.Xna.Framework.Media.MediaPlayer.Stop();
 
         }
 
